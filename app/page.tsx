@@ -412,6 +412,11 @@ export default function Home() {
               </h1>
             </div>
 
+            {/* Intro paragraph from brief & flyers */}
+            <p className="text-white/80 text-xs sm:text-base leading-relaxed max-w-lg pt-0.5">
+              Avec le Salon International des Nouvelles Femmes Dynamiques Africaines (SINFDA 2026) : une plateforme de valorisation, d&apos;exposition « Made in Camer » et une grande opération de solidarité pour illuminer le sourire de plus de 500 enfants.
+            </p>
+
             {/* Subtext date and locations */}
             <div className="pt-0.5 sm:pt-1 space-y-0.5 sm:space-y-1">
               <p className="text-lg sm:text-2xl font-bold text-white tracking-wide flex items-center gap-2">
@@ -421,11 +426,6 @@ export default function Home() {
                 <MapPin size={20} className="text-yellow" /> Douala · Carnaval le 5 Décembre
               </p>
             </div>
-
-            {/* Intro paragraph from brief & flyers */}
-            <p className="text-white/80 text-xs sm:text-base leading-relaxed max-w-lg pt-0.5">
-              Le Salon International des Nouvelles Femmes Dynamiques Africaines (SINFDA 2026) : une plateforme de valorisation, d&apos;exposition « Made in Camer » et une grande opération de solidarité pour illuminer le sourire de plus de 500 enfants.
-            </p>
 
             {/* The Two Hero CTAs matching mockup */}
             <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
@@ -505,7 +505,7 @@ export default function Home() {
             <div className="flex flex-col justify-between p-1 sm:p-2">
               <div>
                 <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-3 sm:mb-4">
-                  Le SIFDA, bien plus qu&apos;un salon.
+                  Le SINFDA, bien plus qu&apos;un salon.
                 </h2>
                 <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed mb-5 sm:mb-6">
                   Une plateforme panafricaine de rencontres, de valorisation des talents et de création d&apos;opportunités économiques, unie à un formidable élan de solidarité.
