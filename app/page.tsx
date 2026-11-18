@@ -111,7 +111,7 @@ const ACTIVITIES: ActivityDetail[] = [
     title: "Entrepreneuriat & Métiers Féminins d'Avenir",
     badge: "Formation & Masterclasses",
     date: "Du 9 au 12 décembre 2026",
-    location: "Douala & Kribi",
+    location: "Douala",
     slogan: "Faisons grandir les ambitions des femmes",
     summary:
       "Valorisation de l'audace entrepreneuriale féminine dans tous les secteurs : métiers techniques, mécanique, artisanat, industrie et services.",
@@ -254,7 +254,7 @@ function Modal({
 }
 
 const inputClasses =
-  "w-full border border-gray-200 rounded-lg px-3 py-2 text-xs sm:text-sm focus:ring-2 focus:ring-purple/30 focus:border-purple outline-none transition bg-white text-gray-800 placeholder-gray-400";
+  "w-full border border-gray-200 rounded-lg px-3 py-2 text-xs sm:text-sm focus:ring-2 focus:ring-magenta/30 focus:border-magenta outline-none transition bg-white text-gray-800 placeholder-gray-400";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -287,7 +287,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 selection:bg-yellow selection:text-purple-deep overflow-x-hidden">
+    <div className="min-h-screen bg-white text-gray-900 selection:bg-magenta selection:text-white overflow-x-hidden">
       {/* ══════════════════════════════════════════════
           SECTION 00 — NAVBAR FIXE & STICKY
       ══════════════════════════════════════════════ */}
@@ -297,26 +297,26 @@ export default function Home() {
           <a href="#accueil" className="flex items-center gap-2.5 sm:gap-3 group">
             <div className="relative w-9 h-9 sm:w-11 sm:h-11 flex-shrink-0">
               <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-sm">
-                <circle cx="50" cy="50" r="48" fill="#F4EEFB" />
-                {/* Silhouette femme africaine avec coiffe stylisée */}
+                <circle cx="50" cy="50" r="48" fill="#FDF2F7" />
+                {/* Silhouette femme africaine avec coiffe stylisée aux couleurs des flyers */}
                 <path
                   d="M50 15 C36 15 28 26 28 38 C28 47 33 53 38 56 C38 60 36 67 31 72 C35 73 42 72 47 67 C49 75 56 82 66 84 C68 76 66 69 64 62 C72 58 76 49 76 38 C76 25 64 15 50 15 Z"
-                  fill="#4B1D8E"
+                  fill="#68003B"
                 />
                 {/* Détails dorés de la coiffe / foulard */}
                 <path
                   d="M45 20 C55 18 64 23 68 30 C62 30 55 26 45 20 Z"
-                  fill="#E8A820"
+                  fill="#F9B42F"
                 />
                 <path
                   d="M34 32 C42 33 50 37 54 44 C46 43 38 39 34 32 Z"
-                  fill="#F5B731"
+                  fill="#FFC247"
                 />
-                <circle cx="58" cy="40" r="2.5" fill="#E8A820" />
+                <circle cx="58" cy="40" r="2.5" fill="#F9B42F" />
               </svg>
             </div>
             <div className="flex flex-col leading-none">
-              <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-purple group-hover:text-purple-dark transition-colors">
+              <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-plum group-hover:text-plum-hover transition-colors">
                 SINFDA
               </span>
               <span className="font-sans font-bold text-[10px] sm:text-xs tracking-wider text-yellow">
@@ -391,12 +391,12 @@ export default function Home() {
       ══════════════════════════════════════════════ */}
       <section
         id="accueil"
-        className="relative pt-16 sm:pt-20 overflow-hidden bg-gradient-to-br from-[#240A42] via-[#3B1570] to-[#552399] text-white flex flex-col justify-between min-h-[calc(100svh-4rem)]"
+        className="relative pt-16 sm:pt-20 overflow-hidden bg-gradient-to-br from-[#2A0017] via-[#5C0034] to-[#7B0044] text-white flex flex-col justify-between min-h-[calc(100svh-4rem)]"
       >
-        {/* Luminous festive ambient background effects */}
-        <div className="absolute top-12 left-10 w-72 sm:w-96 h-72 sm:h-96 bg-purple-500/20 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none" />
-        <div className="absolute top-20 right-1/4 w-60 sm:w-80 h-60 sm:h-80 bg-yellow/15 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-72 sm:w-96 h-72 sm:h-96 bg-yellow-bright/10 rounded-full blur-[100px] sm:blur-[130px] pointer-events-none" />
+        {/* Luminous festive ambient background effects aux couleurs des flyers */}
+        <div className="absolute top-12 left-10 w-72 sm:w-96 h-72 sm:h-96 bg-magenta/20 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none" />
+        <div className="absolute top-20 right-1/4 w-60 sm:w-80 h-60 sm:h-80 bg-yellow/20 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-72 sm:w-96 h-72 sm:h-96 bg-magenta/15 rounded-full blur-[100px] sm:blur-[130px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6 sm:pt-12 pb-10 sm:pb-16 lg:py-20 grid lg:grid-cols-12 gap-8 lg:gap-8 items-center flex-1">
           {/* Left Column: Headlines & Call to Actions */}
@@ -404,7 +404,7 @@ export default function Home() {
             {/* Tagline pill with sparkles icon */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-yellow/20 border border-yellow/40 text-yellow text-xs sm:text-sm font-bold tracking-wide uppercase shadow-sm">
               <Sparkles size={15} className="text-yellow animate-pulse" />
-              <span>SINFDA 2026 · Douala &amp; Kribi</span>
+              <span>SINFDA 2026 · Douala</span>
             </div>
 
             {/* Titre officiel en icône / image (titre.png) */}
@@ -412,19 +412,20 @@ export default function Home() {
               <img
                 src="/images/titre.png"
                 alt="L'Arbre de Noël Revient... Plus Grand"
-                className="w-full max-w-[420px] sm:max-w-[500px] lg:max-w-[550px] h-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.4)] hover:scale-[1.02] transition-transform duration-300"
+                className="w-full max-w-[420px] sm:max-w-[500px] lg:max-w-[550px] h-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.45)] hover:scale-[1.02] transition-transform duration-300"
               />
               <h1 className="sr-only">
                 L&apos;Arbre de Noël Revient... Plus Grand — Salon International des Nouvelles Femmes Dynamiques Africaines (SINFDA 2026)
               </h1>
             </div>
+
             {/* Subtext date and locations */}
             <div className="pt-0.5 sm:pt-1 space-y-0.5 sm:space-y-1">
               <p className="text-lg sm:text-2xl font-bold text-white tracking-wide flex items-center gap-2">
                 <Calendar size={20} className="text-yellow" /> Du 9 au 12 décembre 2026
               </p>
               <p className="text-base sm:text-xl font-bold text-white/90 flex items-center gap-2">
-                <MapPin size={20} className="text-yellow" /> Douala &amp; Kribi · Carnaval le 5 Décembre
+                <MapPin size={20} className="text-yellow" /> Douala · Carnaval le 5 Décembre
               </p>
             </div>
 
@@ -437,7 +438,7 @@ export default function Home() {
             <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
               <a
                 href="#temps-forts"
-                className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold px-6 sm:px-7 py-3 sm:py-3.5 shadow-lg shadow-yellow/20 text-sm sm:text-base w-full sm:w-auto justify-center"
+                className="pill bg-yellow hover:bg-yellow-bright text-[#2A0017] font-bold px-6 sm:px-7 py-3 sm:py-3.5 shadow-lg shadow-yellow/20 text-sm sm:text-base w-full sm:w-auto justify-center"
               >
                 Découvrir les temps forts <ArrowRight size={17} />
               </a>
@@ -455,7 +456,7 @@ export default function Home() {
           <div className="lg:col-span-6 relative flex justify-center lg:justify-end mt-2 lg:mt-0">
             <div className="relative w-full max-w-[360px] sm:max-w-[480px] lg:max-w-[540px]">
               {/* Glow backdrop ring */}
-              <div className="absolute -inset-3 sm:-inset-4 bg-gradient-to-tr from-yellow/30 to-purple-400/20 rounded-3xl blur-xl sm:blur-2xl transform -rotate-1" />
+              <div className="absolute -inset-3 sm:-inset-4 bg-gradient-to-tr from-yellow/30 to-magenta/25 rounded-3xl blur-xl sm:blur-2xl transform -rotate-1" />
 
               {/* Main Image container matching mockup */}
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 aspect-[4/3] sm:aspect-[16/11]">
@@ -466,10 +467,10 @@ export default function Home() {
                 />
 
                 {/* Subtle dark gradient overlay on bottom for depth */}
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-deep/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2A0017]/85 via-transparent to-transparent pointer-events-none" />
 
                 {/* Small celebratory badge on image from flyer */}
-                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-purple-deep/90 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs px-3.5 py-1.5 rounded-full flex items-center gap-1.5 sm:gap-2 shadow-lg">
+                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-[#450027]/90 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs px-3.5 py-1.5 rounded-full flex items-center gap-1.5 sm:gap-2 shadow-lg">
                   <Heart size={13} strokeWidth={2} className="text-yellow" />
                   <span>Plus de 500 enfants à célébrer</span>
                 </div>
@@ -489,7 +490,7 @@ export default function Home() {
           >
             <path
               d="M0,0 C320,70 820,95 1440,25 L1440,85 L0,85 Z"
-              fill="#E8A820"
+              fill="#F9B42F"
               opacity="0.9"
             />
             <path
@@ -567,7 +568,7 @@ export default function Home() {
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="bg-[#3B1570] text-white p-5 sm:p-7 flex-1 flex flex-col justify-between">
+              <div className="bg-[#5C0034] text-white p-5 sm:p-7 flex-1 flex flex-col justify-between">
                 <div>
                   <h3 className="font-display text-xl sm:text-2xl font-bold mb-1.5 sm:mb-2 text-white">
                     Le Salon &amp; Stands
@@ -582,7 +583,7 @@ export default function Home() {
                 <div>
                   <a
                     href="#temps-forts"
-                    className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-xs sm:text-sm px-5 py-2.5 w-full sm:w-auto inline-flex justify-center"
+                    className="pill bg-yellow hover:bg-yellow-bright text-[#2A0017] font-bold text-xs sm:text-sm px-5 py-2.5 w-full sm:w-auto inline-flex justify-center shadow-md shadow-yellow/20"
                   >
                     Découvrir les activités <ArrowRight size={14} />
                   </a>
@@ -599,22 +600,22 @@ export default function Home() {
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="bg-[#E8A820] text-purple-deep p-5 sm:p-7 flex-1 flex flex-col justify-between">
+              <div className="bg-gradient-to-br from-[#F9B42F] via-[#E8A320] to-[#D48F10] text-[#2A0017] p-5 sm:p-7 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-display text-xl sm:text-2xl font-bold mb-1.5 sm:mb-2 text-purple-deep">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold mb-1.5 sm:mb-2 text-[#2A0017]">
                     L&apos;Arbre de Noël
                   </h3>
-                  <p className="font-bold text-purple-dark text-xs sm:text-sm mb-1.5 sm:mb-2">
+                  <p className="font-bold text-[#450027] text-xs sm:text-sm mb-1.5 sm:mb-2">
                     Revient... plus grand !
                   </p>
-                  <p className="text-purple-deep/90 font-medium text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
+                  <p className="text-[#2A0017]/90 font-medium text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
                     Plus de 500 enfants à célébrer à travers l&apos;Arbre de Noël de la solidarité.
                   </p>
                 </div>
                 <div>
                   <a
                     href="#arbre-noel"
-                    className="pill bg-white hover:bg-purple-light text-purple-deep font-bold text-xs sm:text-sm px-5 py-2.5 w-full sm:w-auto inline-flex justify-center shadow-sm"
+                    className="pill bg-white hover:bg-plum-light text-plum font-bold text-xs sm:text-sm px-5 py-2.5 w-full sm:w-auto inline-flex justify-center shadow-sm"
                   >
                     Participer à la solidarité <ArrowRight size={14} />
                   </a>
@@ -716,12 +717,13 @@ export default function Home() {
         id="arbre-noel"
         className="relative py-12 sm:py-20 lg:py-28 overflow-hidden text-white"
         style={{
-          background: "linear-gradient(135deg, #0A2419 0%, #103625 50%, #194C35 100%)",
+          background: "linear-gradient(135deg, #1C0010 0%, #450027 45%, #0F2D1C 100%)",
         }}
       >
-        {/* Festive background elements */}
-        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#F5B731_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
-        <div className="absolute top-10 right-10 w-96 h-96 bg-yellow/10 rounded-full blur-[100px] pointer-events-none" />
+        {/* Festive background elements aux couleurs des flyers */}
+        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#F9B42F_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+        <div className="absolute top-10 right-10 w-96 h-96 bg-yellow/15 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-10 left-10 w-80 h-80 bg-magenta/15 rounded-full blur-[110px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
@@ -898,7 +900,7 @@ export default function Home() {
               id="partenaires"
               className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 text-white relative overflow-hidden flex flex-col justify-between shadow-lg"
               style={{
-                background: "linear-gradient(135deg, #2E0F57 0%, #4B1D8E 100%)",
+                background: "linear-gradient(135deg, #2A0017 0%, #5C0034 100%)",
               }}
             >
               {/* Handshake background overlay photo */}
@@ -925,7 +927,7 @@ export default function Home() {
               <div className="relative z-10 pt-2 flex flex-col sm:flex-row gap-2.5">
                 <button
                   onClick={() => openPartnerWithCategory("Commercial")}
-                  className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-xs sm:text-sm px-5 py-2.5 sm:py-3 shadow-md w-full sm:w-auto justify-center"
+                  className="pill bg-yellow hover:bg-yellow-bright text-[#2A0017] font-bold text-xs sm:text-sm px-5 py-2.5 sm:py-3 shadow-md w-full sm:w-auto justify-center"
                 >
                   Réserver un stand <ArrowRight size={15} />
                 </button>
@@ -946,7 +948,7 @@ export default function Home() {
                     },
                     {
                       date: "09–10 décembre",
-                      label: "Ateliers & Immersion Femmes d'Impact – Kribi",
+                      label: "Ateliers & Immersion Femmes d'Impact – Douala",
                     },
                     {
                       date: "11 décembre",
@@ -972,24 +974,24 @@ export default function Home() {
                 </div>
               </div>
               <div className="pt-3 sm:pt-4 border-t border-gray-100 mt-3 sm:mt-4 text-[11px] sm:text-xs text-gray-500 font-medium">
-                Maison du Parti, Bonanjo, Douala &amp; Kribi.
+                Maison du Parti, Bonanjo, Douala.
               </div>
             </div>
 
             {/* Col 3: Calligraphic Quote Card matching mockup & flyer message */}
             <div
-              className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 flex flex-col justify-center relative overflow-hidden shadow-sm border border-amber-100"
+              className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 flex flex-col justify-center relative overflow-hidden shadow-sm border border-pink-100"
               style={{
-                background: "linear-gradient(135deg, #FFF9EB 0%, #FEF3D6 100%)",
+                background: "linear-gradient(135deg, #FFF5FA 0%, #FDF0F6 100%)",
               }}
             >
               <div className="relative z-10">
-                <p className="font-display font-bold italic text-xl sm:text-2xl lg:text-[1.85rem] text-purple leading-snug">
+                <p className="font-display font-bold italic text-xl sm:text-2xl lg:text-[1.85rem] text-plum leading-snug">
                   Ensemble, faisons grandir les ambitions des femmes et briller les rêves des enfants.
                 </p>
                 {/* Decorative golden brush curve matching mockup */}
-                <div className="mt-3 sm:mt-4 w-24 sm:w-28 h-1.5 bg-gradient-to-r from-yellow via-yellow-bright to-transparent rounded-full" />
-                <p className="mt-3 text-xs text-purple-dark/80 font-bold uppercase tracking-wider">
+                <div className="mt-3 sm:mt-4 w-24 sm:w-28 h-1.5 bg-gradient-to-r from-yellow via-magenta to-transparent rounded-full" />
+                <p className="mt-3 text-xs text-plum font-bold uppercase tracking-wider">
                   Les Nouvelles Femmes Dynamiques Africaines
                 </p>
               </div>
@@ -1004,7 +1006,7 @@ export default function Home() {
       <section id="faq" className="py-12 sm:py-20 lg:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-14">
-            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-purple mb-2 sm:mb-3">
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-plum mb-2 sm:mb-3">
               Foire aux questions
             </h2>
             <p className="text-gray-500 text-xs sm:text-sm lg:text-base">
@@ -1029,7 +1031,7 @@ export default function Home() {
               },
               {
                 q: "Quelles sont les dates de l'événement ?",
-                a: "Les festivités débutent le 05 décembre avec le grand Carnaval à Douala, puis les activités majeures se déroulent du 9 au 12 décembre 2026 à Douala (Maison du Parti) et Kribi.",
+                a: "Les festivités débutent le 05 décembre avec le grand Carnaval à Douala, puis les activités majeures se déroulent du 9 au 12 décembre 2026 à Douala (Maison du Parti).",
               },
               {
                 q: "Comment soutenir l'Arbre de Noël de la solidarité ?",
@@ -1042,10 +1044,10 @@ export default function Home() {
             ].map((faq, idx) => (
               <details key={idx} className="group py-3.5 sm:py-5">
                 <summary className="flex items-center justify-between cursor-pointer">
-                  <span className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 group-hover:text-purple transition-colors pr-3">
+                  <span className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 group-hover:text-plum transition-colors pr-3">
                     {faq.q}
                   </span>
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-purple-light flex items-center justify-center flex-shrink-0 text-purple group-hover:bg-purple group-hover:text-white transition">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-plum-light flex items-center justify-center flex-shrink-0 text-plum group-hover:bg-plum group-hover:text-white transition">
                     <ChevronDown size={16} className="chev" />
                   </div>
                 </summary>
@@ -1064,32 +1066,33 @@ export default function Home() {
       <section
         className="relative py-14 sm:py-20 lg:py-28 overflow-hidden text-white text-center"
         style={{
-          background: "linear-gradient(135deg, #2A0F52 0%, #4B1D8E 50%, #63229E 100%)",
+          background: "linear-gradient(135deg, #2A0017 0%, #5C0034 50%, #85004A 100%)",
         }}
       >
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-yellow/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-yellow/15 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-magenta/20 rounded-full blur-[120px] pointer-events-none" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold italic leading-tight mb-3.5 sm:mb-5">
             Ensemble, faisons grandir les ambitions des femmes
             <br />
-            <span className="text-yellow not-italic">
+            <span className="text-yellow not-italic font-extrabold">
               et briller les rêves des enfants.
             </span>
           </h2>
           <p className="text-white/80 text-xs sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-10">
-            Rejoignez cette célébration inédite à Douala et Kribi. Réservez votre stand, participez au Carnaval ou parrainez le sourire d&apos;un enfant.
+            Rejoignez cette célébration inédite à Douala. Réservez votre stand, participez au Carnaval ou parrainez le sourire d&apos;un enfant.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full sm:w-auto">
             <a
               href="#temps-forts"
-              className="pill bg-white hover:bg-gray-100 text-purple-deep font-bold text-xs sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 shadow-lg w-full sm:w-auto justify-center"
+              className="pill bg-white hover:bg-gray-100 text-[#2A0017] font-bold text-xs sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 shadow-lg w-full sm:w-auto justify-center"
             >
               Découvrir les activités <ArrowRight size={16} />
             </a>
             <button
               onClick={() => openPartnerWithCategory("Commercial")}
-              className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-xs sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 shadow-lg w-full sm:w-auto justify-center"
+              className="pill bg-yellow hover:bg-yellow-bright text-[#2A0017] font-bold text-xs sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 shadow-lg shadow-yellow/20 w-full sm:w-auto justify-center"
             >
               Réserver mon stand Made in Camer <ArrowRight size={16} />
             </button>
@@ -1098,7 +1101,7 @@ export default function Home() {
                 setDonModal(true);
                 setDonSuccess(false);
               }}
-              className="pill bg-white/15 hover:bg-white/25 text-white border border-white/30 backdrop-blur-sm text-xs sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+              className="pill bg-magenta hover:bg-magenta-hover text-white text-xs sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 inline-flex items-center justify-center gap-2 w-full sm:w-auto shadow-lg shadow-magenta/25"
             >
               <span>Soutenir l&apos;Arbre de Noël</span>
               <Heart size={16} strokeWidth={2} />
@@ -1110,7 +1113,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════
           SECTION 10 — FOOTER (COORDONNÉES OFFICIELLES)
       ══════════════════════════════════════════════ */}
-      <footer id="contact" className="bg-[#180829] text-white pt-12 sm:pt-16 pb-8 sm:pb-12 border-t border-white/5">
+      <footer id="contact" className="bg-[#180010] text-white pt-12 sm:pt-16 pb-8 sm:pb-12 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-12 gap-8 md:gap-10 items-start mb-8 sm:mb-12">
             {/* Col 1: Logo & Mission description */}
@@ -1118,14 +1121,14 @@ export default function Home() {
               <div className="flex items-center gap-2.5 sm:gap-3">
                 <div className="w-10 h-10 flex-shrink-0">
                   <svg viewBox="0 0 100 100" className="w-full h-full">
-                    <circle cx="50" cy="50" r="48" fill="#3B1570" />
+                    <circle cx="50" cy="50" r="48" fill="#5C0034" />
                     <path
                       d="M50 15 C36 15 28 26 28 38 C28 47 33 53 38 56 C38 60 36 67 31 72 C35 73 42 72 47 67 C49 75 56 82 66 84 C68 76 66 69 64 62 C72 58 76 49 76 38 C76 25 64 15 50 15 Z"
                       fill="#ffffff"
                     />
                     <path
                       d="M45 20 C55 18 64 23 68 30 C62 30 55 26 45 20 Z"
-                      fill="#E8A820"
+                      fill="#F9B42F"
                     />
                   </svg>
                 </div>
