@@ -293,34 +293,21 @@ export default function Home() {
       ══════════════════════════════════════════════ */}
       <nav className="fixed top-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-xs transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-          {/* Logo SIFDA / SINFDA 2026 */}
-          <a href="#accueil" className="flex items-center gap-2.5 sm:gap-3 group">
-            <div className="relative w-9 h-9 sm:w-11 sm:h-11 flex-shrink-0">
-              <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-sm">
-                <circle cx="50" cy="50" r="48" fill="#FDF2F7" />
-                {/* Silhouette femme africaine avec coiffe stylisée aux couleurs des flyers */}
-                <path
-                  d="M50 15 C36 15 28 26 28 38 C28 47 33 53 38 56 C38 60 36 67 31 72 C35 73 42 72 47 67 C49 75 56 82 66 84 C68 76 66 69 64 62 C72 58 76 49 76 38 C76 25 64 15 50 15 Z"
-                  fill="#68003B"
-                />
-                {/* Détails dorés de la coiffe / foulard */}
-                <path
-                  d="M45 20 C55 18 64 23 68 30 C62 30 55 26 45 20 Z"
-                  fill="#F9B42F"
-                />
-                <path
-                  d="M34 32 C42 33 50 37 54 44 C46 43 38 39 34 32 Z"
-                  fill="#FFC247"
-                />
-                <circle cx="58" cy="40" r="2.5" fill="#F9B42F" />
-              </svg>
+          {/* Logo officiel SINFDA 2026 */}
+          <a href="#accueil" className="flex items-center gap-2.5 sm:gap-3 group" aria-label="SINFDA 2026 Accueil">
+            <div className="bg-plum px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl flex items-center shadow-xs group-hover:bg-plum-hover transition-colors">
+              <img
+                src="/images/logo.png"
+                alt="SINFDA 2026"
+                className="h-5 sm:h-6.5 w-auto object-contain"
+              />
             </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-plum group-hover:text-plum-hover transition-colors">
+            <div className="flex flex-col leading-tight">
+              <span className="font-display font-extrabold text-sm sm:text-base tracking-tight text-plum group-hover:text-plum-hover transition-colors">
                 SINFDA
               </span>
-              <span className="font-sans font-bold text-[10px] sm:text-xs tracking-wider text-yellow">
-                SINFDA 2026
+              <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-wider text-yellow uppercase">
+                Douala 2026
               </span>
             </div>
           </a>
@@ -401,10 +388,16 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6 sm:pt-12 pb-10 sm:pb-16 lg:py-20 grid lg:grid-cols-12 gap-8 lg:gap-8 items-center flex-1">
           {/* Left Column: Headlines & Call to Actions */}
           <div className="lg:col-span-6 space-y-4 sm:space-y-6">
-            {/* Tagline pill with sparkles icon */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-yellow/20 border border-yellow/40 text-yellow text-xs sm:text-sm font-bold tracking-wide uppercase shadow-sm">
-              <Sparkles size={15} className="text-yellow animate-pulse" />
-              <span>SINFDA 2026 · Douala</span>
+            {/* Tagline pill avec logo officiel SINFDA & rappel événement */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-semibold shadow-sm">
+              <span className="text-yellow font-extrabold uppercase tracking-wider text-[11px] sm:text-xs">Avec le</span>
+              <img
+                src="/images/logo.png"
+                alt="SINFDA"
+                className="h-4 sm:h-5 w-auto object-contain"
+              />
+              <span className="text-white/40">·</span>
+              <span className="text-white/95 font-bold text-[11px] sm:text-xs">Douala 2026</span>
             </div>
 
             {/* Titre officiel en icône / image (titre.png) */}
@@ -461,7 +454,7 @@ export default function Home() {
               {/* Main Image container matching mockup */}
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 aspect-[4/3] sm:aspect-[16/11]">
                 <img
-                  src="/images/img2.png"
+                  src="/images/img5.jpeg"
                   alt="Femmes dynamiques africaines et enfants célébrant Noël"
                   className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
                 />
@@ -653,39 +646,40 @@ export default function Home() {
           </div>
 
           {/* 8 Activities Cards matching the 8 official flyers in a responsive 4-column grid on desktop */}
-          <div className="flex gap-4 overflow-x-auto pb-5 pt-1 px-4 -mx-4 sm:mx-0 sm:px-0 lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-visible no-scrollbar snap-x snap-mandatory">
+          <div className="flex gap-4 sm:gap-5 overflow-x-auto pb-5 pt-1 px-4 -mx-4 sm:mx-0 sm:px-0 lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-visible no-scrollbar snap-x snap-mandatory">
             {ACTIVITIES.map((act) => (
               <div
                 key={act.id}
                 onClick={() => setSelectedActivity(act)}
-                className="flex-shrink-0 w-[175px] sm:w-[220px] lg:w-auto snap-start flex flex-col justify-between group cursor-pointer bg-white rounded-2xl p-2.5 sm:p-3.5 shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1"
+                className="flex-shrink-0 w-[220px] sm:w-[260px] lg:w-auto snap-start flex flex-col justify-between group cursor-pointer bg-white rounded-2xl p-2.5 sm:p-3.5 shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1"
               >
                 <div>
-                  {/* Flyer Image Container */}
-                  <div className="h-44 sm:h-56 rounded-xl overflow-hidden bg-gray-100 mb-3 relative shadow-xs group-hover:shadow-md transition">
+                  {/* Flyer Image Container: ratio exact 4/5 pour afficher tout le flyer sans coupure */}
+                  <div className="w-full aspect-[4/5] rounded-xl overflow-hidden bg-plum/5 mb-3 relative shadow-xs group-hover:shadow-md transition">
                     <img
                       src={act.image}
                       alt={act.title}
-                      className="w-full h-full object-cover object-top group-hover:scale-106 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-102 transition-transform duration-500"
                     />
-                    {/* Badge tag on image */}
-                    <div className="absolute top-2 left-2 max-w-[85%]">
-                      <span className="bg-purple-deep/90 backdrop-blur-sm text-yellow text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-md shadow-xs line-clamp-1">
-                        {act.badge}
-                      </span>
-                    </div>
                   </div>
 
-                  {/* Date & Location */}
-                  <p className="text-[10px] sm:text-[11px] font-bold text-purple tracking-tight leading-none mb-1">
-                    {act.date}
-                  </p>
+                  {/* Badge & Date */}
+                  <div className="flex items-center justify-between gap-1.5 mb-1.5">
+                    <span className="bg-plum/10 text-plum text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-md line-clamp-1">
+                      {act.badge}
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] font-bold text-gray-500 flex-shrink-0">
+                      {act.date}
+                    </span>
+                  </div>
+
+                  {/* Location */}
                   <p className="text-[10px] sm:text-[11px] font-medium text-gray-400 mb-1.5 line-clamp-1">
                     {act.location}
                   </p>
 
                   {/* Title */}
-                  <h3 className="font-sans font-bold text-xs sm:text-sm text-gray-900 leading-snug group-hover:text-purple transition-colors line-clamp-2 mb-1.5">
+                  <h3 className="font-sans font-bold text-xs sm:text-sm text-gray-900 leading-snug group-hover:text-plum transition-colors line-clamp-2 mb-1.5">
                     {act.title}
                   </h3>
 
@@ -1118,28 +1112,15 @@ export default function Home() {
           <div className="grid md:grid-cols-12 gap-8 md:gap-10 items-start mb-8 sm:mb-12">
             {/* Col 1: Logo & Mission description */}
             <div className="md:col-span-4 space-y-3 sm:space-y-4">
-              <div className="flex items-center gap-2.5 sm:gap-3">
-                <div className="w-10 h-10 flex-shrink-0">
-                  <svg viewBox="0 0 100 100" className="w-full h-full">
-                    <circle cx="50" cy="50" r="48" fill="#5C0034" />
-                    <path
-                      d="M50 15 C36 15 28 26 28 38 C28 47 33 53 38 56 C38 60 36 67 31 72 C35 73 42 72 47 67 C49 75 56 82 66 84 C68 76 66 69 64 62 C72 58 76 49 76 38 C76 25 64 15 50 15 Z"
-                      fill="#ffffff"
-                    />
-                    <path
-                      d="M45 20 C55 18 64 23 68 30 C62 30 55 26 45 20 Z"
-                      fill="#F9B42F"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-white">
-                    SINFDA
-                  </span>
-                  <span className="font-sans font-bold text-[10px] sm:text-xs tracking-wider text-yellow ml-1 sm:ml-1.5">
-                    2026
-                  </span>
-                </div>
+              <div className="flex items-center gap-3">
+                <img
+                  src="/images/logo.png"
+                  alt="SINFDA 2026"
+                  className="h-7 sm:h-8.5 w-auto object-contain"
+                />
+                <span className="font-sans font-bold text-[10px] sm:text-xs tracking-wider text-yellow bg-yellow/15 border border-yellow/30 px-2.5 py-0.5 rounded-full uppercase">
+                  2026
+                </span>
               </div>
               <p className="text-white/70 text-xs sm:text-sm font-semibold">
                 Les Nouvelles Femmes Dynamiques Africaines
@@ -1494,12 +1475,12 @@ export default function Home() {
           title={selectedActivity.title}
         >
           <div className="space-y-4">
-            {/* Flyer Image in Modal */}
-            <div className="h-60 sm:h-72 rounded-xl overflow-hidden bg-gray-100 border border-gray-100 relative group">
+            {/* Flyer Image in Modal - Affichage intégral 4/5 sans recadrage */}
+            <div className="w-full flex justify-center items-center bg-gray-50 rounded-2xl p-2 sm:p-3 border border-gray-100">
               <img
                 src={selectedActivity.image}
                 alt={selectedActivity.title}
-                className="w-full h-full object-cover object-top"
+                className="w-full max-w-[340px] sm:max-w-[390px] h-auto aspect-[4/5] object-contain rounded-xl shadow-md border border-gray-200/60"
               />
             </div>
 
