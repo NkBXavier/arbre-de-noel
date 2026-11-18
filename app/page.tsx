@@ -13,10 +13,14 @@ import {
   Handshake,
   Heart,
   HeartHandshake,
+  Mail,
   MapPin,
   Menu,
   MessageCircle,
   Package,
+  Phone,
+  Sparkles,
+  Store,
   Truck,
   Users,
   X,
@@ -26,126 +30,186 @@ import {
 interface ActivityDetail {
   id: string;
   title: string;
+  badge: string;
   date: string;
   location: string;
+  slogan: string;
   summary: string;
   fullDescription: string;
   highlights: string[];
   image: string;
+  actionText: string;
+  actionType: "stand" | "don" | "carnaval" | "partenaire";
 }
 
 const ACTIVITIES: ActivityDetail[] = [
   {
-    id: "ateliers",
-    title: "Ateliers Femmes d'Impact",
-    date: "9 – 10 décembre 2026",
-    location: "Kribi",
-    summary: "Immersion de formation, leadership et résilience pour entrepreneures.",
-    fullDescription:
-      "Deux journées intensives de formation, de mentorat et de ressourcement sur la côte de Kribi. Conçus pour renforcer les compétences managériales, la résilience entrepreneuriale et le développement personnel des femmes leaders et porteuses de projets innovants.",
-    highlights: [
-      "Masterclasses exclusives animées par des expertes internationales",
-      "Ateliers de gestion financière et stratégie de croissance",
-      "Séances de coaching en leadership et prise de parole en public",
-      "Cadre propice à la réflexion et au networking de haut niveau",
-    ],
-    image: "/images/heros.png",
-  },
-  {
     id: "carnaval",
-    title: "Carnaval des Femmes Dynamiques",
-    date: "11 décembre 2026",
+    title: "Grand Carnaval des Femmes Dynamiques",
+    badge: "Accès & rafraîchissements gratuits",
+    date: "05 Décembre 2026",
     location: "Douala",
-    summary: "Grande parade festive et culturelle célébrant les talents féminins.",
+    slogan: "Et si la fierté de nos talents se partageait dans les rues ?",
+    summary:
+      "Grande parade populaire et festive à travers les artères de Douala pour célébrer les talents, l'énergie et la fierté féminine africaine.",
     fullDescription:
-      "Une immense célébration populaire dans les artères de Douala. Le Carnaval rassemble des centaines de femmes, associations, artisanes et créatrices dans un défilé haut en couleur, rythmé par les musiques traditionnelles et modernes du Cameroun et d'Afrique.",
+      "Le grand coup d'envoi populaire du SINFDA 2026 ! Retrouvez des centaines de femmes dynamiques, entrepreneures, créatrices et associations habillées aux couleurs de l'événement dans une immense marche festive dans les rues de Douala. Une ambiance rythmée par les musiques, les percussions et la célébration de nos savoir-faire.",
     highlights: [
-      "Parade culturelle et défilé de costumes traditionnels africains",
-      "Animations musicales, percussions et danses urbaines & patrimoniales",
-      "Visibilité médiatique exceptionnelle pour les collectifs et délégations",
-      "Point de départ festif vers l'illumination de l'Arbre de Noël",
+      "Grande parade populaire dans les artères de Douala",
+      "Accès libre et rafraîchissements entièrement gratuits",
+      "Animations culturelles, percussions et célébration des talents",
+      "Mobilisation festive pour lancer le mois de la solidarité",
     ],
-    image: "/images/heros.png",
+    image: "/images/carnaval-flyer.jpg",
+    actionText: "Rejoindre le Carnaval",
+    actionType: "carnaval",
   },
   {
-    id: "expo",
-    title: "Cameroon–Africa Made Expo",
-    date: "12 décembre 2026",
-    location: "Maison du Parti, Douala",
-    summary: "Foire-exposition des innovations, créations et savoir-faire féminins.",
+    id: "stand-terroir",
+    title: "Stands Made in Camer – Terroir & Agri-Business",
+    badge: "Vous faites du Made in Camer ?",
+    date: "12 Décembre 2026",
+    location: "Maison du Parti, Bonanjo, Douala",
+    slogan: "Nous avons un stand pour vous !",
+    summary:
+      "Espace d'exposition et de vente dédié aux producteurs et transformateurs locaux : café africain, miel naturel, thé vert et trésors agricoles.",
     fullDescription:
-      "Vitrine par excellence de la production locale et africaine portée par des femmes. Des dizaines de stands mettant en avant la mode, la cosmétique naturelle, l'agroalimentaire, l'artisanat d'art, les solutions technologiques et les services innovants.",
+      "Vous produisez ou transformez au Cameroun ? Le Salon International des Nouvelles Femmes Dynamiques met à votre disposition un stand premium pour présenter vos produits directement à un public de milliers d'acheteurs, décideurs et distributeurs régionaux et internationaux.",
     highlights: [
-      "Plus de 60 exposantes d'Afrique centrale et de la diaspora",
-      "Espace de vente directe et de démonstration de produits",
-      "Rencontres acheteurs – productrices pour débouchés commerciaux",
-      "Dégustations et découvertes de produits du terroir camerounais",
+      "Stands d'exposition dédiés à l'agro-business et aux produits du terroir",
+      "Mise en lumière du café camerounais, miel pur, thés et denrées locales",
+      "Rencontres B2B directes avec distributeurs et supermarchés",
+      "Accompagnement et opportunités de débouchés commerciaux",
     ],
-    image: "/images/heros.png",
+    image: "/images/stand-terroir-flyer.jpg",
+    actionText: "Réserver un Stand Terroir",
+    actionType: "stand",
   },
   {
-    id: "talk",
-    title: "Women's Talk Experience",
-    date: "12 décembre 2026",
-    location: "Maison du Parti, Douala",
-    summary: "Panels d'inspiration et partages d'expériences avec des femmes leaders.",
+    id: "stand-produits",
+    title: "Cameroon Made Expo – Produits Locaux & Artisanat",
+    badge: "Stands & Vente Directe",
+    date: "12 Décembre 2026",
+    location: "Maison du Parti, Bonanjo, Douala",
+    slogan: "Valoriser nos marques et le savoir-faire 100% camerounais",
+    summary:
+      "Foire commerciale mettant à l'honneur les jus naturels (ZAA Ananas), miel blanc d'Oku, cosmétiques naturels et l'artisanat d'art féminin.",
     fullDescription:
-      "Une tribune de parole puissante où des femmes pionnières dans les affaires, la technologie, la culture et l'action sociale partagent sans filtre leurs réussites, leurs échecs surmontés et leurs clés pour transformer les obstacles en opportunités.",
+      "Une vitrine prestigieuse au cœur de Bonanjo pour faire rayonner les marques émergentes et confirmées du Cameroun. Mode, cosmétique bio, artisanat, jus de fruits pressés et innovations portées par des femmes dynamiques.",
     highlights: [
-      "4 panels thématiques aux formats dynamiques et interactifs",
-      "Interventions de personnalités publiques et figures de proue de l'entrepreneuriat",
-      "Session de questions-réponses directes avec le public",
-      "Retransmission en direct pour toucher une audience panafricaine",
+      "Exposition de produits certifiés et étiquetés 100% Made in Camer",
+      "Espace dégustation et démonstration directe au public",
+      "Vente directe sans intermédiaire pour booster la visibilité",
+      "Couverture médiatique et présence d'investisseurs",
     ],
-    image: "/images/heros.png",
+    image: "/images/stand-produits-flyer.jpg",
+    actionText: "Réserver un Stand Exposition",
+    actionType: "stand",
   },
   {
-    id: "boost",
-    title: "Women Business Boost",
-    date: "12 décembre 2026",
-    location: "Maison du Parti, Douala",
-    summary: "Pitchs, mentorat express et accélération de projets entrepreneuriaux.",
+    id: "entrepreneuriat",
+    title: "Entrepreneuriat & Métiers Féminins d'Avenir",
+    badge: "Formation & Masterclasses",
+    date: "Du 9 au 12 décembre 2026",
+    location: "Douala & Kribi",
+    slogan: "Faisons grandir les ambitions des femmes",
+    summary:
+      "Valorisation de l'audace entrepreneuriale féminine dans tous les secteurs : métiers techniques, mécanique, artisanat, industrie et services.",
     fullDescription:
-      "Le tremplin concret pour financer et développer son entreprise. Les entrepreneures sélectionnées pitchent leurs projets devant un jury d'investisseurs, de banquiers et de mentors, avec des opportunités d'accompagnement et d'accès aux marchés.",
+      "L'entrepreneuriat au féminin sous toutes ses facettes. Que vous soyez dans les métiers traditionnels ou pionnière dans les secteurs techniques et industriels (mécanique, BTP, tech), ce volet propose des masterclasses de gestion, de résilience et de passage à l'échelle.",
     highlights: [
-      "Concours de pitch de projets à fort impact social et économique",
-      "Accès privilégié à des fonds d'amorçage et partenaires bancaires",
-      "Speed-mentoring individuel avec des dirigeantes d'entreprises",
-      "Prix d'accélération et dotations pour les lauréates",
+      "Masterclasses exclusives animées par des dirigeantes d'entreprises",
+      "Ateliers pratiques de gestion financière, stratégie et pitch",
+      "Valorisation des femmes dans les métiers techniques et innovants",
+      "Accès aux opportunités de financement et d'accompagnement",
     ],
-    image: "/images/heros.png",
+    image: "/images/entrepreneuriat-flyer.jpg",
+    actionText: "Participer aux Ateliers",
+    actionType: "partenaire",
   },
   {
-    id: "distinctions",
-    title: "Distinctions de la Femme Dynamique",
-    date: "12 décembre 2026",
+    id: "conferences",
+    title: "Conférences, Panels & Networking d'Affaires",
+    badge: "Leadership & Réseau",
+    date: "Du 9 au 12 décembre 2026",
+    location: "Maison du Parti, Bonanjo, Douala",
+    slogan: "Connecter, inspirer et propulser les talents",
+    summary:
+      "Grands débats et partages d'expériences réunissant des femmes leaders d'horizons variés pour transformer les défis en réussites collectives.",
+    fullDescription:
+      "Une tribune d'expression et d'échange puissante. Des femmes leaders d'entreprises, personnalités publiques, artisanes et figures inspirantes se réunissent pour débattre de l'autonomisation économique, du mentorat intergénérationnel et des synergies panafricaines.",
+    highlights: [
+      "Panels d'inspiration sur l'audace et le leadership féminin",
+      "Sessions de speed-networking d'affaires B2B",
+      "Partage d'expériences sans filtre et résolution de freins au développement",
+      "Création de partenariats stratégiques durables",
+    ],
+    image: "/images/conferences-flyer.jpg",
+    actionText: "S'inscrire aux Conférences",
+    actionType: "partenaire",
+  },
+  {
+    id: "illumination-sapin",
+    title: "Illumination du Grand Arbre de Noël",
+    badge: "L'Arbre revient... plus grand !",
+    date: "11 Décembre 2026",
     location: "Douala",
-    summary: "Trophées solennels honorant les parcours féminins d'excellence.",
+    slogan: "Faire briller les rêves des enfants",
+    summary:
+      "Cérémonie féerique d'illumination du grand Arbre de Noël pour célébrer l'espérance, l'esprit des fêtes et la solidarité partagée.",
     fullDescription:
-      "Une cérémonie prestigieuse dédiée à la reconnaissance des mérites et du courage des femmes africaines. Plusieurs catégories récompensent l'audace entrepreneuriale, l'engagement communautaire, l'innovation et l'impact social durable.",
+      "L'Arbre de Noël revient... plus grand ! Une soirée magique où le grand sapin scintillant s'illumine au cœur de Douala, annonçant les festivités et la distribution de cadeaux à plus de 500 enfants. Un moment chaleureux avec chorales et émerveillement.",
     highlights: [
-      "Remise de 8 trophées majeurs de l'excellence féminine",
-      "Hommage rendu aux figures inspirantes et mentorat intergénérationnel",
-      "Couverture médiatique nationale et internationale",
-      "Présence d'autorités institutionnelles et de leaders économiques",
+      "Illumination spectaculaire du grand Arbre de Noël féerique",
+      "Chants de Noël, chorales et prestations artistiques en direct",
+      "Lancement officiel de la grande opération de solidarité",
+      "Rassemblement chaleureux des familles, marraines et partenaires",
     ],
-    image: "/images/heros.png",
+    image: "/images/sapin-lumineux-flyer.jpg",
+    actionText: "Soutenir l'Arbre de Noël",
+    actionType: "don",
   },
   {
-    id: "gala",
-    title: "Networking & Gala",
-    date: "12 décembre 2026 au soir",
+    id: "remise-cadeaux",
+    title: "Grande Remise des Cadeaux aux 500+ Enfants",
+    badge: "Plus de 500 enfants célébrés",
+    date: "12 Décembre 2026",
     location: "Douala",
-    summary: "Soirée de clôture prestigieuse, dîner d'affaires et festivités.",
+    slogan: "À célébrer à travers l'Arbre de Noël de la solidarité",
+    summary:
+      "Journée magique avec le Père Noël : distribution de jouets, fournitures scolaires, vêtements neufs et friandises à plus de 500 enfants.",
     fullDescription:
-      "Le point d'orgue du SIFDA 2026. Une soirée de gala élégante alliant dîner gastronomique, défilé de mode éthique africaine, prestations artistiques en direct et opportunités de networking stratégique au plus haut niveau.",
+      "Le cœur battant de l'opération solidaire. Grâce aux dons et soutiens de nos partenaires, plus de 500 enfants défavorisés et orphelins reçoivent leurs cadeaux des mains du Père Noël et des marraines du SINFDA, avec animations géantes et goûter festif.",
     highlights: [
-      "Dîner de gala gastronomique et accords mets-vins raffinés",
-      "Concert live d'artistes de renom et défilé de mode haute couture",
-      "Cocktail de networking d'affaires haut de gamme",
-      "Célébration festive de clôture avec toutes les délégations",
+      "Distribution de cadeaux individuels neufs à plus de 500 enfants",
+      "Présence du Père Noël, jeux, mascottes et animations festives",
+      "Don de fournitures scolaires et vêtements adaptés",
+      "Goûter géant et moments d'amour inoubliables",
     ],
-    image: "/images/heros.png",
+    image: "/images/arbre-noel-enfants-flyer.jpg",
+    actionText: "Faire un don pour les cadeaux",
+    actionType: "don",
+  },
+  {
+    id: "distinctions-gala",
+    title: "Distinctions de la Femme Dynamique & Gala",
+    badge: "Célébration & Trophées",
+    date: "12 Décembre 2026 au soir",
+    location: "Douala",
+    slogan: "Ensemble, faisons grandir les ambitions des femmes",
+    summary:
+      "Soirée de clôture prestigieuse honorant les femmes d'exception, les partenaires solidaires et les bienfaiteurs de l'Arbre de Noël.",
+    fullDescription:
+      "Le grand final solennel et élégant du SINFDA 2026. Une soirée de gala réunissant personnalités, délégations africaines et partenaires pour remettre les Distinctions de la Femme Dynamique et célébrer le succès de l'initiative solidaire.",
+    highlights: [
+      "Remise solennelle des Trophées de la Femme Dynamique Africaine",
+      "Dîner gastronomique et défilé de haute couture africaine",
+      "Reconnaissance officielle des entreprises et donateurs partenaires",
+      "Concert live et célébration festive de clôture",
+    ],
+    image: "/images/arbre-noel-fete-flyer.jpg",
+    actionText: "Devenir Partenaire du Gala",
+    actionType: "partenaire",
   },
 ];
 
@@ -196,6 +260,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [donModal, setDonModal] = useState(false);
   const [partnerModal, setPartnerModal] = useState(false);
+  const [partnerDefaultType, setPartnerDefaultType] = useState("Commercial");
   const [selectedActivity, setSelectedActivity] = useState<ActivityDetail | null>(null);
 
   const [donSuccess, setDonSuccess] = useState(false);
@@ -207,12 +272,19 @@ export default function Home() {
   const navLinks = [
     { label: "Accueil", href: "#accueil" },
     { label: "Le SIFDA", href: "#sifda" },
-    { label: "Programme", href: "#programme" },
+    { label: "Temps forts", href: "#temps-forts" },
     { label: "Arbre de Noël", href: "#arbre-noel" },
+    { label: "Programme", href: "#programme" },
     { label: "Partenaires", href: "#partenaires" },
     { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "#contact" },
   ];
+
+  const openPartnerWithCategory = (category: string) => {
+    setPartnerDefaultType(category);
+    setPartnerSuccess(false);
+    setPartnerModal(true);
+  };
 
   return (
     <div className="min-h-screen bg-white text-gray-900 selection:bg-yellow selection:text-purple-deep overflow-x-hidden">
@@ -221,7 +293,7 @@ export default function Home() {
       ══════════════════════════════════════════════ */}
       <nav className="fixed top-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-xs transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-          {/* Logo SIFDA 2026 */}
+          {/* Logo SIFDA / SINFDA 2026 */}
           <a href="#accueil" className="flex items-center gap-2.5 sm:gap-3 group">
             <div className="relative w-9 h-9 sm:w-11 sm:h-11 flex-shrink-0">
               <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-sm">
@@ -245,16 +317,16 @@ export default function Home() {
             </div>
             <div className="flex flex-col leading-none">
               <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-purple group-hover:text-purple-dark transition-colors">
-                SIFDA
+                SINFDA
               </span>
               <span className="font-sans font-bold text-[10px] sm:text-xs tracking-wider text-yellow">
-                2026
+                SIFDA 2026
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-7">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -267,7 +339,7 @@ export default function Home() {
           </div>
 
           {/* Top Right CTA Pill Button */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden lg:flex items-center gap-3">
             <a
               href="#arbre-noel"
               className="pill bg-purple hover:bg-purple-dark text-white font-semibold text-sm shadow-sm hover:shadow-md"
@@ -329,37 +401,56 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6 sm:pt-12 pb-10 sm:pb-16 lg:py-20 grid lg:grid-cols-12 gap-8 lg:gap-8 items-center flex-1">
           {/* Left Column: Headlines & Call to Actions */}
           <div className="lg:col-span-6 space-y-4 sm:space-y-6">
-            {/* Title exact matching mockup */}
-            <h1 className="font-display text-3xl sm:text-5xl lg:text-[3.5rem] font-bold italic leading-[1.15] sm:leading-[1.12] tracking-tight">
-              Une célébration,
-              <br />
+            {/* Tagline pill with sparkles icon */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-yellow/20 border border-yellow/40 text-yellow text-xs sm:text-sm font-bold tracking-wide uppercase shadow-sm">
+              <Sparkles size={15} className="text-yellow animate-pulse" />
+              <span>SINFDA 2026 · Douala &amp; Kribi</span>
+            </div>
+
+            {/* Titre officiel en icône / image (titre.png) */}
+            <div className="relative my-2 sm:my-3">
+              <img
+                src="/images/titre.png"
+                alt="L'Arbre de Noël Revient... Plus Grand"
+                className="w-full max-w-[420px] sm:max-w-[500px] lg:max-w-[550px] h-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.4)] hover:scale-[1.02] transition-transform duration-300"
+              />
+              <h1 className="sr-only">
+                L&apos;Arbre de Noël Revient... Plus Grand — Salon International des Nouvelles Femmes Dynamiques Africaines (SINFDA 2026)
+              </h1>
+            </div>
+
+            {/* Slogan officiel unifié */}
+            <p className="font-display text-xl sm:text-2xl lg:text-[1.85rem] font-bold italic leading-snug text-white/95">
+              Ensemble, faisons grandir{" "}
               <span className="text-yellow not-italic font-extrabold drop-shadow-sm">
-                mille opportunités.
+                les ambitions des femmes
               </span>
-            </h1>
+              <br />
+              et briller les rêves des enfants.
+            </p>
 
             {/* Subtext date and locations */}
             <div className="pt-0.5 sm:pt-1 space-y-0.5 sm:space-y-1">
-              <p className="text-lg sm:text-2xl font-bold text-white tracking-wide">
-                Du 9 au 12 décembre 2026
+              <p className="text-lg sm:text-2xl font-bold text-white tracking-wide flex items-center gap-2">
+                <Calendar size={20} className="text-yellow" /> Du 9 au 12 décembre 2026
               </p>
-              <p className="text-lg sm:text-2xl font-bold text-white/95">
-                Douala &amp; Kribi
+              <p className="text-base sm:text-xl font-bold text-white/90 flex items-center gap-2">
+                <MapPin size={20} className="text-yellow" /> Douala &amp; Kribi · Carnaval le 5 Décembre
               </p>
             </div>
 
-            {/* Intro paragraph from brief */}
+            {/* Intro paragraph from brief & flyers */}
             <p className="text-white/80 text-xs sm:text-base leading-relaxed max-w-lg pt-0.5">
-              Quatre jours de célébration, d&apos;apprentissage et de solidarité pour propulser l&apos;entrepreneuriat féminin et illuminer l&apos;avenir de plus de 500 enfants.
+              Le Salon International des Nouvelles Femmes Dynamiques Africaines (SINFDA 2026) : une plateforme de valorisation, d&apos;exposition « Made in Camer » et une grande opération de solidarité pour illuminer le sourire de plus de 500 enfants.
             </p>
 
             {/* The Two Hero CTAs matching mockup */}
             <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
               <a
-                href="#programme"
+                href="#temps-forts"
                 className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold px-6 sm:px-7 py-3 sm:py-3.5 shadow-lg shadow-yellow/20 text-sm sm:text-base w-full sm:w-auto justify-center"
               >
-                Découvrir le programme <ArrowRight size={17} />
+                Découvrir les temps forts <ArrowRight size={17} />
               </a>
               <a
                 href="#arbre-noel"
@@ -371,7 +462,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Column: Hero Visual composition matching mockup */}
+          {/* Right Column: Hero Visual composition */}
           <div className="lg:col-span-6 relative flex justify-center lg:justify-end mt-2 lg:mt-0">
             <div className="relative w-full max-w-[360px] sm:max-w-[480px] lg:max-w-[540px]">
               {/* Glow backdrop ring */}
@@ -388,10 +479,10 @@ export default function Home() {
                 {/* Subtle dark gradient overlay on bottom for depth */}
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-deep/70 via-transparent to-transparent pointer-events-none" />
 
-                {/* Small celebratory badge on image */}
-                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-purple-deep/85 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5 sm:gap-2">
+                {/* Small celebratory badge on image from flyer */}
+                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-purple-deep/90 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs px-3.5 py-1.5 rounded-full flex items-center gap-1.5 sm:gap-2 shadow-lg">
                   <Heart size={13} strokeWidth={2} className="text-yellow" />
-                  <span>500+ enfants accompagnés</span>
+                  <span>Plus de 500 enfants à célébrer</span>
                 </div>
               </div>
             </div>
@@ -434,7 +525,7 @@ export default function Home() {
                   Le SIFDA, bien plus qu&apos;un salon.
                 </h2>
                 <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed mb-5 sm:mb-6">
-                  Une plateforme de rencontres, de valorisation des talents féminins et de création d&apos;opportunités pour un avenir plus solidaire.
+                  Une plateforme panafricaine de rencontres, de valorisation des talents et de création d&apos;opportunités économiques, unie à un formidable élan de solidarité.
                 </p>
 
                 {/* 3 Ambitions with yellow round icon markers */}
@@ -444,7 +535,7 @@ export default function Home() {
                       <Briefcase size={18} strokeWidth={1.8} />
                     </div>
                     <span className="text-sm sm:text-base font-semibold text-gray-900">
-                      Entrepreneuriat féminin
+                      Entrepreneuriat féminin &amp; Made in Camer
                     </span>
                   </div>
 
@@ -453,7 +544,7 @@ export default function Home() {
                       <Award size={18} strokeWidth={1.8} />
                     </div>
                     <span className="text-sm sm:text-base font-semibold text-gray-900">
-                      Talents africains
+                      Talents africains &amp; Savoir-faire
                     </span>
                   </div>
 
@@ -462,7 +553,7 @@ export default function Home() {
                       <Handshake size={18} strokeWidth={1.8} />
                     </div>
                     <span className="text-sm sm:text-base font-semibold text-gray-900">
-                      Partenariats
+                      Partenariats &amp; Solidarité enfants
                     </span>
                   </div>
                 </div>
@@ -473,7 +564,7 @@ export default function Home() {
                   href="#temps-forts"
                   className="pill bg-purple hover:bg-purple-dark text-white font-semibold text-xs sm:text-sm px-6 py-3 w-full sm:w-auto inline-flex justify-center shadow-sm"
                 >
-                  En savoir plus <ArrowRight size={16} />
+                  Découvrir les 8 temps forts <ArrowRight size={16} />
                 </a>
               </div>
             </div>
@@ -483,20 +574,20 @@ export default function Home() {
               <div className="h-44 sm:h-56 relative overflow-hidden bg-gray-100">
                 <img
                   src="/images/heros.png"
-                  alt="Le Salon SIFDA - Femmes d'affaires"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt="Le Salon SIFDA - Made in Camer & Stands"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="bg-[#3B1570] text-white p-5 sm:p-7 flex-1 flex flex-col justify-between">
                 <div>
                   <h3 className="font-display text-xl sm:text-2xl font-bold mb-1.5 sm:mb-2 text-white">
-                    Le Salon
+                    Le Salon &amp; Stands
                   </h3>
                   <p className="font-semibold text-yellow text-xs sm:text-sm mb-1.5 sm:mb-2">
-                    Célébrer, connecter, propulser.
+                    Vous faites du Made in Camer ?
                   </p>
                   <p className="text-white/80 text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
-                    Formations, expositions, rencontres et opportunités.
+                    Nous avons un stand pour vous ! Formations, foire-exposition, conférences et networking à Bonanjo.
                   </p>
                 </div>
                 <div>
@@ -515,8 +606,8 @@ export default function Home() {
               <div className="h-44 sm:h-56 relative overflow-hidden bg-gray-100">
                 <img
                   src="/images/img1.png"
-                  alt="Arbre de Noël - Sourires d'enfants avec cadeaux"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt="Arbre de Noël - Plus de 500 enfants à célébrer"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="bg-[#E8A820] text-purple-deep p-5 sm:p-7 flex-1 flex flex-col justify-between">
@@ -525,10 +616,10 @@ export default function Home() {
                     L&apos;Arbre de Noël
                   </h3>
                   <p className="font-bold text-purple-dark text-xs sm:text-sm mb-1.5 sm:mb-2">
-                    Partager, donner, faire briller les sourires.
+                    Revient... plus grand !
                   </p>
                   <p className="text-purple-deep/90 font-medium text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
-                    Plus de 500 enfants à célébrer.
+                    Plus de 500 enfants à célébrer à travers l&apos;Arbre de Noël de la solidarité.
                   </p>
                 </div>
                 <div>
@@ -541,6 +632,90 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          SECTION 05 — LES TEMPS FORTS DU SIFDA 2026 (FLYERS OFFICIELS)
+      ══════════════════════════════════════════════ */}
+      <section id="temps-forts" className="py-12 sm:py-20 lg:py-24 bg-gray-50/60 relative border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header matching brief & flyers */}
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
+            <span className="text-xs font-bold uppercase tracking-wider text-yellow bg-yellow/15 px-3.5 py-1 rounded-full mb-2 inline-block">
+              Programme Officiel
+            </span>
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-purple mb-2 sm:mb-3">
+              Les temps forts du SIFDA 2026
+            </h2>
+            <p className="text-gray-600 text-xs sm:text-base lg:text-lg">
+              Ensemble, faisons grandir les ambitions des femmes et briller les rêves des enfants.
+            </p>
+          </div>
+
+          {/* Mobile swipe helper badge */}
+          <div className="flex items-center justify-between lg:hidden mb-3.5 text-[11px] font-semibold text-purple bg-purple-light/80 px-3.5 py-2 rounded-xl border border-purple/10">
+            <span>8 temps forts officiels</span>
+            <span className="flex items-center gap-1 text-gray-500 font-normal">
+              Glissez pour explorer <ArrowRight size={12} />
+            </span>
+          </div>
+
+          {/* 8 Activities Cards matching the 8 official flyers in a responsive 4-column grid on desktop */}
+          <div className="flex gap-4 overflow-x-auto pb-5 pt-1 px-4 -mx-4 sm:mx-0 sm:px-0 lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-visible no-scrollbar snap-x snap-mandatory">
+            {ACTIVITIES.map((act) => (
+              <div
+                key={act.id}
+                onClick={() => setSelectedActivity(act)}
+                className="flex-shrink-0 w-[175px] sm:w-[220px] lg:w-auto snap-start flex flex-col justify-between group cursor-pointer bg-white rounded-2xl p-2.5 sm:p-3.5 shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1"
+              >
+                <div>
+                  {/* Flyer Image Container */}
+                  <div className="h-44 sm:h-56 rounded-xl overflow-hidden bg-gray-100 mb-3 relative shadow-xs group-hover:shadow-md transition">
+                    <img
+                      src={act.image}
+                      alt={act.title}
+                      className="w-full h-full object-cover object-top group-hover:scale-106 transition-transform duration-500"
+                    />
+                    {/* Badge tag on image */}
+                    <div className="absolute top-2 left-2 max-w-[85%]">
+                      <span className="bg-purple-deep/90 backdrop-blur-sm text-yellow text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-md shadow-xs line-clamp-1">
+                        {act.badge}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Date & Location */}
+                  <p className="text-[10px] sm:text-[11px] font-bold text-purple tracking-tight leading-none mb-1">
+                    {act.date}
+                  </p>
+                  <p className="text-[10px] sm:text-[11px] font-medium text-gray-400 mb-1.5 line-clamp-1">
+                    {act.location}
+                  </p>
+
+                  {/* Title */}
+                  <h3 className="font-sans font-bold text-xs sm:text-sm text-gray-900 leading-snug group-hover:text-purple transition-colors line-clamp-2 mb-1.5">
+                    {act.title}
+                  </h3>
+
+                  {/* Flyer slogan quote */}
+                  <p className="text-[10px] sm:text-[11px] text-gray-500 italic line-clamp-2 leading-relaxed">
+                    « {act.slogan} »
+                  </p>
+                </div>
+
+                {/* Card Footer: Action button */}
+                <div className="mt-3 pt-2.5 border-t border-gray-50 flex items-center justify-between">
+                  <span className="text-[10px] sm:text-[11px] font-bold text-purple group-hover:text-yellow transition-colors">
+                    Détails &amp; Inscription
+                  </span>
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-yellow group-hover:bg-yellow-bright flex items-center justify-center transition-transform group-hover:scale-110 shadow-xs">
+                    <ArrowRight size={12} className="text-purple-deep" />
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -561,8 +736,11 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Left side: Heading & Action matching mockup */}
+            {/* Left side: Heading & Action matching flyer */}
             <div className="lg:col-span-5 space-y-4 sm:space-y-6">
+              <span className="inline-block bg-yellow/20 border border-yellow/40 text-yellow text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full">
+                L&apos;Arbre de Noël revient... plus grand !
+              </span>
               <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold italic text-white leading-tight">
                 Cette année,
                 <br />
@@ -572,7 +750,7 @@ export default function Home() {
                 </span>
               </h2>
               <p className="text-white/80 text-xs sm:text-base lg:text-lg leading-relaxed max-w-md">
-                À travers l&apos;Arbre de Noël de la solidarité, offrons un moment inoubliable à plus de 500 enfants.
+                À travers l&apos;Arbre de Noël de la solidarité, offrons un moment magique et inoubliable à plus de 500 enfants défavorisés et orphelins.
               </p>
               <div>
                 <button
@@ -598,7 +776,7 @@ export default function Home() {
                   11 déc. 2026
                 </h4>
                 <p className="text-gray-600 text-[11px] sm:text-sm font-medium mt-1 leading-snug">
-                  Illumination de l&apos;Arbre
+                  Illumination du grand Arbre
                 </p>
               </div>
 
@@ -611,22 +789,22 @@ export default function Home() {
                   12 déc. 2026
                 </h4>
                 <p className="text-gray-600 text-[11px] sm:text-sm font-medium mt-1 leading-snug">
-                  Remise des cadeaux
+                  Remise des cadeaux aux enfants
                 </p>
               </div>
             </div>
 
-            {/* Right side: Festive Christmas tree visual matching mockup */}
+            {/* Right side: Real Christmas celebration photo from flyer */}
             <div className="lg:col-span-3 flex justify-center">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 w-full max-w-[220px] sm:max-w-[280px] aspect-[4/5]">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 w-full max-w-[240px] sm:max-w-[280px] aspect-[4/5] group">
                 <img
                   src="/images/img3.png"
-                  alt="Sapin de Noël illuminé et cadeaux"
-                  className="w-full h-full object-cover"
+                  alt="Le Père Noël et les enfants de l'Arbre de Noël"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-2.5 inset-x-2.5 text-center text-[10px] sm:text-xs text-white/90 font-medium">
-                  Un Noël de joie &amp; de partage
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-2.5 inset-x-2.5 text-center text-[10px] sm:text-xs text-white/95 font-medium">
+                  Plus de 500 enfants comblés de cadeaux
                 </div>
               </div>
             </div>
@@ -701,89 +879,20 @@ export default function Home() {
             {/* CTAs additionnels requis par le brief */}
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full sm:w-auto">
               <button
-                onClick={() => {
-                  setPartnerModal(true);
-                  setPartnerSuccess(false);
-                }}
+                onClick={() => openPartnerWithCategory("Solidaire")}
                 className="pill bg-white text-gray-900 hover:bg-gray-100 font-semibold text-xs sm:text-sm w-full sm:w-auto justify-center"
               >
                 <Handshake size={16} className="text-purple" /> Devenir partenaire de l&apos;Arbre de Noël
               </button>
               <a
-                href="#contact"
+                href="https://wa.me/237693090733?text=Bonjour,%20je%20souhaite%20soutenir%20l'Arbre%20de%20Noël%20de%20la%20solidarité"
+                target="_blank"
+                rel="noreferrer"
                 className="pill bg-sgreen hover:bg-sgreen/90 text-white font-semibold text-xs sm:text-sm w-full sm:w-auto justify-center"
               >
-                <MessageCircle size={16} /> Contacter l&apos;organisation
+                <MessageCircle size={16} /> Contacter l&apos;organisation (+237 693 090 733)
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════
-          SECTION 05 — LES TEMPS FORTS DU SIFDA 2026
-      ══════════════════════════════════════════════ */}
-      <section id="temps-forts" className="py-12 sm:py-20 lg:py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header matching mockup */}
-          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
-            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-purple mb-2 sm:mb-3">
-              Les temps forts du SIFDA 2026
-            </h2>
-            <p className="text-gray-600 text-xs sm:text-base lg:text-lg">
-              Quatre jours pour apprendre, découvrir, célébrer et créer des opportunités.
-            </p>
-          </div>
-
-          {/* Mobile swipe helper badge */}
-          <div className="flex items-center justify-between lg:hidden mb-3 text-[11px] font-semibold text-purple bg-purple-light/70 px-3 py-1.5 rounded-lg">
-            <span>7 temps forts à découvrir</span>
-            <span className="flex items-center gap-1 text-gray-500 font-normal">
-              Glissez vers la droite <ArrowRight size={12} />
-            </span>
-          </div>
-
-          {/* 7 Activities Cards matching mockup row */}
-          <div className="flex gap-3 sm:gap-4 overflow-x-auto pb-4 pt-1 px-4 -mx-4 sm:mx-0 sm:px-0 lg:grid lg:grid-cols-7 lg:overflow-visible no-scrollbar snap-x snap-mandatory">
-            {ACTIVITIES.map((act) => (
-              <div
-                key={act.id}
-                onClick={() => setSelectedActivity(act)}
-                className="flex-shrink-0 w-[145px] sm:w-48 lg:w-auto snap-start flex flex-col justify-between group cursor-pointer bg-gray-50/50 p-2 sm:p-0 rounded-2xl sm:bg-transparent"
-              >
-                <div>
-                  {/* Card Image */}
-                  <div className="h-28 sm:h-36 rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 mb-2.5 sm:mb-3 relative shadow-xs group-hover:shadow-md transition">
-                    <img
-                      src={act.image}
-                      alt={act.title}
-                      className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-purple/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-
-                  {/* Date & Location */}
-                  <p className="text-[10px] sm:text-[11px] font-semibold text-purple tracking-tight leading-none mb-0.5 sm:mb-1">
-                    {act.date}
-                  </p>
-                  <p className="text-[10px] sm:text-[11px] font-medium text-gray-400 mb-1 sm:mb-1.5 line-clamp-1">
-                    {act.location}
-                  </p>
-
-                  {/* Title */}
-                  <h3 className="font-sans font-bold text-xs sm:text-sm text-gray-900 leading-snug group-hover:text-purple transition-colors line-clamp-2">
-                    {act.title}
-                  </h3>
-                </div>
-
-                {/* Circular Arrow Button matching mockup */}
-                <div className="mt-2.5 sm:mt-3">
-                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-yellow group-hover:bg-yellow-bright flex items-center justify-center transition-transform group-hover:scale-110 shadow-xs">
-                    <ArrowRight size={12} className="text-purple-deep" />
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -793,9 +902,9 @@ export default function Home() {
       ══════════════════════════════════════════════ */}
       <section id="programme" className="py-12 sm:py-16 lg:py-20 bg-gray-50/70 border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* 3 Blocks Row matching mockup */}
+          {/* 3 Blocks Row matching mockup & flyers */}
           <div className="grid lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
-            {/* Col 1: Card Devenir Partenaire with Handshake Photo */}
+            {/* Col 1: Card Devenir Partenaire / Réserver un stand */}
             <div
               id="partenaires"
               className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 text-white relative overflow-hidden flex flex-col justify-between shadow-lg"
@@ -813,28 +922,28 @@ export default function Home() {
               </div>
 
               <div className="relative z-10">
+                <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-yellow bg-yellow/20 px-2.5 py-1 rounded-md mb-2">
+                  Entreprises &amp; Producteurs
+                </span>
                 <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold italic mb-2 sm:mb-3 text-white">
-                  Devenir partenaire
+                  Devenir partenaire ou Exposant
                 </h3>
                 <p className="text-white/80 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
-                  Ensemble, donnons plus de portée aux talents et plus de lumière aux initiatives solidaires.
+                  Vous faites du Made in Camer ? Nous avons un stand pour vous à la Maison du Parti de Bonanjo.
                 </p>
               </div>
 
-              <div className="relative z-10 pt-2">
+              <div className="relative z-10 pt-2 flex flex-col sm:flex-row gap-2.5">
                 <button
-                  onClick={() => {
-                    setPartnerModal(true);
-                    setPartnerSuccess(false);
-                  }}
+                  onClick={() => openPartnerWithCategory("Commercial")}
                   className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-xs sm:text-sm px-5 py-2.5 sm:py-3 shadow-md w-full sm:w-auto justify-center"
                 >
-                  Découvrir les opportunités <ArrowRight size={15} />
+                  Réserver un stand <ArrowRight size={15} />
                 </button>
               </div>
             </div>
 
-            {/* Col 2: Card Programme en un coup d'œil */}
+            {/* Col 2: Card Programme en un coup d'œil adapté aux flyers */}
             <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-sm border border-gray-100 flex flex-col justify-between">
               <div>
                 <h3 className="font-sans font-bold text-base sm:text-lg lg:text-xl text-gray-900 mb-3.5 sm:mb-5">
@@ -843,20 +952,20 @@ export default function Home() {
                 <div className="space-y-3 sm:space-y-4">
                   {[
                     {
-                      date: "5 décembre",
-                      label: "Conférence de presse – MiCasa, Douala",
+                      date: "05 décembre",
+                      label: "Grand Carnaval des Femmes Dynamiques – Douala (Accès & rafraîchissements gratuits)",
                     },
                     {
-                      date: "9–10 décembre",
-                      label: "Ateliers Femmes d'Impact – Kribi",
+                      date: "09–10 décembre",
+                      label: "Ateliers & Immersion Femmes d'Impact – Kribi",
                     },
                     {
                       date: "11 décembre",
-                      label: "Carnaval & Arbre de Noël – Douala",
+                      label: "Illumination du grand Arbre de Noël – Douala",
                     },
                     {
                       date: "12 décembre",
-                      label: "Salon, remise des cadeaux & Gala",
+                      label: "Salon, Stands Made in Camer, Conférences, Remise des cadeaux & Soirée de Gala – Bonanjo",
                     },
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-start gap-3">
@@ -873,12 +982,12 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <div className="pt-3 sm:pt-4 border-t border-gray-100 mt-3 sm:mt-4 text-[11px] sm:text-xs text-gray-400">
-                Horaires détaillés communiqués à l&apos;ouverture officielle.
+              <div className="pt-3 sm:pt-4 border-t border-gray-100 mt-3 sm:mt-4 text-[11px] sm:text-xs text-gray-500 font-medium">
+                Maison du Parti, Bonanjo, Douala &amp; Kribi.
               </div>
             </div>
 
-            {/* Col 3: Calligraphic Quote Card matching mockup */}
+            {/* Col 3: Calligraphic Quote Card matching mockup & flyer message */}
             <div
               className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 flex flex-col justify-center relative overflow-hidden shadow-sm border border-amber-100"
               style={{
@@ -887,10 +996,13 @@ export default function Home() {
             >
               <div className="relative z-10">
                 <p className="font-display font-bold italic text-xl sm:text-2xl lg:text-[1.85rem] text-purple leading-snug">
-                  Femmes dynamiques, talents en action, avenir en construction.
+                  Ensemble, faisons grandir les ambitions des femmes et briller les rêves des enfants.
                 </p>
                 {/* Decorative golden brush curve matching mockup */}
                 <div className="mt-3 sm:mt-4 w-24 sm:w-28 h-1.5 bg-gradient-to-r from-yellow via-yellow-bright to-transparent rounded-full" />
+                <p className="mt-3 text-xs text-purple-dark/80 font-bold uppercase tracking-wider">
+                  Les Nouvelles Femmes Dynamiques Africaines
+                </p>
               </div>
             </div>
           </div>
@@ -907,7 +1019,7 @@ export default function Home() {
               Foire aux questions
             </h2>
             <p className="text-gray-500 text-xs sm:text-sm lg:text-base">
-              Tout ce que vous devez savoir pour participer et vous engager au SIFDA 2026.
+              Tout ce que vous devez savoir pour participer, réserver un stand et vous engager.
             </p>
           </div>
 
@@ -915,36 +1027,28 @@ export default function Home() {
           <div className="divide-y divide-gray-100 border-y border-gray-100">
             {[
               {
-                q: "Qu'est-ce que le SIFDA ?",
-                a: "Le Salon International des Femmes Dynamiques Africaines (SIFDA 2026) est un événement d'envergure internationale dédié à la célébration, la formation, la valorisation et la mise en réseau des femmes entrepreneures, créatrices et leaders africaines. Il intègre également une dimension solidaire majeure à travers l'Arbre de Noël de la solidarité.",
+                q: "Qu'est-ce que le SINFDA / SIFDA 2026 ?",
+                a: "Le Salon International des Nouvelles Femmes Dynamiques Africaines (SINFDA 2026) est un événement d'envergure internationale dédié à la promotion de l'entrepreneuriat féminin, à la valorisation du Made in Camer et à la création de réseaux. Il porte également l'Arbre de Noël de la solidarité en faveur de plus de 500 enfants.",
+              },
+              {
+                q: "Quand a lieu le grand Carnaval des Femmes Dynamiques ?",
+                a: "Le Carnaval se tiendra le 05 Décembre 2026 à Douala dans les rues de la ville. L'accès ainsi que les rafraîchissements sont entièrement gratuits pour toutes les participantes !",
+              },
+              {
+                q: "Comment réserver un stand pour exposer du « Made in Camer » ?",
+                a: "Si vous produisez ou transformez localement (café, thé, miel, mode, cosmétique, artisanat), nous avons un stand pour vous à la Maison du Parti de Bonanjo le 12 décembre 2026. Vous pouvez réserver via notre formulaire ou au +237 693 090 733.",
               },
               {
                 q: "Quelles sont les dates de l'événement ?",
-                a: "Le SIFDA se tiendra officiellement du9 au 12 décembre 2026. Une conférence de presse introductive aura lieu le 5 décembre à Douala (MiCasa).",
+                a: "Les festivités débutent le 05 décembre avec le grand Carnaval à Douala, puis les activités majeures se déroulent du 9 au 12 décembre 2026 à Douala (Maison du Parti) et Kribi.",
               },
               {
-                q: "Où se déroulent les activités ?",
-                a: "Les activités se déploient sur deux villes : Kribi pour les Ateliers Femmes d'Impact (9 et 10 décembre), et Douala pour le Carnaval, le Salon principal, les conférences et l'Arbre de Noël (Maison du Parti, Bonanjo, les 11 et 12 décembre).",
+                q: "Comment soutenir l'Arbre de Noël de la solidarité ?",
+                a: "Vous pouvez participer sous forme de dons financiers, dons matériels (jouets neufs, fournitures, vêtements), dons en nature (goûters, denrées) ou partenariats logistiques pour célébrer plus de 500 enfants.",
               },
               {
-                q: "Qui peut participer ?",
-                a: "Le salon est ouvert à toutes les femmes entrepreneures, professionnelles, porteuses de projets, partenaires institutionnels, entreprises privées ainsi qu'au grand public désireux de découvrir les talents locaux et de soutenir la solidarité.",
-              },
-              {
-                q: "Comment devenir exposant ?",
-                a: "Les inscriptions d'exposantes sont ouvertes via notre formulaire de partenariat ou en contactant directement le secrétariat général de l'organisation. Un comité sélectionne les stands pour garantir une diversité de secteurs (mode, agroalimentaire, cosmétique, tech, services).",
-              },
-              {
-                q: "Comment soutenir l'Arbre de Noël ?",
-                a: "Vous pouvez contribuer sous quatre formes : dons financiers, dons matériels (jouets, fournitures scolaires, vêtements neufs), dons en nature (goûters, denrées) ou par un partenariat logistique et technique.",
-              },
-              {
-                q: "Combien d'enfants sont concernés ?",
-                a: "L'Arbre de Noël de la solidarité a pour ambition d'illuminer le regard de plus de 500 enfants issus de milieux défavorisés ou d'orphelinats partenaires.",
-              },
-              {
-                q: "Comment contacter l'organisation ?",
-                a: "Vous pouvez nous joindre directement via WhatsApp avec le bouton dédié sur cette page, remplir nos formulaires interactifs de partenariat ou de don, ou nous écrire à nos coordonnées officielles.",
+                q: "Comment contacter directement l'organisation ?",
+                a: "Par WhatsApp / Téléphone au +237 693 090 733, par e-mail à contact@femmesdynamiques.com ou sur notre site www.femmesdynamiques.com.",
               },
             ].map((faq, idx) => (
               <details key={idx} className="group py-3.5 sm:py-5">
@@ -977,29 +1081,29 @@ export default function Home() {
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-yellow/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold italic leading-tight mb-3.5 sm:mb-5">
-            Une célébration, mille opportunités.
+            Ensemble, faisons grandir les ambitions des femmes
             <br />
             <span className="text-yellow not-italic">
-              Et des milliers de raisons de partager.
+              et briller les rêves des enfants.
             </span>
           </h2>
           <p className="text-white/80 text-xs sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-10">
-            Le SIFDA est à la fois une célébration des femmes, une plateforme d&apos;opportunités économiques et une formidable initiative de solidarité envers les enfants.
+            Rejoignez cette célébration inédite à Douala et Kribi. Réservez votre stand, participez au Carnaval ou parrainez le sourire d&apos;un enfant.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full sm:w-auto">
             <a
-              href="#programme"
+              href="#temps-forts"
               className="pill bg-white hover:bg-gray-100 text-purple-deep font-bold text-xs sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 shadow-lg w-full sm:w-auto justify-center"
             >
-              Découvrir le programme <ArrowRight size={16} />
+              Découvrir les activités <ArrowRight size={16} />
             </a>
-            <a
-              href="#temps-forts"
+            <button
+              onClick={() => openPartnerWithCategory("Commercial")}
               className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-xs sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 shadow-lg w-full sm:w-auto justify-center"
             >
-              Participer au Salon <ArrowRight size={16} />
-            </a>
+              Réserver mon stand Made in Camer <ArrowRight size={16} />
+            </button>
             <button
               onClick={() => {
                 setDonModal(true);
@@ -1015,7 +1119,7 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          SECTION 10 — FOOTER
+          SECTION 10 — FOOTER (COORDONNÉES OFFICIELLES)
       ══════════════════════════════════════════════ */}
       <footer id="contact" className="bg-[#180829] text-white pt-12 sm:pt-16 pb-8 sm:pb-12 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1023,7 +1127,7 @@ export default function Home() {
             {/* Col 1: Logo & Mission description */}
             <div className="md:col-span-4 space-y-3 sm:space-y-4">
               <div className="flex items-center gap-2.5 sm:gap-3">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0">
+                <div className="w-10 h-10 flex-shrink-0">
                   <svg viewBox="0 0 100 100" className="w-full h-full">
                     <circle cx="50" cy="50" r="48" fill="#3B1570" />
                     <path
@@ -1038,19 +1142,22 @@ export default function Home() {
                 </div>
                 <div>
                   <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-white">
-                    SIFDA
+                    SINFDA
                   </span>
                   <span className="font-sans font-bold text-[10px] sm:text-xs tracking-wider text-yellow ml-1 sm:ml-1.5">
                     2026
                   </span>
                 </div>
               </div>
-              <p className="text-white/60 text-xs sm:text-sm leading-relaxed max-w-sm">
-                Le Salon International des Femmes Dynamiques Africaines, une célébration du talent, de la solidarité et de l&apos;espoir.
+              <p className="text-white/70 text-xs sm:text-sm font-semibold">
+                Les Nouvelles Femmes Dynamiques Africaines
+              </p>
+              <p className="text-white/50 text-xs leading-relaxed max-w-sm">
+                Solidaire pour une Afrique Convergente · Célébration du talent féminin, du Made in Camer et de l&apos;Arbre de Noël de la solidarité.
               </p>
             </div>
 
-            {/* Col 2: Navigation Links matching mockup */}
+            {/* Col 2: Navigation Links */}
             <div className="md:col-span-4">
               <p className="text-[11px] sm:text-xs font-bold text-yellow uppercase tracking-wider mb-3 sm:mb-4">
                 Navigation
@@ -1068,63 +1175,53 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Col 3: Social & WhatsApp Button matching mockup */}
+            {/* Col 3: Coordonnées officielles issues des flyers */}
             <div className="md:col-span-4 flex flex-col md:items-end space-y-3 sm:space-y-4">
-              {/* Social icons */}
-              <div className="flex items-center gap-2.5 sm:gap-3">
-                {/* Facebook */}
+              <p className="text-[11px] sm:text-xs font-bold text-yellow uppercase tracking-wider mb-1">
+                Contacts Officiels
+              </p>
+              
+              <div className="space-y-2 text-xs sm:text-sm text-white/80 md:text-right">
                 <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/80 hover:text-white transition"
-                  aria-label="Facebook"
+                  href="tel:+237693090733"
+                  className="flex items-center md:justify-end gap-2 hover:text-yellow transition"
                 >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                  </svg>
+                  <Phone size={15} className="text-yellow" />
+                  <span>+237 693 090 733</span>
                 </a>
-                {/* YouTube */}
                 <a
-                  href="https://youtube.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/80 hover:text-white transition"
-                  aria-label="YouTube"
+                  href="mailto:contact@femmesdynamiques.com"
+                  className="flex items-center md:justify-end gap-2 hover:text-yellow transition"
                 >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                  </svg>
+                  <Mail size={15} className="text-yellow" />
+                  <span>contact@femmesdynamiques.com</span>
                 </a>
-                {/* LinkedIn */}
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.femmesdynamiques.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/80 hover:text-white transition"
-                  aria-label="LinkedIn"
+                  className="flex items-center md:justify-end gap-2 hover:text-yellow transition"
                 >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                  </svg>
+                  <Store size={15} className="text-yellow" />
+                  <span>www.femmesdynamiques.com</span>
                 </a>
               </div>
 
-              {/* WhatsApp CTA matching mockup */}
+              {/* WhatsApp CTA officiel */}
               <a
-                href="https://wa.me/237699000000?text=Bonjour,%20je%20souhaite%20des%20informations%20sur%20le%20SIFDA%202026"
+                href="https://wa.me/237693090733?text=Bonjour,%20je%20souhaite%20des%20informations%20sur%20le%20SINFDA%202026"
                 target="_blank"
                 rel="noreferrer"
                 className="pill bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold text-xs px-4 sm:px-5 py-2.5 shadow-md inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
-                <MessageCircle size={15} /> Nous contacter
+                <MessageCircle size={15} /> WhatsApp (+237 693 090 733)
               </a>
             </div>
           </div>
 
           {/* Bottom Copyright & Legal links */}
           <div className="border-t border-white/10 pt-5 sm:pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-3 text-[11px] text-white/40 text-center sm:text-left">
-            <p>© 2026 SIFDA. Tous droits réservés.</p>
+            <p>© 2026 Les Nouvelles Femmes Dynamiques Africaines. Tous droits réservés.</p>
             <div className="flex gap-4">
               <a href="#" className="hover:text-white/70 transition">
                 Mentions légales
@@ -1138,19 +1235,19 @@ export default function Home() {
       </footer>
 
       {/* ══════════════════════════════════════════════
-          BOUTON FLOTTANT WHATSAPP (Mobile & Desktop)
+          BOUTON FLOTTANT WHATSAPP OFFICIEL (+237 693 090 733)
       ══════════════════════════════════════════════ */}
       <a
-        href="https://wa.me/237699000000?text=Bonjour,%20je%20souhaite%20participer%20au%20SIFDA%202026"
+        href="https://wa.me/237693090733?text=Bonjour,%20je%20souhaite%20des%20informations%20sur%20le%20SINFDA%202026"
         target="_blank"
         rel="noreferrer"
         className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 w-12 h-12 sm:w-14 sm:h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300 group"
-        aria-label="Contacter sur WhatsApp"
+        aria-label="Contacter sur WhatsApp au +237 693 090 733"
       >
         <MessageCircle size={24} className="sm:hidden" />
         <MessageCircle size={28} className="hidden sm:block" />
         <span className="absolute right-16 bg-gray-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-md hidden sm:block">
-          Discuter avec l&apos;organisation
+          Discuter au +237 693 090 733
         </span>
       </a>
 
@@ -1171,7 +1268,7 @@ export default function Home() {
               Merci pour votre générosité !
             </h4>
             <p className="text-xs text-gray-600 max-w-sm mx-auto leading-relaxed">
-              Votre engagement contribue directement à illuminer le sourire de plus de 500 enfants. Notre équipe vous contactera très prochainement pour finaliser les modalités de remise.
+              Votre engagement contribue directement à illuminer le sourire de plus de 500 enfants. Notre équipe vous contactera au numéro indiqué ou au +237 693 090 733.
             </p>
             <button
               onClick={() => setDonModal(false)}
@@ -1267,12 +1364,12 @@ export default function Home() {
       </Modal>
 
       {/* ══════════════════════════════════════════════
-          MODAL 2: FORMULAIRE DE PARTENARIAT (Section 07)
+          MODAL 2: FORMULAIRE DE PARTENARIAT & STANDS (Section 07)
       ══════════════════════════════════════════════ */}
       <Modal
         open={partnerModal}
         onClose={() => setPartnerModal(false)}
-        title="Devenir partenaire du SIFDA 2026"
+        title="Partenariat & Réservation de Stand SINFDA 2026"
       >
         {partnerSuccess ? (
           <div className="text-center py-5 sm:py-6 space-y-2.5 sm:space-y-3">
@@ -1283,7 +1380,7 @@ export default function Home() {
               Demande enregistrée avec succès
             </h4>
             <p className="text-xs text-gray-600 max-w-sm mx-auto leading-relaxed">
-              Nous vous remercions de votre intérêt pour le SIFDA. La direction des partenariats examinera votre proposition et reprendra contact avec vous dans les 48 heures.
+              Nous vous remercions de votre intérêt pour le SINFDA 2026. La direction des partenariats examinera votre proposition et vous contactera au +237 693 090 733.
             </p>
             <button
               onClick={() => setPartnerModal(false)}
@@ -1301,7 +1398,7 @@ export default function Home() {
             className="space-y-2 sm:space-y-2.5"
           >
             <p className="text-[11px] text-gray-500 leading-snug">
-              Associez votre institution ou votre entreprise à cet événement panafricain.
+              Réservez votre stand Made in Camer ou associez votre entreprise à l&apos;événement.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -1312,7 +1409,7 @@ export default function Home() {
                 <input
                   required
                   type="text"
-                  placeholder="Ex. Groupe Alliance"
+                  placeholder="Ex. Marque Camerounaise ou Entreprise"
                   className={inputClasses}
                 />
               </div>
@@ -1323,7 +1420,7 @@ export default function Home() {
                 <input
                   required
                   type="text"
-                  placeholder="Ex. Dr. Marcelle Ewandé"
+                  placeholder="Ex. Aminata Kamdem"
                   className={inputClasses}
                 />
               </div>
@@ -1337,13 +1434,13 @@ export default function Home() {
                 <input
                   required
                   type="email"
-                  placeholder="partenariat@entreprise.com"
+                  placeholder="contact@entreprise.com"
                   className={inputClasses}
                 />
               </div>
               <div>
                 <label className="text-[11px] font-bold text-gray-700 block mb-0.5">
-                  Téléphone <span className="text-red-500">*</span>
+                  Téléphone / WhatsApp <span className="text-red-500">*</span>
                 </label>
                 <input
                   required
@@ -1356,28 +1453,31 @@ export default function Home() {
 
             <div>
               <label className="text-[11px] font-bold text-gray-700 block mb-0.5">
-                Type de partenariat envisagé <span className="text-red-500">*</span>
+                Type de partenariat / Stand <span className="text-red-500">*</span>
               </label>
-              <select required className={inputClasses}>
-                <option value="">Sélectionnez une option...</option>
+              <select
+                defaultValue={partnerDefaultType}
+                required
+                className={inputClasses}
+              >
+                <option value="Commercial">Stand Exposant Made in Camer (Agri-business, Terroir, Mode)</option>
                 <option value="Institutionnel">Partenariat Institutionnel</option>
                 <option value="Financier">Partenariat Financier / Sponsoring</option>
                 <option value="Technique et logistique">
                   Partenariat Technique et Logistique
                 </option>
-                <option value="Médiatique">Partenariat Médiatique / Diffusion</option>
-                <option value="Commercial">Partenariat Commercial / Exposant</option>
+                <option value="Médiatique">Partenariat Médiatique / Presse</option>
                 <option value="Solidaire">Partenariat Solidaire (Arbre de Noël)</option>
               </select>
             </div>
 
             <div>
               <label className="text-[11px] font-bold text-gray-700 block mb-0.5">
-                Message ou proposition de collaboration
+                Message ou Produits à exposer
               </label>
               <textarea
                 rows={2}
-                placeholder="Présentez brièvement vos attentes ou la forme d'association souhaitée..."
+                placeholder="Précisez la nature de vos produits Made in Camer ou vos souhaits..."
                 className={inputClasses}
               />
             </div>
@@ -1386,14 +1486,14 @@ export default function Home() {
               type="submit"
               className="w-full bg-purple hover:bg-purple-dark text-white font-bold py-2.5 rounded-lg shadow-md transition text-xs sm:text-sm mt-1"
             >
-              Envoyer la demande de partenariat
+              Envoyer ma demande
             </button>
           </form>
         )}
       </Modal>
 
       {/* ══════════════════════════════════════════════
-          MODAL 3: DÉTAILS D'ACTIVITÉ (Section 05)
+          MODAL 3: DÉTAILS D'ACTIVITÉ / FLYER OFFICIEL (Section 05)
       ══════════════════════════════════════════════ */}
       {selectedActivity && (
         <Modal
@@ -1401,16 +1501,25 @@ export default function Home() {
           onClose={() => setSelectedActivity(null)}
           title={selectedActivity.title}
         >
-          <div className="space-y-4 sm:space-y-5">
-            <div className="h-44 sm:h-52 rounded-xl overflow-hidden bg-gray-100">
+          <div className="space-y-4">
+            {/* Flyer Image in Modal */}
+            <div className="h-60 sm:h-72 rounded-xl overflow-hidden bg-gray-100 border border-gray-100 relative group">
               <img
                 src={selectedActivity.image}
                 alt={selectedActivity.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-semibold">
+            {/* Slogan from flyer */}
+            <div className="bg-yellow/15 border-l-4 border-yellow px-3.5 py-2 rounded-r-lg">
+              <p className="text-xs sm:text-sm font-bold text-purple-deep italic">
+                « {selectedActivity.slogan} »
+              </p>
+            </div>
+
+            {/* Tags date & location */}
+            <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
               <span className="bg-purple text-white px-2.5 py-1 rounded-full flex items-center gap-1.5 text-[11px] sm:text-xs">
                 <Calendar size={13} /> {selectedActivity.date}
               </span>
@@ -1427,7 +1536,7 @@ export default function Home() {
               <h4 className="text-[11px] sm:text-xs font-bold text-purple uppercase tracking-wider mb-2">
                 Points clés du programme :
               </h4>
-              <ul className="space-y-1.5 sm:space-y-2">
+              <ul className="space-y-1.5">
                 {selectedActivity.highlights.map((h, i) => (
                   <li key={i} className="flex items-start gap-2 text-[11px] sm:text-xs text-gray-600">
                     <CheckCircle2 size={14} className="text-yellow flex-shrink-0 mt-0.5" />
@@ -1437,16 +1546,55 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="pt-2 sm:pt-3 border-t border-gray-100 flex flex-col sm:flex-row gap-2.5 sm:gap-3">
-              <button
-                onClick={() => {
-                  setSelectedActivity(null);
-                  setPartnerModal(true);
-                }}
-                className="pill bg-purple text-white text-xs px-5 py-2.5 flex-1 justify-center w-full sm:w-auto"
-              >
-                Participer / Réserver
-              </button>
+            {/* Modal Actions */}
+            <div className="pt-2 sm:pt-3 border-t border-gray-100 flex flex-col sm:flex-row gap-2.5">
+              {selectedActivity.actionType === "stand" && (
+                <button
+                  onClick={() => {
+                    setSelectedActivity(null);
+                    openPartnerWithCategory("Commercial");
+                  }}
+                  className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-xs px-5 py-2.5 flex-1 justify-center w-full sm:w-auto shadow-sm"
+                >
+                  {selectedActivity.actionText}
+                </button>
+              )}
+
+              {selectedActivity.actionType === "don" && (
+                <button
+                  onClick={() => {
+                    setSelectedActivity(null);
+                    setDonModal(true);
+                  }}
+                  className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-xs px-5 py-2.5 flex-1 justify-center w-full sm:w-auto shadow-sm"
+                >
+                  {selectedActivity.actionText}
+                </button>
+              )}
+
+              {selectedActivity.actionType === "carnaval" && (
+                <a
+                  href="https://wa.me/237693090733?text=Bonjour,%20je%20souhaite%20participer%20au%20grand%20Carnaval%20des%20Femmes%20Dynamiques%20du%2005%20décembre%20à%20Douala"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="pill bg-sgreen hover:bg-sgreen/90 text-white font-bold text-xs px-5 py-2.5 flex-1 justify-center w-full sm:w-auto shadow-sm inline-flex items-center gap-1.5"
+                >
+                  <MessageCircle size={15} /> {selectedActivity.actionText} (WhatsApp)
+                </a>
+              )}
+
+              {selectedActivity.actionType === "partenaire" && (
+                <button
+                  onClick={() => {
+                    setSelectedActivity(null);
+                    openPartnerWithCategory("Institutionnel");
+                  }}
+                  className="pill bg-purple text-white text-xs px-5 py-2.5 flex-1 justify-center w-full sm:w-auto shadow-sm"
+                >
+                  {selectedActivity.actionText}
+                </button>
+              )}
+
               <button
                 onClick={() => setSelectedActivity(null)}
                 className="pill bg-gray-100 text-gray-700 hover:bg-gray-200 text-xs px-5 py-2.5 w-full sm:w-auto justify-center"

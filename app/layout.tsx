@@ -2,22 +2,28 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SIFDA 2026 — Salon International des Femmes Dynamiques Africaines & Arbre de Noël",
+  title: "SINFDA 2026 — L'Arbre de Noël Revient... Plus Grand",
   description:
-    "Du 9 au 12 décembre 2026 à Douala & Kribi. Une célébration, mille opportunités. Entrepreneuriat féminin, talents africains et Arbre de Noël de la solidarité pour plus de 500 enfants.",
+    "Du 9 au 12 décembre 2026 à Douala & Kribi. Ensemble, faisons grandir les ambitions des femmes et briller les rêves des enfants. Salon International des Nouvelles Femmes Dynamiques Africaines et Arbre de Noël de la solidarité pour plus de 500 enfants.",
   keywords: [
+    "SINFDA 2026",
     "SIFDA 2026",
-    "Salon International des Femmes Dynamiques Africaines",
+    "L'Arbre de Noël Revient Plus Grand",
+    "Salon International des Nouvelles Femmes Dynamiques Africaines",
     "Arbre de Noël de la solidarité",
     "Entrepreneuriat féminin",
+    "Made in Camer",
     "Douala",
     "Kribi",
     "Cameroun",
-    "Afrique",
   ],
+  icons: {
+    icon: "/images/titre.png",
+    apple: "/images/titre.png",
+  },
   openGraph: {
-    title: "SIFDA 2026 — Salon International des Femmes Dynamiques Africaines",
-    description: "Une célébration, mille opportunités. Du 9 au 12 décembre 2026 – Douala & Kribi.",
+    title: "SINFDA 2026 — L'Arbre de Noël Revient... Plus Grand",
+    description: "Ensemble, faisons grandir les ambitions des femmes et briller les rêves des enfants. Du 9 au 12 décembre 2026 – Douala & Kribi.",
     locale: "fr_FR",
     type: "website",
   },
