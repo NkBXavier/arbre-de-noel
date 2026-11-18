@@ -2,13 +2,34 @@
 @import "tailwindcss";
 
 :root {
-  --purple: #4B1D8E;
-  --purple-dark: #3A1570;
-  --purple-deep: #2A0F52;
-  --purple-light: #F6F1FB;
-  --yellow: #E8A820;
-  --yellow-bright: #F5B731;
+  /* Couleurs officielles extraites directement des flyers SINFDA 2026 */
+  --plum: #68003B;             /* Prune Impérial officiel (fond de tous les flyers) */
+  --plum-dark: #450027;        /* Prune profond */
+  --plum-deep: #2A0017;        /* Prune nuit */
+  --plum-light: #FDF2F7;       /* Teinte douce fond de carte */
+  --plum-hover: #7E0048;       /* Prune au survol */
+
+  /* Alias de compatibilité : purple pointe désormais vers le plum officiel des flyers */
+  --purple: var(--plum);
+  --purple-dark: var(--plum-dark);
+  --purple-deep: var(--plum-deep);
+  --purple-light: var(--plum-light);
+
+  /* Rose Magenta Éclatant (boutons et rubans officiels des flyers) */
+  --magenta: #DD0B7D;
+  --magenta-hover: #C2006A;
+  --magenta-light: #FDE8F3;
+
+  /* Or Chaud & Doré (titres 'CARNAVAL', macarons, pastilles 'Avec le SINFDA') */
+  --yellow: #F9B42F;
+  --yellow-bright: #FFC247;
+  --yellow-light: #FFF8EB;
+  --yellow-deep: #D49010;
+
+  /* Vert Arbre de Noël & WhatsApp officiel */
   --green: #25D366;
+  --green-deep: #0B2818;
+
   --white: #ffffff;
   --gray-50: #FAFAFA;
   --gray-100: #F3F4F6;
@@ -18,12 +39,26 @@
 }
 
 @theme inline {
-  --color-purple: var(--purple);
-  --color-purple-dark: var(--purple-dark);
-  --color-purple-deep: var(--purple-deep);
-  --color-purple-light: var(--purple-light);
+  --color-plum: var(--plum);
+  --color-plum-dark: var(--plum-dark);
+  --color-plum-deep: var(--plum-deep);
+  --color-plum-light: var(--plum-light);
+  --color-plum-hover: var(--plum-hover);
+
+  --color-magenta: var(--magenta);
+  --color-magenta-hover: var(--magenta-hover);
+  --color-magenta-light: var(--magenta-light);
+
+  --color-purple: var(--plum);
+  --color-purple-dark: var(--plum-dark);
+  --color-purple-deep: var(--plum-deep);
+  --color-purple-light: var(--plum-light);
+
   --color-yellow: var(--yellow);
   --color-yellow-bright: var(--yellow-bright);
+  --color-yellow-light: var(--yellow-light);
+  --color-yellow-deep: var(--yellow-deep);
+
   --color-sgreen: var(--green);
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-display: 'Playfair Display', Georgia, serif;

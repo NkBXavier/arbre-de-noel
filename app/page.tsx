@@ -320,7 +320,7 @@ export default function Home() {
                 SINFDA
               </span>
               <span className="font-sans font-bold text-[10px] sm:text-xs tracking-wider text-yellow">
-                SIFDA 2026
+                SINFDA 2026
               </span>
             </div>
           </a>
@@ -418,17 +418,6 @@ export default function Home() {
                 L&apos;Arbre de Noël Revient... Plus Grand — Salon International des Nouvelles Femmes Dynamiques Africaines (SINFDA 2026)
               </h1>
             </div>
-
-            {/* Slogan officiel unifié */}
-            <p className="font-display text-xl sm:text-2xl lg:text-[1.85rem] font-bold italic leading-snug text-white/95">
-              Ensemble, faisons grandir{" "}
-              <span className="text-yellow not-italic font-extrabold drop-shadow-sm">
-                les ambitions des femmes
-              </span>
-              <br />
-              et briller les rêves des enfants.
-            </p>
-
             {/* Subtext date and locations */}
             <div className="pt-0.5 sm:pt-1 space-y-0.5 sm:space-y-1">
               <p className="text-lg sm:text-2xl font-bold text-white tracking-wide flex items-center gap-2">
