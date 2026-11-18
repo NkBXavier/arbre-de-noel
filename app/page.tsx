@@ -49,7 +49,7 @@ const ACTIVITIES: ActivityDetail[] = [
       "Séances de coaching en leadership et prise de parole en public",
       "Cadre propice à la réflexion et au networking de haut niveau",
     ],
-    image: "/images/activite-ateliers.jpg",
+    image: "/images/heros.png",
   },
   {
     id: "carnaval",
@@ -65,7 +65,7 @@ const ACTIVITIES: ActivityDetail[] = [
       "Visibilité médiatique exceptionnelle pour les collectifs et délégations",
       "Point de départ festif vers l'illumination de l'Arbre de Noël",
     ],
-    image: "/images/activite-carnaval.jpg",
+    image: "/images/heros.png",
   },
   {
     id: "expo",
@@ -81,7 +81,7 @@ const ACTIVITIES: ActivityDetail[] = [
       "Rencontres acheteurs – productrices pour débouchés commerciaux",
       "Dégustations et découvertes de produits du terroir camerounais",
     ],
-    image: "/images/activite-expo.jpg",
+    image: "/images/heros.png",
   },
   {
     id: "talk",
@@ -97,7 +97,7 @@ const ACTIVITIES: ActivityDetail[] = [
       "Session de questions-réponses directes avec le public",
       "Retransmission en direct pour toucher une audience panafricaine",
     ],
-    image: "/images/activite-talk.jpg",
+    image: "/images/heros.png",
   },
   {
     id: "boost",
@@ -113,7 +113,7 @@ const ACTIVITIES: ActivityDetail[] = [
       "Speed-mentoring individuel avec des dirigeantes d'entreprises",
       "Prix d'accélération et dotations pour les lauréates",
     ],
-    image: "/images/activite-boost.jpg",
+    image: "/images/heros.png",
   },
   {
     id: "distinctions",
@@ -129,7 +129,7 @@ const ACTIVITIES: ActivityDetail[] = [
       "Couverture médiatique nationale et internationale",
       "Présence d'autorités institutionnelles et de leaders économiques",
     ],
-    image: "/images/activite-distinctions.jpg",
+    image: "/images/heros.png",
   },
   {
     id: "gala",
@@ -145,7 +145,7 @@ const ACTIVITIES: ActivityDetail[] = [
       "Cocktail de networking d'affaires haut de gamme",
       "Célébration festive de clôture avec toutes les délégations",
     ],
-    image: "/images/activite-gala.jpg",
+    image: "/images/heros.png",
   },
 ];
 
@@ -164,31 +164,33 @@ function Modal({
   if (!open) return null;
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-2xl max-w-lg w-full max-h-[92vh] overflow-y-auto no-scrollbar shadow-2xl border border-gray-100 flex flex-col"
+        className="bg-white rounded-xl sm:rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto no-scrollbar shadow-2xl border border-gray-100 flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between px-5 pt-3.5 pb-2.5 border-b border-gray-100 flex-shrink-0">
-          <h3 className="text-base sm:text-lg font-bold text-purple font-display">{title}</h3>
+        <div className="flex items-center justify-between px-4 sm:px-5 pt-3.5 pb-2.5 border-b border-gray-100 flex-shrink-0">
+          <h3 className="text-sm sm:text-lg font-bold text-purple font-display pr-2 line-clamp-1">
+            {title}
+          </h3>
           <button
             onClick={onClose}
-            className="w-7 h-7 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition"
+            className="w-7 h-7 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition flex-shrink-0"
             aria-label="Fermer"
           >
             <X size={18} />
           </button>
         </div>
-        <div className="px-5 py-3 sm:py-4">{children}</div>
+        <div className="px-4 sm:px-5 py-3 sm:py-4">{children}</div>
       </div>
     </div>
   );
 }
 
 const inputClasses =
-  "w-full border border-gray-200 rounded-lg px-3.5 py-2 text-sm focus:ring-2 focus:ring-purple/30 focus:border-purple outline-none transition bg-white text-gray-800 placeholder-gray-400";
+  "w-full border border-gray-200 rounded-lg px-3 py-2 text-xs sm:text-sm focus:ring-2 focus:ring-purple/30 focus:border-purple outline-none transition bg-white text-gray-800 placeholder-gray-400";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -213,15 +215,15 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 selection:bg-yellow selection:text-purple-deep">
+    <div className="min-h-screen bg-white text-gray-900 selection:bg-yellow selection:text-purple-deep overflow-x-hidden">
       {/* ══════════════════════════════════════════════
           SECTION 00 — NAVBAR FIXE & STICKY
       ══════════════════════════════════════════════ */}
       <nav className="fixed top-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-xs transition-all">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
           {/* Logo SIFDA 2026 */}
-          <a href="#accueil" className="flex items-center gap-3 group">
-            <div className="relative w-11 h-11 flex-shrink-0">
+          <a href="#accueil" className="flex items-center gap-2.5 sm:gap-3 group">
+            <div className="relative w-9 h-9 sm:w-11 sm:h-11 flex-shrink-0">
               <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-sm">
                 <circle cx="50" cy="50" r="48" fill="#F4EEFB" />
                 {/* Silhouette femme africaine avec coiffe stylisée */}
@@ -242,10 +244,10 @@ export default function Home() {
               </svg>
             </div>
             <div className="flex flex-col leading-none">
-              <span className="font-display font-extrabold text-2xl tracking-tight text-purple group-hover:text-purple-dark transition-colors">
+              <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-purple group-hover:text-purple-dark transition-colors">
                 SIFDA
               </span>
-              <span className="font-sans font-bold text-xs tracking-wider text-yellow">
+              <span className="font-sans font-bold text-[10px] sm:text-xs tracking-wider text-yellow">
                 2026
               </span>
             </div>
@@ -278,33 +280,33 @@ export default function Home() {
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden p-2 rounded-xl text-gray-700 hover:text-purple hover:bg-purple-light transition"
+            className="lg:hidden w-10 h-10 rounded-xl flex items-center justify-center text-gray-700 hover:text-purple hover:bg-purple-light transition"
             aria-label="Menu de navigation"
           >
-            {menuOpen ? <X size={26} /> : <Menu size={26} />}
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Dropdown Menu */}
         {menuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100 px-6 py-6 space-y-3 shadow-xl">
+          <div className="lg:hidden bg-white/98 backdrop-blur-md border-t border-gray-100 px-5 py-4 space-y-2 shadow-xl animate-in slide-in-from-top-2 duration-200">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="block py-2.5 text-base font-medium text-gray-800 hover:text-purple border-b border-gray-50"
+                className="block py-2.5 px-3 text-sm font-semibold text-gray-800 hover:text-purple hover:bg-purple-light/50 rounded-lg transition"
               >
                 {link.label}
               </a>
             ))}
-            <div className="pt-3">
+            <div className="pt-2">
               <a
                 href="#arbre-noel"
                 onClick={() => setMenuOpen(false)}
-                className="pill bg-purple text-white w-full justify-center py-3.5 shadow-sm"
+                className="pill bg-purple text-white w-full justify-center py-3 text-sm shadow-sm font-bold"
               >
-                <Gift size={18} className="text-yellow" />
+                <Gift size={16} className="text-yellow" />
                 Soutenir l&apos;Arbre de Noël
               </a>
             </div>
@@ -317,24 +319,18 @@ export default function Home() {
       ══════════════════════════════════════════════ */}
       <section
         id="accueil"
-        className="relative pt-20 overflow-hidden bg-gradient-to-br from-[#240A42] via-[#3B1570] to-[#552399] text-white"
-        style={{
-          minHeight: "calc(100vh - 5rem)",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-        }}
+        className="relative pt-16 sm:pt-20 overflow-hidden bg-gradient-to-br from-[#240A42] via-[#3B1570] to-[#552399] text-white flex flex-col justify-between min-h-[calc(100svh-4rem)]"
       >
         {/* Luminous festive ambient background effects */}
-        <div className="absolute top-12 left-10 w-96 h-96 bg-purple-500/20 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute top-20 right-1/4 w-80 h-80 bg-yellow/15 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-yellow-bright/10 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute top-12 left-10 w-72 sm:w-96 h-72 sm:h-96 bg-purple-500/20 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none" />
+        <div className="absolute top-20 right-1/4 w-60 sm:w-80 h-60 sm:h-80 bg-yellow/15 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-72 sm:w-96 h-72 sm:h-96 bg-yellow-bright/10 rounded-full blur-[100px] sm:blur-[130px] pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-12 pb-16 lg:py-20 grid lg:grid-cols-12 gap-10 lg:gap-8 items-center flex-1">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6 sm:pt-12 pb-10 sm:pb-16 lg:py-20 grid lg:grid-cols-12 gap-8 lg:gap-8 items-center flex-1">
           {/* Left Column: Headlines & Call to Actions */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-6 space-y-4 sm:space-y-6">
             {/* Title exact matching mockup */}
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold italic leading-[1.12] tracking-tight">
+            <h1 className="font-display text-3xl sm:text-5xl lg:text-[3.5rem] font-bold italic leading-[1.15] sm:leading-[1.12] tracking-tight">
               Une célébration,
               <br />
               <span className="text-yellow not-italic font-extrabold drop-shadow-sm">
@@ -343,31 +339,31 @@ export default function Home() {
             </h1>
 
             {/* Subtext date and locations */}
-            <div className="pt-1 space-y-1">
-              <p className="text-xl sm:text-2xl font-bold text-white tracking-wide">
+            <div className="pt-0.5 sm:pt-1 space-y-0.5 sm:space-y-1">
+              <p className="text-lg sm:text-2xl font-bold text-white tracking-wide">
                 Du 9 au 12 décembre 2026
               </p>
-              <p className="text-xl sm:text-2xl font-bold text-white/95">
+              <p className="text-lg sm:text-2xl font-bold text-white/95">
                 Douala &amp; Kribi
               </p>
             </div>
 
             {/* Intro paragraph from brief */}
-            <p className="text-white/80 text-sm sm:text-base leading-relaxed max-w-lg pt-1">
+            <p className="text-white/80 text-xs sm:text-base leading-relaxed max-w-lg pt-0.5">
               Quatre jours de célébration, d&apos;apprentissage et de solidarité pour propulser l&apos;entrepreneuriat féminin et illuminer l&apos;avenir de plus de 500 enfants.
             </p>
 
             {/* The Two Hero CTAs matching mockup */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
               <a
                 href="#programme"
-                className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold px-7 py-3.5 shadow-lg shadow-yellow/20 text-sm sm:text-base"
+                className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold px-6 sm:px-7 py-3 sm:py-3.5 shadow-lg shadow-yellow/20 text-sm sm:text-base w-full sm:w-auto justify-center"
               >
-                Découvrir le programme <ArrowRight size={18} />
+                Découvrir le programme <ArrowRight size={17} />
               </a>
               <a
                 href="#arbre-noel"
-                className="pill bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md px-7 py-3.5 text-sm sm:text-base inline-flex items-center gap-2"
+                className="pill bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md px-6 sm:px-7 py-3 sm:py-3.5 text-sm sm:text-base inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 <span>Soutenir l&apos;Arbre de Noël</span>
                 <Heart size={16} strokeWidth={2} />
@@ -376,25 +372,25 @@ export default function Home() {
           </div>
 
           {/* Right Column: Hero Visual composition matching mockup */}
-          <div className="lg:col-span-6 relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[540px]">
+          <div className="lg:col-span-6 relative flex justify-center lg:justify-end mt-2 lg:mt-0">
+            <div className="relative w-full max-w-[360px] sm:max-w-[480px] lg:max-w-[540px]">
               {/* Glow backdrop ring */}
-              <div className="absolute -inset-4 bg-gradient-to-tr from-yellow/30 to-purple-400/20 rounded-3xl blur-2xl transform -rotate-1" />
+              <div className="absolute -inset-3 sm:-inset-4 bg-gradient-to-tr from-yellow/30 to-purple-400/20 rounded-3xl blur-xl sm:blur-2xl transform -rotate-1" />
 
               {/* Main Image container matching mockup */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 aspect-[4/3] sm:aspect-[16/11]">
+              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 aspect-[4/3] sm:aspect-[16/11]">
                 <img
-                  src="/images/hero.jpg"
+                  src="/images/img2.png"
                   alt="Femmes dynamiques africaines et enfants célébrant Noël"
-                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
                 />
 
                 {/* Subtle dark gradient overlay on bottom for depth */}
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-deep/70 via-transparent to-transparent pointer-events-none" />
 
                 {/* Small celebratory badge on image */}
-                <div className="absolute bottom-4 left-4 bg-purple-deep/85 backdrop-blur-md border border-white/20 text-white text-xs px-3.5 py-1.5 rounded-full flex items-center gap-2">
-                  <Heart size={14} strokeWidth={2} className="text-yellow" />
+                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-purple-deep/85 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5 sm:gap-2">
+                  <Heart size={13} strokeWidth={2} className="text-yellow" />
                   <span>500+ enfants accompagnés</span>
                 </div>
               </div>
@@ -427,45 +423,45 @@ export default function Home() {
       {/* ══════════════════════════════════════════════
           SECTIONS 02 & 03 — LE SIFDA & LES DEUX DIMENSIONS
       ══════════════════════════════════════════════ */}
-      <section id="sifda" className="py-20 lg:py-24 bg-white relative">
+      <section id="sifda" className="py-12 sm:py-16 lg:py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 3-Column Grid matching exactly the mockup visual */}
-          <div className="grid lg:grid-cols-3 gap-8 items-stretch">
+          <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
             {/* Column 1: Presentation & Ambitions */}
-            <div className="flex flex-col justify-between p-2">
+            <div className="flex flex-col justify-between p-1 sm:p-2">
               <div>
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-4">
+                <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-3 sm:mb-4">
                   Le SIFDA, bien plus qu&apos;un salon.
                 </h2>
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed mb-5 sm:mb-6">
                   Une plateforme de rencontres, de valorisation des talents féminins et de création d&apos;opportunités pour un avenir plus solidaire.
                 </p>
 
                 {/* 3 Ambitions with yellow round icon markers */}
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-full bg-yellow/15 flex items-center justify-center flex-shrink-0 text-yellow">
-                      <Briefcase size={19} strokeWidth={1.8} />
+                <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                  <div className="flex items-center gap-3 sm:gap-3.5">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-yellow/15 flex items-center justify-center flex-shrink-0 text-yellow">
+                      <Briefcase size={18} strokeWidth={1.8} />
                     </div>
-                    <span className="text-base font-semibold text-gray-900">
+                    <span className="text-sm sm:text-base font-semibold text-gray-900">
                       Entrepreneuriat féminin
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-full bg-yellow/15 flex items-center justify-center flex-shrink-0 text-yellow">
-                      <Award size={19} strokeWidth={1.8} />
+                  <div className="flex items-center gap-3 sm:gap-3.5">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-yellow/15 flex items-center justify-center flex-shrink-0 text-yellow">
+                      <Award size={18} strokeWidth={1.8} />
                     </div>
-                    <span className="text-base font-semibold text-gray-900">
+                    <span className="text-sm sm:text-base font-semibold text-gray-900">
                       Talents africains
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-full bg-yellow/15 flex items-center justify-center flex-shrink-0 text-yellow">
-                      <Handshake size={19} strokeWidth={1.8} />
+                  <div className="flex items-center gap-3 sm:gap-3.5">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-yellow/15 flex items-center justify-center flex-shrink-0 text-yellow">
+                      <Handshake size={18} strokeWidth={1.8} />
                     </div>
-                    <span className="text-base font-semibold text-gray-900">
+                    <span className="text-sm sm:text-base font-semibold text-gray-900">
                       Partenariats
                     </span>
                   </div>
@@ -475,7 +471,7 @@ export default function Home() {
               <div>
                 <a
                   href="#temps-forts"
-                  className="pill bg-purple hover:bg-purple-dark text-white font-semibold text-sm px-6 py-3 inline-flex shadow-sm"
+                  className="pill bg-purple hover:bg-purple-dark text-white font-semibold text-xs sm:text-sm px-6 py-3 w-full sm:w-auto inline-flex justify-center shadow-sm"
                 >
                   En savoir plus <ArrowRight size={16} />
                 </a>
@@ -483,30 +479,30 @@ export default function Home() {
             </div>
 
             {/* Column 2: Card LE SALON matching mockup */}
-            <div className="rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col group hover:shadow-2xl transition duration-300">
-              <div className="h-56 relative overflow-hidden bg-gray-100">
+            <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col group hover:shadow-2xl transition duration-300">
+              <div className="h-44 sm:h-56 relative overflow-hidden bg-gray-100">
                 <img
-                  src="/images/salon.jpg"
+                  src="/images/heros.png"
                   alt="Le Salon SIFDA - Femmes d'affaires"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="bg-[#3B1570] text-white p-6 sm:p-7 flex-1 flex flex-col justify-between">
+              <div className="bg-[#3B1570] text-white p-5 sm:p-7 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-display text-2xl font-bold mb-2 text-white">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold mb-1.5 sm:mb-2 text-white">
                     Le Salon
                   </h3>
-                  <p className="font-semibold text-yellow text-sm mb-2">
+                  <p className="font-semibold text-yellow text-xs sm:text-sm mb-1.5 sm:mb-2">
                     Célébrer, connecter, propulser.
                   </p>
-                  <p className="text-white/80 text-xs sm:text-sm leading-relaxed mb-6">
+                  <p className="text-white/80 text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
                     Formations, expositions, rencontres et opportunités.
                   </p>
                 </div>
                 <div>
                   <a
                     href="#temps-forts"
-                    className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-xs sm:text-sm px-5 py-2.5 inline-flex"
+                    className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-xs sm:text-sm px-5 py-2.5 w-full sm:w-auto inline-flex justify-center"
                   >
                     Découvrir les activités <ArrowRight size={14} />
                   </a>
@@ -515,30 +511,30 @@ export default function Home() {
             </div>
 
             {/* Column 3: Card L'ARBRE DE NOËL matching mockup */}
-            <div className="rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col group hover:shadow-2xl transition duration-300">
-              <div className="h-56 relative overflow-hidden bg-gray-100">
+            <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col group hover:shadow-2xl transition duration-300">
+              <div className="h-44 sm:h-56 relative overflow-hidden bg-gray-100">
                 <img
-                  src="/images/arbre-noel-card.jpg"
+                  src="/images/img1.png"
                   alt="Arbre de Noël - Sourires d'enfants avec cadeaux"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="bg-[#E8A820] text-purple-deep p-6 sm:p-7 flex-1 flex flex-col justify-between">
+              <div className="bg-[#E8A820] text-purple-deep p-5 sm:p-7 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-display text-2xl font-bold mb-2 text-purple-deep">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold mb-1.5 sm:mb-2 text-purple-deep">
                     L&apos;Arbre de Noël
                   </h3>
-                  <p className="font-bold text-purple-dark text-sm mb-2">
+                  <p className="font-bold text-purple-dark text-xs sm:text-sm mb-1.5 sm:mb-2">
                     Partager, donner, faire briller les sourires.
                   </p>
-                  <p className="text-purple-deep/90 font-medium text-xs sm:text-sm leading-relaxed mb-6">
+                  <p className="text-purple-deep/90 font-medium text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
                     Plus de 500 enfants à célébrer.
                   </p>
                 </div>
                 <div>
                   <a
                     href="#arbre-noel"
-                    className="pill bg-white hover:bg-purple-light text-purple-deep font-bold text-xs sm:text-sm px-5 py-2.5 inline-flex shadow-sm"
+                    className="pill bg-white hover:bg-purple-light text-purple-deep font-bold text-xs sm:text-sm px-5 py-2.5 w-full sm:w-auto inline-flex justify-center shadow-sm"
                   >
                     Participer à la solidarité <ArrowRight size={14} />
                   </a>
@@ -554,7 +550,7 @@ export default function Home() {
       ══════════════════════════════════════════════ */}
       <section
         id="arbre-noel"
-        className="relative py-20 lg:py-28 overflow-hidden text-white"
+        className="relative py-12 sm:py-20 lg:py-28 overflow-hidden text-white"
         style={{
           background: "linear-gradient(135deg, #0A2419 0%, #103625 50%, #194C35 100%)",
         }}
@@ -564,10 +560,10 @@ export default function Home() {
         <div className="absolute top-10 right-10 w-96 h-96 bg-yellow/10 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             {/* Left side: Heading & Action matching mockup */}
-            <div className="lg:col-span-5 space-y-6">
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold italic text-white leading-tight">
+            <div className="lg:col-span-5 space-y-4 sm:space-y-6">
+              <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold italic text-white leading-tight">
                 Cette année,
                 <br />
                 faisons briller plus de{" "}
@@ -575,7 +571,7 @@ export default function Home() {
                   500 sourires.
                 </span>
               </h2>
-              <p className="text-white/80 text-base sm:text-lg leading-relaxed max-w-md">
+              <p className="text-white/80 text-xs sm:text-base lg:text-lg leading-relaxed max-w-md">
                 À travers l&apos;Arbre de Noël de la solidarité, offrons un moment inoubliable à plus de 500 enfants.
               </p>
               <div>
@@ -584,52 +580,52 @@ export default function Home() {
                     setDonModal(true);
                     setDonSuccess(false);
                   }}
-                  className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-base px-7 py-3.5 shadow-xl shadow-yellow/20"
+                  className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-xs sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 shadow-xl shadow-yellow/20 w-full sm:w-auto justify-center"
                 >
-                  Je souhaite faire un don <ArrowRight size={18} />
+                  Je souhaite faire un don <ArrowRight size={17} />
                 </button>
               </div>
             </div>
 
             {/* Middle: 2 Clean White Chronological Cards matching mockup */}
-            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-row gap-4">
+            <div className="lg:col-span-4 grid grid-cols-2 gap-2.5 sm:gap-4">
               {/* Card 1: 11 Décembre */}
-              <div className="flex-1 bg-white text-gray-900 rounded-2xl p-6 text-center shadow-xl border border-gray-100 flex flex-col items-center justify-center">
-                <div className="w-13 h-13 rounded-full bg-purple flex items-center justify-center mb-4 text-white shadow-md">
-                  <Calendar size={24} className="text-yellow" />
+              <div className="bg-white text-gray-900 rounded-xl sm:rounded-2xl p-3.5 sm:p-6 text-center shadow-xl border border-gray-100 flex flex-col items-center justify-center">
+                <div className="w-10 h-10 sm:w-13 sm:h-13 rounded-full bg-purple flex items-center justify-center mb-2.5 sm:mb-4 text-white shadow-md">
+                  <Calendar size={20} className="text-yellow" />
                 </div>
-                <h4 className="font-bold text-purple text-lg sm:text-xl">
-                  11 décembre 2026
+                <h4 className="font-bold text-purple text-xs sm:text-lg lg:text-xl leading-tight">
+                  11 déc. 2026
                 </h4>
-                <p className="text-gray-600 text-sm font-medium mt-1.5">
-                  Illumination du grand Arbre de Noël
+                <p className="text-gray-600 text-[11px] sm:text-sm font-medium mt-1 leading-snug">
+                  Illumination de l&apos;Arbre
                 </p>
               </div>
 
               {/* Card 2: 12 Décembre */}
-              <div className="flex-1 bg-white text-gray-900 rounded-2xl p-6 text-center shadow-xl border border-gray-100 flex flex-col items-center justify-center">
-                <div className="w-13 h-13 rounded-full bg-purple flex items-center justify-center mb-4 text-white shadow-md">
-                  <Gift size={24} className="text-yellow" />
+              <div className="bg-white text-gray-900 rounded-xl sm:rounded-2xl p-3.5 sm:p-6 text-center shadow-xl border border-gray-100 flex flex-col items-center justify-center">
+                <div className="w-10 h-10 sm:w-13 sm:h-13 rounded-full bg-purple flex items-center justify-center mb-2.5 sm:mb-4 text-white shadow-md">
+                  <Gift size={20} className="text-yellow" />
                 </div>
-                <h4 className="font-bold text-purple text-lg sm:text-xl">
-                  12 décembre 2026
+                <h4 className="font-bold text-purple text-xs sm:text-lg lg:text-xl leading-tight">
+                  12 déc. 2026
                 </h4>
-                <p className="text-gray-600 text-sm font-medium mt-1.5">
-                  Remise des cadeaux aux enfants
+                <p className="text-gray-600 text-[11px] sm:text-sm font-medium mt-1 leading-snug">
+                  Remise des cadeaux
                 </p>
               </div>
             </div>
 
             {/* Right side: Festive Christmas tree visual matching mockup */}
             <div className="lg:col-span-3 flex justify-center">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 w-full max-w-[280px] aspect-[4/5]">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 w-full max-w-[220px] sm:max-w-[280px] aspect-[4/5]">
                 <img
-                  src="/images/sapin-noel.jpg"
+                  src="/images/img3.png"
                   alt="Sapin de Noël illuminé et cadeaux"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-3 inset-x-3 text-center text-xs text-white/90 font-medium">
+                <div className="absolute bottom-2.5 inset-x-2.5 text-center text-[10px] sm:text-xs text-white/90 font-medium">
                   Un Noël de joie &amp; de partage
                 </div>
               </div>
@@ -637,15 +633,15 @@ export default function Home() {
           </div>
 
           {/* Sous-section: 4 Formes de contribution requises par le brief */}
-          <div className="mt-16 pt-12 border-t border-white/10">
-            <h3 className="text-center font-display text-2xl font-bold text-white mb-2">
+          <div className="mt-10 sm:mt-16 pt-8 sm:pt-12 border-t border-white/10">
+            <h3 className="text-center font-display text-xl sm:text-2xl font-bold text-white mb-2">
               Comment contribuer à l&apos;Arbre de Noël ?
             </h3>
-            <p className="text-center text-white/70 text-sm max-w-2xl mx-auto mb-10">
+            <p className="text-center text-white/70 text-xs sm:text-sm max-w-2xl mx-auto mb-6 sm:mb-10">
               Chaque geste, matériel ou financier, transforme directement le quotidien des 500 enfants bénéficiaires.
             </p>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-5">
               {[
                 {
                   title: "Dons financiers",
@@ -681,21 +677,21 @@ export default function Home() {
                       setDonSuccess(false);
                       setDonModal(true);
                     }}
-                    className="bg-white/10 hover:bg-white/15 border border-white/15 rounded-2xl p-6 backdrop-blur-sm transition-all duration-300 cursor-pointer hover:border-yellow/60 hover:-translate-y-1 group flex flex-col justify-between shadow-lg"
+                    className="bg-white/10 hover:bg-white/15 border border-white/15 rounded-xl sm:rounded-2xl p-3.5 sm:p-6 backdrop-blur-sm transition-all duration-300 cursor-pointer hover:border-yellow/60 hover:-translate-y-0.5 group flex flex-col justify-between shadow-lg"
                   >
                     <div>
-                      <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-yellow mb-5 group-hover:bg-yellow group-hover:text-purple-deep group-hover:scale-105 transition-all shadow-sm">
-                        <IconComponent size={22} strokeWidth={1.8} />
+                      <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-yellow mb-2.5 sm:mb-5 group-hover:bg-yellow group-hover:text-purple-deep group-hover:scale-105 transition-all shadow-sm">
+                        <IconComponent size={18} strokeWidth={1.8} />
                       </div>
-                      <h4 className="font-bold text-base text-white group-hover:text-yellow transition-colors mb-2.5">
+                      <h4 className="font-bold text-xs sm:text-base text-white group-hover:text-yellow transition-colors mb-1 sm:mb-2.5 leading-snug">
                         {item.title}
                       </h4>
-                      <p className="text-xs text-white/75 leading-relaxed">
+                      <p className="text-[10px] sm:text-xs text-white/75 leading-relaxed line-clamp-3 sm:line-clamp-none">
                         {item.desc}
                       </p>
                     </div>
-                    <span className="mt-5 text-xs font-semibold text-yellow inline-flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
-                      Participer <ArrowRight size={13} />
+                    <span className="mt-2.5 sm:mt-5 text-[10px] sm:text-xs font-semibold text-yellow inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      Participer <ArrowRight size={12} />
                     </span>
                   </div>
                 );
@@ -703,19 +699,19 @@ export default function Home() {
             </div>
 
             {/* CTAs additionnels requis par le brief */}
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full sm:w-auto">
               <button
                 onClick={() => {
                   setPartnerModal(true);
                   setPartnerSuccess(false);
                 }}
-                className="pill bg-white text-gray-900 hover:bg-gray-100 font-semibold text-sm"
+                className="pill bg-white text-gray-900 hover:bg-gray-100 font-semibold text-xs sm:text-sm w-full sm:w-auto justify-center"
               >
                 <Handshake size={16} className="text-purple" /> Devenir partenaire de l&apos;Arbre de Noël
               </button>
               <a
                 href="#contact"
-                className="pill bg-sgreen hover:bg-sgreen/90 text-white font-semibold text-sm"
+                className="pill bg-sgreen hover:bg-sgreen/90 text-white font-semibold text-xs sm:text-sm w-full sm:w-auto justify-center"
               >
                 <MessageCircle size={16} /> Contacter l&apos;organisation
               </a>
@@ -727,29 +723,37 @@ export default function Home() {
       {/* ══════════════════════════════════════════════
           SECTION 05 — LES TEMPS FORTS DU SIFDA 2026
       ══════════════════════════════════════════════ */}
-      <section id="temps-forts" className="py-20 lg:py-24 bg-white relative">
+      <section id="temps-forts" className="py-12 sm:py-20 lg:py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header matching mockup */}
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-purple mb-3">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-purple mb-2 sm:mb-3">
               Les temps forts du SIFDA 2026
             </h2>
-            <p className="text-gray-600 text-base sm:text-lg">
+            <p className="text-gray-600 text-xs sm:text-base lg:text-lg">
               Quatre jours pour apprendre, découvrir, célébrer et créer des opportunités.
             </p>
           </div>
 
+          {/* Mobile swipe helper badge */}
+          <div className="flex items-center justify-between lg:hidden mb-3 text-[11px] font-semibold text-purple bg-purple-light/70 px-3 py-1.5 rounded-lg">
+            <span>7 temps forts à découvrir</span>
+            <span className="flex items-center gap-1 text-gray-500 font-normal">
+              Glissez vers la droite <ArrowRight size={12} />
+            </span>
+          </div>
+
           {/* 7 Activities Cards matching mockup row */}
-          <div className="flex gap-4 overflow-x-auto pb-6 lg:grid lg:grid-cols-7 lg:overflow-visible no-scrollbar snap-x snap-mandatory">
+          <div className="flex gap-3 sm:gap-4 overflow-x-auto pb-4 pt-1 px-4 -mx-4 sm:mx-0 sm:px-0 lg:grid lg:grid-cols-7 lg:overflow-visible no-scrollbar snap-x snap-mandatory">
             {ACTIVITIES.map((act) => (
               <div
                 key={act.id}
                 onClick={() => setSelectedActivity(act)}
-                className="flex-shrink-0 w-44 sm:w-48 lg:w-auto snap-start flex flex-col justify-between group cursor-pointer"
+                className="flex-shrink-0 w-[145px] sm:w-48 lg:w-auto snap-start flex flex-col justify-between group cursor-pointer bg-gray-50/50 p-2 sm:p-0 rounded-2xl sm:bg-transparent"
               >
                 <div>
                   {/* Card Image */}
-                  <div className="h-32 sm:h-36 rounded-2xl overflow-hidden bg-gray-100 mb-3 relative shadow-xs group-hover:shadow-md transition">
+                  <div className="h-28 sm:h-36 rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 mb-2.5 sm:mb-3 relative shadow-xs group-hover:shadow-md transition">
                     <img
                       src={act.image}
                       alt={act.title}
@@ -759,23 +763,23 @@ export default function Home() {
                   </div>
 
                   {/* Date & Location */}
-                  <p className="text-[11px] font-semibold text-purple tracking-tight leading-none mb-1">
+                  <p className="text-[10px] sm:text-[11px] font-semibold text-purple tracking-tight leading-none mb-0.5 sm:mb-1">
                     {act.date}
                   </p>
-                  <p className="text-[11px] font-medium text-gray-400 mb-1.5">
+                  <p className="text-[10px] sm:text-[11px] font-medium text-gray-400 mb-1 sm:mb-1.5 line-clamp-1">
                     {act.location}
                   </p>
 
                   {/* Title */}
-                  <h3 className="font-sans font-bold text-xs sm:text-sm text-gray-900 leading-snug group-hover:text-purple transition-colors">
+                  <h3 className="font-sans font-bold text-xs sm:text-sm text-gray-900 leading-snug group-hover:text-purple transition-colors line-clamp-2">
                     {act.title}
                   </h3>
                 </div>
 
                 {/* Circular Arrow Button matching mockup */}
-                <div className="mt-3">
-                  <div className="w-7 h-7 rounded-full bg-yellow group-hover:bg-yellow-bright flex items-center justify-center transition-transform group-hover:scale-110 shadow-xs">
-                    <ArrowRight size={13} className="text-purple-deep" />
+                <div className="mt-2.5 sm:mt-3">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-yellow group-hover:bg-yellow-bright flex items-center justify-center transition-transform group-hover:scale-110 shadow-xs">
+                    <ArrowRight size={12} className="text-purple-deep" />
                   </div>
                 </div>
               </div>
@@ -787,14 +791,14 @@ export default function Home() {
       {/* ══════════════════════════════════════════════
           SECTIONS 06 & 07 — PARTENAIRE, PROGRAMME & CITATION
       ══════════════════════════════════════════════ */}
-      <section id="programme" className="py-16 lg:py-20 bg-gray-50/70 border-y border-gray-100">
+      <section id="programme" className="py-12 sm:py-16 lg:py-20 bg-gray-50/70 border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 3 Blocks Row matching mockup */}
-          <div className="grid lg:grid-cols-3 gap-6 items-stretch">
+          <div className="grid lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
             {/* Col 1: Card Devenir Partenaire with Handshake Photo */}
             <div
               id="partenaires"
-              className="rounded-3xl p-7 sm:p-8 text-white relative overflow-hidden flex flex-col justify-between shadow-lg"
+              className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 text-white relative overflow-hidden flex flex-col justify-between shadow-lg"
               style={{
                 background: "linear-gradient(135deg, #2E0F57 0%, #4B1D8E 100%)",
               }}
@@ -802,17 +806,17 @@ export default function Home() {
               {/* Handshake background overlay photo */}
               <div className="absolute inset-0 opacity-25 mix-blend-luminosity pointer-events-none">
                 <img
-                  src="/images/partenaires.jpg"
+                  src="/images/img4.png"
                   alt="Poignée de main partenariats"
                   className="w-full h-full object-cover"
                 />
               </div>
 
               <div className="relative z-10">
-                <h3 className="font-display text-2xl sm:text-3xl font-bold italic mb-3 text-white">
+                <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold italic mb-2 sm:mb-3 text-white">
                   Devenir partenaire
                 </h3>
-                <p className="text-white/80 text-xs sm:text-sm leading-relaxed mb-6">
+                <p className="text-white/80 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
                   Ensemble, donnons plus de portée aux talents et plus de lumière aux initiatives solidaires.
                 </p>
               </div>
@@ -823,7 +827,7 @@ export default function Home() {
                     setPartnerModal(true);
                     setPartnerSuccess(false);
                   }}
-                  className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-xs sm:text-sm px-5 py-3 shadow-md"
+                  className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-xs sm:text-sm px-5 py-2.5 sm:py-3 shadow-md w-full sm:w-auto justify-center"
                 >
                   Découvrir les opportunités <ArrowRight size={15} />
                 </button>
@@ -831,12 +835,12 @@ export default function Home() {
             </div>
 
             {/* Col 2: Card Programme en un coup d'œil */}
-            <div className="bg-white rounded-3xl p-7 sm:p-8 shadow-sm border border-gray-100 flex flex-col justify-between">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-sm border border-gray-100 flex flex-col justify-between">
               <div>
-                <h3 className="font-sans font-bold text-lg sm:text-xl text-gray-900 mb-5">
+                <h3 className="font-sans font-bold text-base sm:text-lg lg:text-xl text-gray-900 mb-3.5 sm:mb-5">
                   Programme en un coup d&apos;œil
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   {[
                     {
                       date: "5 décembre",
@@ -855,10 +859,10 @@ export default function Home() {
                       label: "Salon, remise des cadeaux & Gala",
                     },
                   ].map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-3.5">
-                      <div className="w-1.5 h-9 rounded-full bg-yellow flex-shrink-0 mt-0.5" />
+                    <div key={idx} className="flex items-start gap-3">
+                      <div className="w-1.5 h-8 sm:h-9 rounded-full bg-yellow flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-xs font-bold text-purple uppercase tracking-wider">
+                        <p className="text-[11px] sm:text-xs font-bold text-purple uppercase tracking-wider">
                           {item.date}
                         </p>
                         <p className="text-xs sm:text-sm font-semibold text-gray-700 leading-snug">
@@ -869,24 +873,24 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <div className="pt-4 border-t border-gray-100 mt-4 text-xs text-gray-400">
+              <div className="pt-3 sm:pt-4 border-t border-gray-100 mt-3 sm:mt-4 text-[11px] sm:text-xs text-gray-400">
                 Horaires détaillés communiqués à l&apos;ouverture officielle.
               </div>
             </div>
 
             {/* Col 3: Calligraphic Quote Card matching mockup */}
             <div
-              className="rounded-3xl p-7 sm:p-8 flex flex-col justify-center relative overflow-hidden shadow-sm border border-amber-100"
+              className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 flex flex-col justify-center relative overflow-hidden shadow-sm border border-amber-100"
               style={{
                 background: "linear-gradient(135deg, #FFF9EB 0%, #FEF3D6 100%)",
               }}
             >
               <div className="relative z-10">
-                <p className="font-display font-bold italic text-2xl sm:text-3xl lg:text-[1.85rem] text-purple leading-snug">
+                <p className="font-display font-bold italic text-xl sm:text-2xl lg:text-[1.85rem] text-purple leading-snug">
                   Femmes dynamiques, talents en action, avenir en construction.
                 </p>
                 {/* Decorative golden brush curve matching mockup */}
-                <div className="mt-4 w-28 h-1.5 bg-gradient-to-r from-yellow via-yellow-bright to-transparent rounded-full" />
+                <div className="mt-3 sm:mt-4 w-24 sm:w-28 h-1.5 bg-gradient-to-r from-yellow via-yellow-bright to-transparent rounded-full" />
               </div>
             </div>
           </div>
@@ -896,13 +900,13 @@ export default function Home() {
       {/* ══════════════════════════════════════════════
           SECTION 08 — FOIRE AUX QUESTIONS (FAQ)
       ══════════════════════════════════════════════ */}
-      <section id="faq" className="py-20 lg:py-24 bg-white">
+      <section id="faq" className="py-12 sm:py-20 lg:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-purple mb-3">
+          <div className="text-center mb-8 sm:mb-14">
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-purple mb-2 sm:mb-3">
               Foire aux questions
             </h2>
-            <p className="text-gray-500 text-sm sm:text-base">
+            <p className="text-gray-500 text-xs sm:text-sm lg:text-base">
               Tout ce que vous devez savoir pour participer et vous engager au SIFDA 2026.
             </p>
           </div>
@@ -916,7 +920,7 @@ export default function Home() {
               },
               {
                 q: "Quelles sont les dates de l'événement ?",
-                a: "Le SIFDA se tiendra officiellement du 9 au 12 décembre 2026. Une conférence de presse introductive aura lieu le 5 décembre à Douala (MiCasa).",
+                a: "Le SIFDA se tiendra officiellement du9 au 12 décembre 2026. Une conférence de presse introductive aura lieu le 5 décembre à Douala (MiCasa).",
               },
               {
                 q: "Où se déroulent les activités ?",
@@ -943,16 +947,16 @@ export default function Home() {
                 a: "Vous pouvez nous joindre directement via WhatsApp avec le bouton dédié sur cette page, remplir nos formulaires interactifs de partenariat ou de don, ou nous écrire à nos coordonnées officielles.",
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group py-5">
+              <details key={idx} className="group py-3.5 sm:py-5">
                 <summary className="flex items-center justify-between cursor-pointer">
-                  <span className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-purple transition-colors pr-4">
+                  <span className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 group-hover:text-purple transition-colors pr-3">
                     {faq.q}
                   </span>
-                  <div className="w-8 h-8 rounded-full bg-purple-light flex items-center justify-center flex-shrink-0 text-purple group-hover:bg-purple group-hover:text-white transition">
-                    <ChevronDown size={18} className="chev" />
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-purple-light flex items-center justify-center flex-shrink-0 text-purple group-hover:bg-purple group-hover:text-white transition">
+                    <ChevronDown size={16} className="chev" />
                   </div>
                 </summary>
-                <div className="pt-3 pb-1 text-sm sm:text-base text-gray-600 leading-relaxed max-w-3xl">
+                <div className="pt-2.5 pb-1 text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed max-w-3xl">
                   {faq.a}
                 </div>
               </details>
@@ -965,34 +969,34 @@ export default function Home() {
           SECTION 09 — BLOC FINAL / APPEL À L'ACTION
       ══════════════════════════════════════════════ */}
       <section
-        className="relative py-20 lg:py-28 overflow-hidden text-white text-center"
+        className="relative py-14 sm:py-20 lg:py-28 overflow-hidden text-white text-center"
         style={{
           background: "linear-gradient(135deg, #2A0F52 0%, #4B1D8E 50%, #63229E 100%)",
         }}
       >
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-yellow/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold italic leading-tight mb-5">
+          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold italic leading-tight mb-3.5 sm:mb-5">
             Une célébration, mille opportunités.
             <br />
             <span className="text-yellow not-italic">
               Et des milliers de raisons de partager.
             </span>
           </h2>
-          <p className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
+          <p className="text-white/80 text-xs sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-10">
             Le SIFDA est à la fois une célébration des femmes, une plateforme d&apos;opportunités économiques et une formidable initiative de solidarité envers les enfants.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full sm:w-auto">
             <a
               href="#programme"
-              className="pill bg-white hover:bg-gray-100 text-purple-deep font-bold text-sm sm:text-base px-7 py-3.5 shadow-lg"
+              className="pill bg-white hover:bg-gray-100 text-purple-deep font-bold text-xs sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 shadow-lg w-full sm:w-auto justify-center"
             >
               Découvrir le programme <ArrowRight size={16} />
             </a>
             <a
               href="#temps-forts"
-              className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-sm sm:text-base px-7 py-3.5 shadow-lg"
+              className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-xs sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 shadow-lg w-full sm:w-auto justify-center"
             >
               Participer au Salon <ArrowRight size={16} />
             </a>
@@ -1001,7 +1005,7 @@ export default function Home() {
                 setDonModal(true);
                 setDonSuccess(false);
               }}
-              className="pill bg-white/15 hover:bg-white/25 text-white border border-white/30 backdrop-blur-sm text-sm sm:text-base px-7 py-3.5 inline-flex items-center gap-2"
+              className="pill bg-white/15 hover:bg-white/25 text-white border border-white/30 backdrop-blur-sm text-xs sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 inline-flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               <span>Soutenir l&apos;Arbre de Noël</span>
               <Heart size={16} strokeWidth={2} />
@@ -1013,13 +1017,13 @@ export default function Home() {
       {/* ══════════════════════════════════════════════
           SECTION 10 — FOOTER
       ══════════════════════════════════════════════ */}
-      <footer id="contact" className="bg-[#180829] text-white pt-16 pb-12 border-t border-white/5">
+      <footer id="contact" className="bg-[#180829] text-white pt-12 sm:pt-16 pb-8 sm:pb-12 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-12 gap-10 items-start mb-12">
+          <div className="grid md:grid-cols-12 gap-8 md:gap-10 items-start mb-8 sm:mb-12">
             {/* Col 1: Logo & Mission description */}
-            <div className="md:col-span-4 space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 flex-shrink-0">
+            <div className="md:col-span-4 space-y-3 sm:space-y-4">
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0">
                   <svg viewBox="0 0 100 100" className="w-full h-full">
                     <circle cx="50" cy="50" r="48" fill="#3B1570" />
                     <path
@@ -1033,10 +1037,10 @@ export default function Home() {
                   </svg>
                 </div>
                 <div>
-                  <span className="font-display font-extrabold text-2xl tracking-tight text-white">
+                  <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-white">
                     SIFDA
                   </span>
-                  <span className="font-sans font-bold text-xs tracking-wider text-yellow ml-1.5">
+                  <span className="font-sans font-bold text-[10px] sm:text-xs tracking-wider text-yellow ml-1 sm:ml-1.5">
                     2026
                   </span>
                 </div>
@@ -1048,10 +1052,10 @@ export default function Home() {
 
             {/* Col 2: Navigation Links matching mockup */}
             <div className="md:col-span-4">
-              <p className="text-xs font-bold text-yellow uppercase tracking-wider mb-4">
+              <p className="text-[11px] sm:text-xs font-bold text-yellow uppercase tracking-wider mb-3 sm:mb-4">
                 Navigation
               </p>
-              <div className="flex flex-wrap gap-x-5 gap-y-2.5">
+              <div className="flex flex-wrap gap-x-4 sm:gap-x-5 gap-y-2 sm:gap-y-2.5">
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
@@ -1065,15 +1069,15 @@ export default function Home() {
             </div>
 
             {/* Col 3: Social & WhatsApp Button matching mockup */}
-            <div className="md:col-span-4 flex flex-col md:items-end space-y-4">
+            <div className="md:col-span-4 flex flex-col md:items-end space-y-3 sm:space-y-4">
               {/* Social icons */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2.5 sm:gap-3">
                 {/* Facebook */}
                 <a
                   href="https://facebook.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/80 hover:text-white transition"
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/80 hover:text-white transition"
                   aria-label="Facebook"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -1085,7 +1089,7 @@ export default function Home() {
                   href="https://youtube.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/80 hover:text-white transition"
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/80 hover:text-white transition"
                   aria-label="YouTube"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -1097,7 +1101,7 @@ export default function Home() {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/80 hover:text-white transition"
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/80 hover:text-white transition"
                   aria-label="LinkedIn"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -1111,15 +1115,15 @@ export default function Home() {
                 href="https://wa.me/237699000000?text=Bonjour,%20je%20souhaite%20des%20informations%20sur%20le%20SIFDA%202026"
                 target="_blank"
                 rel="noreferrer"
-                className="pill bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold text-xs px-5 py-2.5 shadow-md inline-flex items-center gap-2"
+                className="pill bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold text-xs px-4 sm:px-5 py-2.5 shadow-md inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
-                <MessageCircle size={16} /> Nous contacter
+                <MessageCircle size={15} /> Nous contacter
               </a>
             </div>
           </div>
 
           {/* Bottom Copyright & Legal links */}
-          <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] text-white/40">
+          <div className="border-t border-white/10 pt-5 sm:pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-3 text-[11px] text-white/40 text-center sm:text-left">
             <p>© 2026 SIFDA. Tous droits réservés.</p>
             <div className="flex gap-4">
               <a href="#" className="hover:text-white/70 transition">
@@ -1140,11 +1144,12 @@ export default function Home() {
         href="https://wa.me/237699000000?text=Bonjour,%20je%20souhaite%20participer%20au%20SIFDA%202026"
         target="_blank"
         rel="noreferrer"
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300 group"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 w-12 h-12 sm:w-14 sm:h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300 group"
         aria-label="Contacter sur WhatsApp"
       >
-        <MessageCircle size={28} />
-        <span className="absolute right-16 bg-gray-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-md">
+        <MessageCircle size={24} className="sm:hidden" />
+        <MessageCircle size={28} className="hidden sm:block" />
+        <span className="absolute right-16 bg-gray-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-md hidden sm:block">
           Discuter avec l&apos;organisation
         </span>
       </a>
@@ -1158,11 +1163,11 @@ export default function Home() {
         title="Faire un don pour l'Arbre de Noël"
       >
         {donSuccess ? (
-          <div className="text-center py-6 space-y-3">
-            <div className="w-14 h-14 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto">
-              <CheckCircle2 size={32} />
+          <div className="text-center py-5 sm:py-6 space-y-2.5 sm:space-y-3">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto">
+              <CheckCircle2 size={28} />
             </div>
-            <h4 className="font-display text-xl font-bold text-gray-900">
+            <h4 className="font-display text-lg sm:text-xl font-bold text-gray-900">
               Merci pour votre générosité !
             </h4>
             <p className="text-xs text-gray-600 max-w-sm mx-auto leading-relaxed">
@@ -1170,7 +1175,7 @@ export default function Home() {
             </p>
             <button
               onClick={() => setDonModal(false)}
-              className="pill bg-purple text-white font-semibold text-xs px-5 py-2 mt-1"
+              className="pill bg-purple text-white font-semibold text-xs px-5 py-2 mt-1 w-full sm:w-auto"
             >
               Fermer
             </button>
@@ -1181,7 +1186,7 @@ export default function Home() {
               e.preventDefault();
               setDonSuccess(true);
             }}
-            className="space-y-2.5"
+            className="space-y-2 sm:space-y-2.5"
           >
             <p className="text-[11px] text-gray-500 leading-snug">
               Remplissez ce formulaire pour notifier l&apos;équipe de votre promesse de don. Aucune coordonnée bancaire n&apos;est prélevée en ligne.
@@ -1253,7 +1258,7 @@ export default function Home() {
 
             <button
               type="submit"
-              className="w-full bg-purple hover:bg-purple-dark text-white font-bold py-2.5 rounded-lg shadow-md transition text-sm mt-1"
+              className="w-full bg-purple hover:bg-purple-dark text-white font-bold py-2.5 rounded-lg shadow-md transition text-xs sm:text-sm mt-1"
             >
               Confirmer ma promesse de don
             </button>
@@ -1270,11 +1275,11 @@ export default function Home() {
         title="Devenir partenaire du SIFDA 2026"
       >
         {partnerSuccess ? (
-          <div className="text-center py-6 space-y-3">
-            <div className="w-14 h-14 rounded-full bg-purple-light text-purple flex items-center justify-center mx-auto">
-              <Handshake size={32} />
+          <div className="text-center py-5 sm:py-6 space-y-2.5 sm:space-y-3">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-purple-light text-purple flex items-center justify-center mx-auto">
+              <Handshake size={28} />
             </div>
-            <h4 className="font-display text-xl font-bold text-gray-900">
+            <h4 className="font-display text-lg sm:text-xl font-bold text-gray-900">
               Demande enregistrée avec succès
             </h4>
             <p className="text-xs text-gray-600 max-w-sm mx-auto leading-relaxed">
@@ -1282,7 +1287,7 @@ export default function Home() {
             </p>
             <button
               onClick={() => setPartnerModal(false)}
-              className="pill bg-purple text-white font-semibold text-xs px-5 py-2 mt-1"
+              className="pill bg-purple text-white font-semibold text-xs px-5 py-2 mt-1 w-full sm:w-auto"
             >
               Fermer
             </button>
@@ -1293,7 +1298,7 @@ export default function Home() {
               e.preventDefault();
               setPartnerSuccess(true);
             }}
-            className="space-y-2.5"
+            className="space-y-2 sm:space-y-2.5"
           >
             <p className="text-[11px] text-gray-500 leading-snug">
               Associez votre institution ou votre entreprise à cet événement panafricain.
@@ -1379,7 +1384,7 @@ export default function Home() {
 
             <button
               type="submit"
-              className="w-full bg-purple hover:bg-purple-dark text-white font-bold py-2.5 rounded-lg shadow-md transition text-sm mt-1"
+              className="w-full bg-purple hover:bg-purple-dark text-white font-bold py-2.5 rounded-lg shadow-md transition text-xs sm:text-sm mt-1"
             >
               Envoyer la demande de partenariat
             </button>
@@ -1396,8 +1401,8 @@ export default function Home() {
           onClose={() => setSelectedActivity(null)}
           title={selectedActivity.title}
         >
-          <div className="space-y-5">
-            <div className="h-52 rounded-xl overflow-hidden bg-gray-100">
+          <div className="space-y-4 sm:space-y-5">
+            <div className="h-44 sm:h-52 rounded-xl overflow-hidden bg-gray-100">
               <img
                 src={selectedActivity.image}
                 alt={selectedActivity.title}
@@ -1405,46 +1410,46 @@ export default function Home() {
               />
             </div>
 
-            <div className="flex flex-wrap items-center gap-3 text-xs font-semibold">
-              <span className="bg-purple text-white px-3 py-1 rounded-full flex items-center gap-1.5">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-semibold">
+              <span className="bg-purple text-white px-2.5 py-1 rounded-full flex items-center gap-1.5 text-[11px] sm:text-xs">
                 <Calendar size={13} /> {selectedActivity.date}
               </span>
-              <span className="bg-yellow/20 text-purple px-3 py-1 rounded-full flex items-center gap-1.5">
+              <span className="bg-yellow/20 text-purple px-2.5 py-1 rounded-full flex items-center gap-1.5 text-[11px] sm:text-xs">
                 <MapPin size={13} /> {selectedActivity.location}
               </span>
             </div>
 
-            <p className="text-sm text-gray-700 leading-relaxed">
+            <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
               {selectedActivity.fullDescription}
             </p>
 
             <div>
-              <h4 className="text-xs font-bold text-purple uppercase tracking-wider mb-2.5">
+              <h4 className="text-[11px] sm:text-xs font-bold text-purple uppercase tracking-wider mb-2">
                 Points clés du programme :
               </h4>
-              <ul className="space-y-2">
+              <ul className="space-y-1.5 sm:space-y-2">
                 {selectedActivity.highlights.map((h, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-xs text-gray-600">
-                    <CheckCircle2 size={15} className="text-yellow flex-shrink-0 mt-0.5" />
+                  <li key={i} className="flex items-start gap-2 text-[11px] sm:text-xs text-gray-600">
+                    <CheckCircle2 size={14} className="text-yellow flex-shrink-0 mt-0.5" />
                     <span>{h}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="pt-3 border-t border-gray-100 flex gap-3">
+            <div className="pt-2 sm:pt-3 border-t border-gray-100 flex flex-col sm:flex-row gap-2.5 sm:gap-3">
               <button
                 onClick={() => {
                   setSelectedActivity(null);
                   setPartnerModal(true);
                 }}
-                className="pill bg-purple text-white text-xs px-5 py-2.5 flex-1 justify-center"
+                className="pill bg-purple text-white text-xs px-5 py-2.5 flex-1 justify-center w-full sm:w-auto"
               >
                 Participer / Réserver
               </button>
               <button
                 onClick={() => setSelectedActivity(null)}
-                className="pill bg-gray-100 text-gray-700 hover:bg-gray-200 text-xs px-5 py-2.5"
+                className="pill bg-gray-100 text-gray-700 hover:bg-gray-200 text-xs px-5 py-2.5 w-full sm:w-auto justify-center"
               >
                 Fermer
               </button>
