@@ -271,13 +271,64 @@ export default function Home() {
 
   const navLinks = [
     { label: "Accueil", href: "#accueil" },
-    { label: "Le SIFDA", href: "#sifda" },
-    { label: "Temps forts", href: "#temps-forts" },
+    { label: "Temps Forts", href: "#temps-forts" },
     { label: "Arbre de Noël", href: "#arbre-noel" },
     { label: "Programme", href: "#programme" },
     { label: "Partenaires", href: "#partenaires" },
     { label: "FAQ", href: "#faq" },
-    { label: "Contact", href: "#contact" },
+  ];
+
+  const tickerMessages = [
+    "Placé sous le haut patronage de Monsieur le Ministre de la Communication, Porte-parole du gouvernement",
+    "SIFDA 2026 · Salon International des Femmes Dynamiques Africaines",
+    "Arbre de Noël Solidaire · Plus de 500 sourires d'enfants",
+    "Du 03 au 12 Décembre 2026 à Douala (Cameroun)",
+    "Ensemble, faisons grandir les ambitions des femmes et briller les rêves des enfants",
+  ];
+
+  // ─────────────────────────────────────────────────────────────
+  // CONFIGURATION DES PARTENAIRES
+  // Pour modifier ou ajouter un partenaire :
+  // 1. Déposez votre logo dans le dossier public/images/partners/ (format .png, .jpg ou .svg)
+  // 2. Modifiez ou ajoutez simplement une ligne dans la liste ci-dessous :
+  // ─────────────────────────────────────────────────────────────
+  const PARTNERS = [
+    {
+      id: "minpmeesa",
+      name: "MINPMEESA",
+      category: "Ministère des PME",
+      logo: "/images/partners/minpmeesa.svg",
+    },
+    {
+      id: "minproff",
+      name: "MINPROFF",
+      category: "Ministère de la Femme",
+      logo: "/images/partners/minproff.svg",
+    },
+    {
+      id: "mincom",
+      name: "MINCOM",
+      category: "Ministère de la Communication",
+      logo: "/images/partners/mincom.svg",
+    },
+    {
+      id: "partner-4",
+      name: "Partenaire Officiel",
+      category: "Institutionnel",
+      logo: "/images/partners/partner-4.svg",
+    },
+    {
+      id: "partner-5",
+      name: "Partenaire Solidaire",
+      category: "Arbre de Noël",
+      logo: "/images/partners/partner-5.svg",
+    },
+    {
+      id: "partner-6",
+      name: "Partenaire Média",
+      category: "Couverture Presse",
+      logo: "/images/partners/partner-6.svg",
+    },
   ];
 
   const openPartnerWithCategory = (category: string) => {
@@ -291,327 +342,287 @@ export default function Home() {
       {/* ══════════════════════════════════════════════
           SECTION 00 — NAVBAR FIXE & STICKY
       ══════════════════════════════════════════════ */}
-      <nav className="fixed top-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-xs transition-all">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-          {/* Logo officiel SINFDA 2026 */}
-          <a href="#accueil" className="flex items-center gap-2.5 sm:gap-3 group" aria-label="SINFDA 2026 Accueil">
-            <div className="bg-plum px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl flex items-center shadow-xs group-hover:bg-plum-hover transition-colors">
-              <img
-                src="/images/logo.png"
-                alt="SINFDA 2026"
-                className="h-5 sm:h-6.5 w-auto object-contain"
-              />
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span className="font-display font-extrabold text-sm sm:text-base tracking-tight text-plum group-hover:text-plum-hover transition-colors">
-                SINFDA
-              </span>
-              <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-wider text-yellow uppercase">
-                Douala 2026
-              </span>
-            </div>
-          </a>
-
-          {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-7">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-gray-700 hover:text-purple transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-purple hover:after:w-full after:transition-all"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          {/* Top Right CTA Pill Button */}
-          <div className="hidden lg:flex items-center gap-3">
-            <a
-              href="#arbre-noel"
-              className="pill bg-purple hover:bg-purple-dark text-white font-semibold text-sm shadow-sm hover:shadow-md"
-            >
-              <Gift size={16} className="text-yellow" />
-              <span>Soutenir l&apos;Arbre de Noël</span>
+      {/* ══════════════════════════════════════════════
+          HEADER FIXE : NAVBAR + BANDEAU OFFICIEL DE PATRONAGE
+      ══════════════════════════════════════════════ */}
+      <header className="fixed top-0 inset-x-0 z-40 bg-white shadow-xs">
+        {/* Navigation Bar */}
+        <nav className="border-b border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-15 sm:h-18 flex items-center justify-between">
+            {/* Logo SIFDA / SINFDA */}
+            <a href="#accueil" className="flex items-center gap-3 group" aria-label="SIFDA 2026 Accueil">
+              <div className="bg-plum px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl flex items-center shadow-xs group-hover:bg-plum-hover transition-colors">
+                <img
+                  src="/images/logo.png"
+                  alt="SIFDA 2026"
+                  className="h-5 sm:h-6 w-auto object-contain"
+                />
+              </div>
+              <div className="hidden sm:flex flex-col leading-none">
+                <span className="font-display font-extrabold text-base tracking-tight text-plum group-hover:text-plum-hover transition-colors">
+                  SIFDA
+                </span>
+                <span className="text-[9px] text-gray-500 font-medium">
+                  Salon International des Femmes Dynamiques Africaines
+                </span>
+              </div>
             </a>
-          </div>
 
-          {/* Mobile Menu Toggle Button */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden w-10 h-10 rounded-xl flex items-center justify-center text-gray-700 hover:text-purple hover:bg-purple-light transition"
-            aria-label="Menu de navigation"
-          >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+            {/* Desktop Navigation Links */}
+            <div className="hidden md:flex items-center gap-6 lg:gap-8">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm font-medium text-gray-700 hover:text-plum transition-colors relative py-1"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
 
-        {/* Mobile Dropdown Menu */}
-        {menuOpen && (
-          <div className="lg:hidden bg-white/98 backdrop-blur-md border-t border-gray-100 px-5 py-4 space-y-2 shadow-xl animate-in slide-in-from-top-2 duration-200">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="block py-2.5 px-3 text-sm font-semibold text-gray-800 hover:text-purple hover:bg-purple-light/50 rounded-lg transition"
-              >
-                {link.label}
-              </a>
-            ))}
-            <div className="pt-2">
+            {/* Right Action Button */}
+            <div className="hidden sm:flex items-center gap-3">
               <a
                 href="#arbre-noel"
-                onClick={() => setMenuOpen(false)}
-                className="pill bg-purple text-white w-full justify-center py-3 text-sm shadow-sm font-bold"
+                className="pill bg-[#DD0B7D] hover:bg-[#c2096d] text-white font-bold text-xs sm:text-sm px-4 py-2 shadow-xs"
               >
-                <Gift size={16} className="text-yellow" />
-                Soutenir l&apos;Arbre de Noël
+                <Heart size={14} className="text-yellow" />
+                <span>Soutenir l&apos;Arbre</span>
               </a>
             </div>
+
+            {/* Mobile Menu Toggle Button */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden w-9 h-9 rounded-lg flex items-center justify-center text-gray-700 hover:text-plum hover:bg-gray-100 transition"
+              aria-label="Menu de navigation"
+            >
+              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
           </div>
-        )}
-      </nav>
+
+          {/* Mobile Dropdown Menu */}
+          {menuOpen && (
+            <div className="md:hidden bg-white border-t border-gray-100 px-5 py-4 space-y-2 shadow-xl animate-in slide-in-from-top-2 duration-200">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 px-3 text-sm font-semibold text-gray-800 hover:text-plum hover:bg-plum-light/40 rounded-lg transition"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <div className="pt-2">
+                <a
+                  href="#arbre-noel"
+                  onClick={() => setMenuOpen(false)}
+                  className="pill bg-[#DD0B7D] text-white w-full justify-center py-2.5 text-xs shadow-sm font-bold"
+                >
+                  <Heart size={14} className="text-yellow" />
+                  Soutenir l&apos;Arbre de Noël
+                </a>
+              </div>
+            </div>
+          )}
+        </nav>
+
+        {/* Bandeau officiel défilant (Marquee) — Défilement horizontal continu */}
+        <div
+          className="bg-[#DD0B7D] text-white text-[10px] sm:text-xs font-semibold py-1.5 overflow-hidden shadow-xs relative flex items-center select-none cursor-default"
+          title="Bandeau officiel d'annonces SIFDA 2026 (Survoler pour mettre en pause)"
+        >
+          <style>{`
+            @keyframes marqueeScroll {
+              0% { transform: translate3d(-50%, 0, 0); }
+              100% { transform: translate3d(0%, 0, 0); }
+            }
+            .sifda-marquee-track {
+              display: flex !important;
+              width: max-content !important;
+              animation: marqueeScroll 35s linear infinite !important;
+              will-change: transform;
+            }
+            .sifda-marquee-track:hover {
+              animation-play-state: paused !important;
+            }
+          `}</style>
+          <div className="sifda-marquee-track whitespace-nowrap flex items-center">
+            {/* Duplication pour un défilement infini et fluide sans rupture */}
+            {[0, 1].map((copyIndex) => (
+              <div key={copyIndex} className="flex items-center shrink-0">
+                {tickerMessages.map((msg, idx) => (
+                  <span key={idx} className="inline-flex items-center mx-4 sm:mx-6">
+                    <span className="text-[#F9B42F] mr-2 sm:mr-2.5 text-xs font-bold">✦</span>
+                    <span className="tracking-wide">{msg}</span>
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </header>
 
       {/* ══════════════════════════════════════════════
-          SECTION 01 — HERO / BANNIÈRE PRINCIPALE
+          SECTION 01 — HERO / BANNIÈRE PRINCIPALE (STYLE MAQUETTE)
       ══════════════════════════════════════════════ */}
       <section
         id="accueil"
-        className="relative pt-16 sm:pt-20 overflow-hidden bg-gradient-to-br from-[#2A0017] via-[#5C0034] to-[#7B0044] text-white flex flex-col justify-between min-h-[calc(100svh-4rem)]"
+        className="relative pt-24 sm:pt-28 pb-0 bg-[#7A0045] text-white flex flex-col justify-between overflow-hidden"
       >
-        {/* Luminous festive ambient background effects aux couleurs des flyers */}
-        <div className="absolute top-12 left-10 w-72 sm:w-96 h-72 sm:h-96 bg-magenta/20 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none" />
-        <div className="absolute top-20 right-1/4 w-60 sm:w-80 h-60 sm:h-80 bg-yellow/20 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-72 sm:w-96 h-72 sm:h-96 bg-magenta/15 rounded-full blur-[100px] sm:blur-[130px] pointer-events-none" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6 sm:pt-12 pb-10 sm:pb-16 lg:py-20 grid lg:grid-cols-12 gap-8 lg:gap-8 items-center flex-1">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-6 sm:py-10 grid lg:grid-cols-12 gap-8 items-center">
           {/* Left Column: Headlines & Call to Actions */}
-          <div className="lg:col-span-6 space-y-4 sm:space-y-6">
-            {/* Tagline pill avec logo officiel SINFDA & rappel événement */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-semibold shadow-sm">
-              <span className="text-yellow font-extrabold uppercase tracking-wider text-[11px] sm:text-xs">Avec le</span>
-              <img
-                src="/images/logo.png"
-                alt="SINFDA"
-                className="h-4 sm:h-5 w-auto object-contain"
-              />
-              <span className="text-white/40">·</span>
-              <span className="text-white/95 font-bold text-[11px] sm:text-xs">Douala 2026</span>
+          <div className="lg:col-span-7 space-y-4 sm:space-y-5">
+            {/* Badge LA NFDA ORGANISE */}
+            <div className="inline-block bg-white text-[#7A0045] px-3.5 py-1.5 font-extrabold text-xs sm:text-sm tracking-wider rounded-md uppercase shadow-xs">
+              LA NFDA ORGANISE
             </div>
 
-            {/* Titre officiel en icône / image (titre.png) */}
-            <div className="relative my-2 sm:my-3">
-              <img
-                src="/images/titre.png"
-                alt="L'Arbre de Noël Revient... Plus Grand"
-                className="w-full max-w-[420px] sm:max-w-[500px] lg:max-w-[550px] h-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.45)] hover:scale-[1.02] transition-transform duration-300"
-              />
-              <h1 className="sr-only">
-                L&apos;Arbre de Noël Revient... Plus Grand — Salon International des Nouvelles Femmes Dynamiques Africaines (SINFDA 2026)
-              </h1>
-            </div>
+            {/* Main Title */}
+            <h1 className="font-display text-xl sm:text-3xl lg:text-4xl font-extrabold uppercase text-white leading-tight">
+              LE 1<sup>er</sup> SALON INTERNATIONAL DES FEMMES DYNAMIQUES AFRICAINES
+              <br />
+              <span className="text-white">ET 6<sup>e</sup> ÉDITION DE L&apos;ARBRE DE NOËL SOLIDAIRE.</span>
+            </h1>
 
-            {/* Intro paragraph from brief & flyers */}
-            <p className="text-white/80 text-xs sm:text-base leading-relaxed max-w-lg pt-0.5">
-              Avec le Salon International des Nouvelles Femmes Dynamiques Africaines (SINFDA 2026) : une plateforme de valorisation, d&apos;exposition « Made in Camer » et une grande opération de solidarité pour illuminer le sourire de plus de 500 enfants.
+            {/* Thème officiel */}
+            <p className="text-white/85 text-xs sm:text-sm italic leading-relaxed max-w-xl">
+              Thème : « Émergence territoriale, partenariats transfrontaliers et mécanismes innovants pour l&apos;autonomisation socio-économique de la femme africaine »
             </p>
 
-            {/* Subtext date and locations */}
-            <div className="pt-0.5 sm:pt-1 space-y-0.5 sm:space-y-1">
-              <p className="text-lg sm:text-2xl font-bold text-white tracking-wide flex items-center gap-2">
-                <Calendar size={20} className="text-yellow" /> Du 9 au 12 décembre 2026
-              </p>
-              <p className="text-base sm:text-xl font-bold text-white/90 flex items-center gap-2">
-                <MapPin size={20} className="text-yellow" /> Douala · Carnaval le 5 Décembre
-              </p>
+            {/* Dates & Lieu */}
+            <div className="space-y-0.5 text-xs sm:text-sm font-bold pt-1">
+              <p className="text-yellow text-sm sm:text-base">Du 03 au 12 Décembre 2026</p>
+              <p className="text-white/95">Douala (Cameroun)</p>
             </div>
 
-            {/* The Two Hero CTAs matching mockup */}
-            <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
+            {/* Actions */}
+            <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
               <a
                 href="#temps-forts"
-                className="pill bg-yellow hover:bg-yellow-bright text-[#2A0017] font-bold px-6 sm:px-7 py-3 sm:py-3.5 shadow-lg shadow-yellow/20 text-sm sm:text-base w-full sm:w-auto justify-center"
+                className="pill bg-[#DD0B7D] hover:bg-[#c2096d] text-white font-bold text-xs sm:text-sm px-6 py-3 shadow-md"
               >
-                Découvrir les temps forts <ArrowRight size={17} />
+                Découvrez les temps forts
               </a>
-              <a
-                href="#arbre-noel"
-                className="pill bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md px-6 sm:px-7 py-3 sm:py-3.5 text-sm sm:text-base inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+              <button
+                onClick={() => openPartnerWithCategory("Visiteur")}
+                className="pill bg-[#DD0B7D]/70 hover:bg-[#DD0B7D] text-white font-bold text-xs sm:text-sm px-6 py-3 shadow-md"
               >
-                <span>Soutenir l&apos;Arbre de Noël</span>
-                <Heart size={16} strokeWidth={2} />
-              </a>
+                Participez gratuitement
+              </button>
             </div>
           </div>
 
-          {/* Right Column: Hero Visual composition */}
-          <div className="lg:col-span-6 relative flex justify-center lg:justify-end mt-2 lg:mt-0">
-            <div className="relative w-full max-w-[360px] sm:max-w-[480px] lg:max-w-[540px]">
-              {/* Glow backdrop ring */}
-              <div className="absolute -inset-3 sm:-inset-4 bg-gradient-to-tr from-yellow/30 to-magenta/25 rounded-3xl blur-xl sm:blur-2xl transform -rotate-1" />
-
-              {/* Main Image container matching mockup */}
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 aspect-[4/3] sm:aspect-[16/11]">
+          {/* Right Column: Hero Visual with Magenta border and +10 Pays Africains Badge */}
+          <div className="lg:col-span-5 relative flex justify-center lg:justify-end mt-2 lg:mt-0">
+            <div className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[460px]">
+              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border-4 border-[#DD0B7D] shadow-2xl bg-[#5C0034]">
                 <img
-                  src="/images/img5.jpeg"
-                  alt="Femmes dynamiques africaines et enfants célébrant Noël"
-                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+                  src="/images/img6.png"
+                  alt="Femmes dynamiques africaines et +10 pays représentés au SIFDA"
+                  className="w-full h-auto object-cover"
                 />
-
-                {/* Subtle dark gradient overlay on bottom for depth */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2A0017]/85 via-transparent to-transparent pointer-events-none" />
-
-                {/* Small celebratory badge on image from flyer */}
-                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-[#450027]/90 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs px-3.5 py-1.5 rounded-full flex items-center gap-1.5 sm:gap-2 shadow-lg">
-                  <Heart size={13} strokeWidth={2} className="text-yellow" />
-                  <span>Plus de 500 enfants à célébrer</span>
-                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Elegant Golden Swoosh Wave Divider matching mockup */}
-        <div className="relative w-full leading-none z-10 -mb-1">
-          <svg
-            viewBox="0 0 1440 85"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-auto block"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,0 C320,70 820,95 1440,25 L1440,85 L0,85 Z"
-              fill="#F9B42F"
-              opacity="0.9"
-            />
-            <path
-              d="M0,25 C360,95 920,80 1440,55 L1440,85 L0,85 Z"
-              fill="#ffffff"
-            />
-          </svg>
-        </div>
+        {/* Liseré inférieur doré/orange (exactement comme sur la maquette) */}
+        <div className="w-full h-2.5 bg-[#F9B42F]" />
       </section>
 
       {/* ══════════════════════════════════════════════
-          SECTIONS 02 & 03 — LE SIFDA & LES DEUX DIMENSIONS
+          SECTIONS 02 — LE SIFDA, BIEN PLUS QU'UN SALON (STYLE MAQUETTE)
       ══════════════════════════════════════════════ */}
-      <section id="sifda" className="py-12 sm:py-16 lg:py-24 bg-white relative">
+      <section id="sifda" className="py-12 sm:py-16 lg:py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* 3-Column Grid matching exactly the mockup visual */}
-          <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
-            {/* Column 1: Presentation & Ambitions */}
-            <div className="flex flex-col justify-between p-1 sm:p-2">
-              <div>
-                <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-3 sm:mb-4">
-                  Le SINFDA, bien plus qu&apos;un salon.
-                </h2>
-                <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed mb-5 sm:mb-6">
-                  Une plateforme panafricaine de rencontres, de valorisation des talents et de création d&apos;opportunités économiques, unie à un formidable élan de solidarité.
-                </p>
-
-                {/* 3 Ambitions with yellow round icon markers */}
-                <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                  <div className="flex items-center gap-3 sm:gap-3.5">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-yellow/15 flex items-center justify-center flex-shrink-0 text-yellow">
-                      <Briefcase size={18} strokeWidth={1.8} />
-                    </div>
-                    <span className="text-sm sm:text-base font-semibold text-gray-900">
-                      Entrepreneuriat féminin &amp; Made in Camer
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-3 sm:gap-3.5">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-yellow/15 flex items-center justify-center flex-shrink-0 text-yellow">
-                      <Award size={18} strokeWidth={1.8} />
-                    </div>
-                    <span className="text-sm sm:text-base font-semibold text-gray-900">
-                      Talents africains &amp; Savoir-faire
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-3 sm:gap-3.5">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-yellow/15 flex items-center justify-center flex-shrink-0 text-yellow">
-                      <Handshake size={18} strokeWidth={1.8} />
-                    </div>
-                    <span className="text-sm sm:text-base font-semibold text-gray-900">
-                      Partenariats &amp; Solidarité enfants
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div>
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            {/* Left Column: Presentation */}
+            <div className="lg:col-span-5">
+              <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#8A004F] leading-tight mb-3 sm:mb-4">
+                Le SIFDA,
+                <br />
+                bien plus qu&apos;un salon.
+              </h2>
+              <p className="text-gray-600 text-xs sm:text-sm lg:text-base leading-relaxed mb-6">
+                Une plateforme panafricaine de rencontres, de valorisation des talents et de création d&apos;opportunités économiques, unie à un formidable élan de solidarité.
+              </p>
+              <div className="flex items-center gap-3">
                 <a
                   href="#temps-forts"
-                  className="pill bg-purple hover:bg-purple-dark text-white font-semibold text-xs sm:text-sm px-6 py-3 w-full sm:w-auto inline-flex justify-center shadow-sm"
+                  className="pill bg-[#DD0B7D] hover:bg-[#c2096d] text-white font-bold text-xs sm:text-sm px-6 py-2.5 shadow-sm inline-flex items-center gap-2"
                 >
-                  Découvrir les 8 temps forts <ArrowRight size={16} />
+                  <span>Découvrir les 8 temps forts</span>
+                  <ArrowRight size={14} />
                 </a>
               </div>
             </div>
 
-            {/* Column 2: Card LE SALON matching mockup */}
-            <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col group hover:shadow-2xl transition duration-300">
-              <div className="h-44 sm:h-56 relative overflow-hidden bg-gray-100">
-                <img
-                  src="/images/heros.png"
-                  alt="Le Salon SIFDA - Made in Camer & Stands"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="bg-[#5C0034] text-white p-5 sm:p-7 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="font-display text-xl sm:text-2xl font-bold mb-1.5 sm:mb-2 text-white">
-                    Le Salon &amp; Stands
-                  </h3>
-                  <p className="font-semibold text-yellow text-xs sm:text-sm mb-1.5 sm:mb-2">
-                    Vous faites du Made in Camer ?
-                  </p>
-                  <p className="text-white/80 text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
-                    Nous avons un stand pour vous ! Formations, foire-exposition, conférences et networking à Bonanjo.
-                  </p>
+            {/* Right Column: 2 Cards (Le Salon & L'Arbre de Noël) */}
+            <div className="lg:col-span-7 grid sm:grid-cols-2 gap-5 sm:gap-6">
+              {/* Card 1: Le Salon & Stands */}
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col group hover:shadow-2xl transition duration-300">
+                <div className="h-44 sm:h-52 relative overflow-hidden bg-gray-100">
+                  <img
+                    src="/images/heros.png"
+                    alt="Le Salon SIFDA - Made in Camer & Stands"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-                <div>
-                  <a
-                    href="#temps-forts"
-                    className="pill bg-yellow hover:bg-yellow-bright text-[#2A0017] font-bold text-xs sm:text-sm px-5 py-2.5 w-full sm:w-auto inline-flex justify-center shadow-md shadow-yellow/20"
-                  >
-                    Découvrir les activités <ArrowRight size={14} />
-                  </a>
+                <div className="bg-[#5C0034] text-white p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-display text-lg sm:text-xl font-bold mb-1 text-white">
+                      Le Salon &amp; Stands
+                    </h3>
+                    <p className="font-semibold text-yellow text-xs mb-1.5">
+                      Vous faites du Made in Camer ?
+                    </p>
+                    <p className="text-white/80 text-xs leading-relaxed mb-4">
+                      Nous avons un stand pour vous ! Formations, foire-exposition, conférences et networking à Bonanjo.
+                    </p>
+                  </div>
+                  <div>
+                    <button
+                      onClick={() => openPartnerWithCategory("Commercial")}
+                      className="pill bg-yellow hover:bg-yellow-bright text-[#2A0017] font-bold text-xs px-4 py-2 w-full justify-center shadow-xs"
+                    >
+                      Réserver un stand
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Column 3: Card L'ARBRE DE NOËL matching mockup */}
-            <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col group hover:shadow-2xl transition duration-300">
-              <div className="h-44 sm:h-56 relative overflow-hidden bg-gray-100">
-                <img
-                  src="/images/img1.png"
-                  alt="Arbre de Noël - Plus de 500 enfants à célébrer"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="bg-gradient-to-br from-[#F9B42F] via-[#E8A320] to-[#D48F10] text-[#2A0017] p-5 sm:p-7 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="font-display text-xl sm:text-2xl font-bold mb-1.5 sm:mb-2 text-[#2A0017]">
-                    L&apos;Arbre de Noël
-                  </h3>
-                  <p className="font-bold text-[#450027] text-xs sm:text-sm mb-1.5 sm:mb-2">
-                    Revient... plus grand !
-                  </p>
-                  <p className="text-[#2A0017]/90 font-medium text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6">
-                    Plus de 500 enfants à célébrer à travers l&apos;Arbre de Noël de la solidarité.
-                  </p>
+              {/* Card 2: L'Arbre de Noël */}
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex flex-col group hover:shadow-2xl transition duration-300">
+                <div className="h-44 sm:h-52 relative overflow-hidden bg-gray-100">
+                  <img
+                    src="/images/img1.png"
+                    alt="Arbre de Noël - Plus de 500 enfants à célébrer"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-                <div>
-                  <a
-                    href="#arbre-noel"
-                    className="pill bg-white hover:bg-plum-light text-plum font-bold text-xs sm:text-sm px-5 py-2.5 w-full sm:w-auto inline-flex justify-center shadow-sm"
-                  >
-                    Participer à la solidarité <ArrowRight size={14} />
-                  </a>
+                <div className="bg-gradient-to-br from-[#F9B42F] via-[#E8A320] to-[#D48F10] text-[#2A0017] p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-display text-lg sm:text-xl font-bold mb-1 text-[#2A0017]">
+                      L&apos;Arbre de Noël
+                    </h3>
+                    <p className="font-bold text-[#450027] text-xs mb-1.5">
+                      Revient... plus grand !
+                    </p>
+                    <p className="text-[#2A0017]/90 font-medium text-xs leading-relaxed mb-4">
+                      Plus de 500 enfants à célébrer à travers l&apos;Arbre de Noël de la solidarité.
+                    </p>
+                  </div>
+                  <div>
+                    <button
+                      onClick={() => setDonModal(true)}
+                      className="pill bg-white hover:bg-plum-light text-plum font-bold text-xs px-4 py-2 w-full justify-center shadow-xs"
+                    >
+                      Faire un don
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -620,374 +631,262 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════════
-          SECTION 05 — LES TEMPS FORTS DU SIFDA 2026 (FLYERS OFFICIELS)
+          SECTION 03 — LES TEMPS FORTS DU SIFDA 2026 (STYLE MAQUETTE)
       ══════════════════════════════════════════════ */}
-      <section id="temps-forts" className="py-12 sm:py-20 lg:py-24 bg-gray-50/60 relative border-y border-gray-100">
+      <section id="temps-forts" className="py-10 sm:py-16 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header matching brief & flyers */}
-          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
-            <span className="text-xs font-bold uppercase tracking-wider text-yellow bg-yellow/15 px-3.5 py-1 rounded-full mb-2 inline-block">
+          {/* Header pill & Title matching mockup */}
+          <div className="text-center mb-6 sm:mb-8">
+            <span className="inline-block bg-[#FDE2CB] text-[#9A4B00] font-bold text-xs sm:text-sm px-5 py-1.5 rounded-full mb-3 shadow-xs">
               Programme Officiel
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-purple mb-2 sm:mb-3">
-              Les temps forts du SIFDA 2026
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#8A004F]">
+              Découvrez Les temps forts
+              <br className="sm:hidden" /> du SIFDA 2026
             </h2>
-            <p className="text-gray-600 text-xs sm:text-base lg:text-lg">
-              Ensemble, faisons grandir les ambitions des femmes et briller les rêves des enfants.
-            </p>
           </div>
 
-          {/* Mobile swipe helper badge */}
-          <div className="flex items-center justify-between lg:hidden mb-3.5 text-[11px] font-semibold text-purple bg-purple-light/80 px-3.5 py-2 rounded-xl border border-purple/10">
-            <span>8 temps forts officiels</span>
-            <span className="flex items-center gap-1 text-gray-500 font-normal">
-              Glissez pour explorer <ArrowRight size={12} />
-            </span>
-          </div>
+          {/* Grand bloc Prune sombre englobant les 8 cartes comme sur la maquette */}
+          <div className="bg-[#7A0045] rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 lg:p-10 shadow-xl">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6">
+              {ACTIVITIES.map((act) => (
+                <div
+                  key={act.id}
+                  onClick={() => setSelectedActivity(act)}
+                  className="group cursor-pointer flex flex-col justify-between"
+                >
+                  <div>
+                    {/* Cadre orange/or arrondi accueillant le flyer complet en 4:5 */}
+                    <div className="w-full aspect-[4/5] rounded-2xl bg-[#F98A15] p-1.5 sm:p-2.5 shadow-sm group-hover:scale-[1.02] transition-transform duration-300 overflow-hidden flex items-center justify-center">
+                      <img
+                        src={act.image}
+                        alt={act.title}
+                        className="w-full h-full object-contain rounded-xl"
+                      />
+                    </div>
 
-          {/* 8 Activities Cards matching the 8 official flyers in a responsive 4-column grid on desktop */}
-          <div className="flex gap-4 sm:gap-5 overflow-x-auto pb-5 pt-1 px-4 -mx-4 sm:mx-0 sm:px-0 lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-visible no-scrollbar snap-x snap-mandatory">
-            {ACTIVITIES.map((act) => (
+                    {/* Titre de l'activité en blanc */}
+                    <h3 className="font-sans font-bold text-xs sm:text-sm text-white leading-snug mt-2.5 mb-1 line-clamp-2">
+                      {act.title}
+                    </h3>
+
+                    {/* Lien Détails & Inscription en doré/jaune */}
+                    <p className="text-[11px] sm:text-xs font-bold text-[#F9B42F] group-hover:underline flex items-center gap-1">
+                      Détails &amp; Inscription
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          SECTION 04 — NOS PARTENAIRES (MODULAIRE & ÉLÉGANT)
+      ══════════════════════════════════════════════ */}
+      <section id="partenaires" className="py-8 sm:py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          {/* Badge officiel unique */}
+          <span className="inline-block bg-[#FDE2CB] text-[#9A4B00] font-bold text-xs sm:text-sm px-6 py-1.5 rounded-full mb-6 shadow-xs">
+            Nos partenaires
+          </span>
+
+          {/* Grille responsive de logos modulaires */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 items-center justify-center max-w-5xl mx-auto">
+            {PARTNERS.map((partner) => (
               <div
-                key={act.id}
-                onClick={() => setSelectedActivity(act)}
-                className="flex-shrink-0 w-[220px] sm:w-[260px] lg:w-auto snap-start flex flex-col justify-between group cursor-pointer bg-white rounded-2xl p-2.5 sm:p-3.5 shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1"
+                key={partner.id}
+                className="group bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-gray-100 hover:border-[#F98A15]/40 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center h-22 sm:h-26"
+                title={`${partner.name} — ${partner.category}`}
               >
-                <div>
-                  {/* Flyer Image Container: ratio exact 4/5 pour afficher tout le flyer sans coupure */}
-                  <div className="w-full aspect-[4/5] rounded-xl overflow-hidden bg-plum/5 mb-3 relative shadow-xs group-hover:shadow-md transition">
-                    <img
-                      src={act.image}
-                      alt={act.title}
-                      className="w-full h-full object-contain group-hover:scale-102 transition-transform duration-500"
-                    />
-                  </div>
-
-                  {/* Badge & Date */}
-                  <div className="flex items-center justify-between gap-1.5 mb-1.5">
-                    <span className="bg-plum/10 text-plum text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-md line-clamp-1">
-                      {act.badge}
-                    </span>
-                    <span className="text-[10px] sm:text-[11px] font-bold text-gray-500 flex-shrink-0">
-                      {act.date}
-                    </span>
-                  </div>
-
-                  {/* Location */}
-                  <p className="text-[10px] sm:text-[11px] font-medium text-gray-400 mb-1.5 line-clamp-1">
-                    {act.location}
-                  </p>
-
-                  {/* Title */}
-                  <h3 className="font-sans font-bold text-xs sm:text-sm text-gray-900 leading-snug group-hover:text-plum transition-colors line-clamp-2 mb-1.5">
-                    {act.title}
-                  </h3>
-
-                  {/* Flyer slogan quote */}
-                  <p className="text-[10px] sm:text-[11px] text-gray-500 italic line-clamp-2 leading-relaxed">
-                    « {act.slogan} »
-                  </p>
+                <div className="w-full h-11 sm:h-13 flex items-center justify-center">
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="max-h-11 sm:max-h-13 max-w-[88%] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-
-                {/* Card Footer: Action button */}
-                <div className="mt-3 pt-2.5 border-t border-gray-50 flex items-center justify-between">
-                  <span className="text-[10px] sm:text-[11px] font-bold text-purple group-hover:text-yellow transition-colors">
-                    Détails &amp; Inscription
-                  </span>
-                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-yellow group-hover:bg-yellow-bright flex items-center justify-center transition-transform group-hover:scale-110 shadow-xs">
-                    <ArrowRight size={12} className="text-purple-deep" />
-                  </div>
-                </div>
+                <span className="text-[10px] sm:text-[11px] font-bold text-gray-500 group-hover:text-plum mt-1.5 truncate max-w-full transition-colors">
+                  {partner.name}
+                </span>
               </div>
             ))}
           </div>
+
+          {/* Appel à devenir partenaire */}
+          <div className="mt-6">
+            <button
+              onClick={() => openPartnerWithCategory("Institutionnel")}
+              className="text-xs sm:text-sm font-bold text-[#F98A15] hover:text-[#e0770a] inline-flex items-center gap-1.5 transition-colors"
+            >
+              Rejoindre nos partenaires pour l&apos;édition 2026 →
+            </button>
+          </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════
-          SECTION 04 — FOCUS ARBRE DE NOËL DE LA SOLIDARITÉ
+          SECTION 05 — ARBRE DE NOËL SOLIDAIRE (BANNIÈRE MAQUETTE)
       ══════════════════════════════════════════════ */}
-      <section
-        id="arbre-noel"
-        className="relative py-12 sm:py-20 lg:py-28 overflow-hidden text-white"
-        style={{
-          background: "linear-gradient(135deg, #1C0010 0%, #450027 45%, #0F2D1C 100%)",
-        }}
-      >
-        {/* Festive background elements aux couleurs des flyers */}
-        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#F9B42F_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
-        <div className="absolute top-10 right-10 w-96 h-96 bg-yellow/15 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-10 left-10 w-80 h-80 bg-magenta/15 rounded-full blur-[110px] pointer-events-none" />
+      <section id="arbre-noel" className="py-6 sm:py-10 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Bannière grand format avec enfant et bokeh festif */}
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl min-h-[340px] sm:min-h-[420px] lg:min-h-[480px] flex items-center">
+            {/* Background image avec cadrage soigné sur les visages */}
+            <div className="absolute inset-0">
+              <img
+                src="/images/img2.png"
+                alt="Cette année faisons briller plus de 500 sourires"
+                className="w-full h-full object-cover object-top sm:object-[center_top]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20 sm:to-transparent pointer-events-none" />
+            </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Left side: Heading & Action matching flyer */}
-            <div className="lg:col-span-5 space-y-4 sm:space-y-6">
-              <span className="inline-block bg-yellow/20 border border-yellow/40 text-yellow text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full">
-                L&apos;Arbre de Noël revient... plus grand !
+            {/* Banner Content overlay */}
+            <div className="relative z-10 p-5 sm:p-10 lg:p-12 max-w-2xl text-white">
+              <span className="inline-block bg-[#F98A15] text-white font-bold text-[11px] sm:text-xs px-4 py-1 rounded-full mb-3 shadow-xs">
+                L&apos;arbre de noel revient plus grand
               </span>
-              <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold italic text-white leading-tight">
-                Cette année,
-                <br />
-                faisons briller plus de{" "}
-                <span className="text-yellow not-italic font-extrabold">
-                  500 sourires.
-                </span>
+              <h2 className="font-display text-xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-2 sm:mb-3">
+                Cette année, faisons briller plus de 500 sourires.
               </h2>
-              <p className="text-white/80 text-xs sm:text-base lg:text-lg leading-relaxed max-w-md">
+              <p className="text-white/90 text-xs sm:text-sm leading-relaxed mb-5 max-w-lg">
                 À travers l&apos;Arbre de Noël de la solidarité, offrons un moment magique et inoubliable à plus de 500 enfants défavorisés et orphelins.
               </p>
               <div>
                 <button
                   onClick={() => {
+                    setDonType("Don financier");
                     setDonModal(true);
-                    setDonSuccess(false);
                   }}
-                  className="pill bg-yellow hover:bg-yellow-bright text-purple-deep font-bold text-xs sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 shadow-xl shadow-yellow/20 w-full sm:w-auto justify-center"
+                  className="pill bg-[#F98A15] hover:bg-[#e0770a] text-white font-extrabold text-xs sm:text-sm px-6 py-3 shadow-lg inline-flex items-center gap-2"
                 >
-                  Je souhaite faire un don <ArrowRight size={17} />
+                  <Heart size={15} />
+                  <span>Je souhaite faire un don</span>
                 </button>
-              </div>
-            </div>
-
-            {/* Middle: 2 Clean White Chronological Cards matching mockup */}
-            <div className="lg:col-span-4 grid grid-cols-2 gap-2.5 sm:gap-4">
-              {/* Card 1: 11 Décembre */}
-              <div className="bg-white text-gray-900 rounded-xl sm:rounded-2xl p-3.5 sm:p-6 text-center shadow-xl border border-gray-100 flex flex-col items-center justify-center">
-                <div className="w-10 h-10 sm:w-13 sm:h-13 rounded-full bg-purple flex items-center justify-center mb-2.5 sm:mb-4 text-white shadow-md">
-                  <Calendar size={20} className="text-yellow" />
-                </div>
-                <h4 className="font-bold text-purple text-xs sm:text-lg lg:text-xl leading-tight">
-                  11 déc. 2026
-                </h4>
-                <p className="text-gray-600 text-[11px] sm:text-sm font-medium mt-1 leading-snug">
-                  Illumination du grand Arbre
-                </p>
-              </div>
-
-              {/* Card 2: 12 Décembre */}
-              <div className="bg-white text-gray-900 rounded-xl sm:rounded-2xl p-3.5 sm:p-6 text-center shadow-xl border border-gray-100 flex flex-col items-center justify-center">
-                <div className="w-10 h-10 sm:w-13 sm:h-13 rounded-full bg-purple flex items-center justify-center mb-2.5 sm:mb-4 text-white shadow-md">
-                  <Gift size={20} className="text-yellow" />
-                </div>
-                <h4 className="font-bold text-purple text-xs sm:text-lg lg:text-xl leading-tight">
-                  12 déc. 2026
-                </h4>
-                <p className="text-gray-600 text-[11px] sm:text-sm font-medium mt-1 leading-snug">
-                  Remise des cadeaux aux enfants
-                </p>
-              </div>
-            </div>
-
-            {/* Right side: Real Christmas celebration photo from flyer */}
-            <div className="lg:col-span-3 flex justify-center">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 w-full max-w-[240px] sm:max-w-[280px] aspect-[4/5] group">
-                <img
-                  src="/images/img3.png"
-                  alt="Le Père Noël et les enfants de l'Arbre de Noël"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-2.5 inset-x-2.5 text-center text-[10px] sm:text-xs text-white/95 font-medium">
-                  Plus de 500 enfants comblés de cadeaux
-                </div>
               </div>
             </div>
           </div>
 
-          {/* Sous-section: 4 Formes de contribution requises par le brief */}
-          <div className="mt-10 sm:mt-16 pt-8 sm:pt-12 border-t border-white/10">
-            <h3 className="text-center font-display text-xl sm:text-2xl font-bold text-white mb-2">
-              Comment contribuer à l&apos;Arbre de Noël ?
-            </h3>
-            <p className="text-center text-white/70 text-xs sm:text-sm max-w-2xl mx-auto mb-6 sm:mb-10">
-              Chaque geste, matériel ou financier, transforme directement le quotidien des 500 enfants bénéficiaires.
-            </p>
-
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-5">
-              {[
-                {
-                  title: "Dons financiers",
-                  desc: "Contribution dédiée à l'achat groupé des cadeaux et à l'organisation de la fête.",
-                  icon: CreditCard,
-                  action: "Don financier",
-                },
-                {
-                  title: "Dons matériels",
-                  desc: "Jouets neufs, fournitures scolaires, livres pour enfants, vêtements adaptés.",
-                  icon: Package,
-                  action: "Don matériel",
-                },
-                {
-                  title: "Dons en nature",
-                  desc: "Goûters, friandises, boissons festives et denrées alimentaires pour le jour J.",
-                  icon: HeartHandshake,
-                  action: "Don en nature",
-                },
-                {
-                  title: "Partenariats logistiques",
-                  desc: "Appui technique, sonorisation, transport des enfants et soutien institutionnel.",
-                  icon: Truck,
-                  action: "Partenariat logistique",
-                },
-              ].map((item, idx) => {
-                const IconComponent = item.icon;
-                return (
-                  <div
-                    key={idx}
-                    onClick={() => {
-                      setDonType(item.action);
-                      setDonSuccess(false);
-                      setDonModal(true);
-                    }}
-                    className="bg-white/10 hover:bg-white/15 border border-white/15 rounded-xl sm:rounded-2xl p-3.5 sm:p-6 backdrop-blur-sm transition-all duration-300 cursor-pointer hover:border-yellow/60 hover:-translate-y-0.5 group flex flex-col justify-between shadow-lg"
-                  >
-                    <div>
-                      <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-yellow mb-2.5 sm:mb-5 group-hover:bg-yellow group-hover:text-purple-deep group-hover:scale-105 transition-all shadow-sm">
-                        <IconComponent size={18} strokeWidth={1.8} />
-                      </div>
-                      <h4 className="font-bold text-xs sm:text-base text-white group-hover:text-yellow transition-colors mb-1 sm:mb-2.5 leading-snug">
-                        {item.title}
-                      </h4>
-                      <p className="text-[10px] sm:text-xs text-white/75 leading-relaxed line-clamp-3 sm:line-clamp-none">
-                        {item.desc}
-                      </p>
-                    </div>
-                    <span className="mt-2.5 sm:mt-5 text-[10px] sm:text-xs font-semibold text-yellow inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                      Participer <ArrowRight size={12} />
-                    </span>
-                  </div>
-                );
-              })}
+          {/* Les 2 dates clés sous la bannière comme sur la maquette */}
+          <div className="grid grid-cols-2 gap-4 sm:gap-8 pt-8 sm:pt-10 text-center">
+            <div>
+              <p className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#7A0045]">
+                11 déc. 2026
+              </p>
+              <p className="text-xs sm:text-sm lg:text-base font-bold text-[#F98A15] mt-1">
+                Illumination du grand Arbre
+              </p>
             </div>
-
-            {/* CTAs additionnels requis par le brief */}
-            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full sm:w-auto">
-              <button
-                onClick={() => openPartnerWithCategory("Solidaire")}
-                className="pill bg-white text-gray-900 hover:bg-gray-100 font-semibold text-xs sm:text-sm w-full sm:w-auto justify-center"
-              >
-                <Handshake size={16} className="text-purple" /> Devenir partenaire de l&apos;Arbre de Noël
-              </button>
-              <a
-                href="https://wa.me/237693090733?text=Bonjour,%20je%20souhaite%20soutenir%20l'Arbre%20de%20Noël%20de%20la%20solidarité"
-                target="_blank"
-                rel="noreferrer"
-                className="pill bg-sgreen hover:bg-sgreen/90 text-white font-semibold text-xs sm:text-sm w-full sm:w-auto justify-center"
-              >
-                <MessageCircle size={16} /> Contacter l&apos;organisation (+237 693 090 733)
-              </a>
+            <div>
+              <p className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#7A0045]">
+                12 déc. 2026
+              </p>
+              <p className="text-xs sm:text-sm lg:text-base font-bold text-[#F98A15] mt-1">
+                Remise des cadeaux aux enfants
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════
-          SECTIONS 06 & 07 — PARTENAIRE, PROGRAMME & CITATION
+          SECTION 06 — APPELS À L'ACTION & TIMELINE PROGRAMME
       ══════════════════════════════════════════════ */}
-      <section id="programme" className="py-12 sm:py-16 lg:py-20 bg-gray-50/70 border-y border-gray-100">
+      <section id="programme" className="py-8 sm:py-14 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* 3 Blocks Row matching mockup & flyers */}
-          <div className="grid lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
-            {/* Col 1: Card Devenir Partenaire / Réserver un stand */}
-            <div
-              id="partenaires"
-              className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 text-white relative overflow-hidden flex flex-col justify-between shadow-lg"
-              style={{
-                background: "linear-gradient(135deg, #2A0017 0%, #5C0034 100%)",
-              }}
+          {/* Les deux grands boutons orange de la maquette */}
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mb-12 sm:mb-16">
+            <button
+              onClick={() => openPartnerWithCategory("Institutionnel")}
+              className="pill bg-[#F98A15] hover:bg-[#e0770a] text-white font-bold text-sm sm:text-base px-8 py-3.5 shadow-md w-full sm:w-auto justify-center"
             >
-              {/* Handshake background overlay photo */}
-              <div className="absolute inset-0 opacity-25 mix-blend-luminosity pointer-events-none">
-                <img
-                  src="/images/img4.png"
-                  alt="Poignée de main partenariats"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="relative z-10">
-                <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-yellow bg-yellow/20 px-2.5 py-1 rounded-md mb-2">
-                  Entreprises &amp; Producteurs
-                </span>
-                <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold italic mb-2 sm:mb-3 text-white">
-                  Devenir partenaire ou Exposant
-                </h3>
-                <p className="text-white/80 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
-                  Vous faites du Made in Camer ? Nous avons un stand pour vous à la Maison du Parti de Bonanjo.
-                </p>
-              </div>
-
-              <div className="relative z-10 pt-2 flex flex-col sm:flex-row gap-2.5">
-                <button
-                  onClick={() => openPartnerWithCategory("Commercial")}
-                  className="pill bg-yellow hover:bg-yellow-bright text-[#2A0017] font-bold text-xs sm:text-sm px-5 py-2.5 sm:py-3 shadow-md w-full sm:w-auto justify-center"
-                >
-                  Réserver un stand <ArrowRight size={15} />
-                </button>
-              </div>
-            </div>
-
-            {/* Col 2: Card Programme en un coup d'œil adapté aux flyers */}
-            <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-sm border border-gray-100 flex flex-col justify-between">
-              <div>
-                <h3 className="font-sans font-bold text-base sm:text-lg lg:text-xl text-gray-900 mb-3.5 sm:mb-5">
-                  Programme en un coup d&apos;œil
-                </h3>
-                <div className="space-y-3 sm:space-y-4">
-                  {[
-                    {
-                      date: "05 décembre",
-                      label: "Grand Carnaval des Femmes Dynamiques – Douala (Accès & rafraîchissements gratuits)",
-                    },
-                    {
-                      date: "09–10 décembre",
-                      label: "Ateliers & Immersion Femmes d'Impact – Douala",
-                    },
-                    {
-                      date: "11 décembre",
-                      label: "Illumination du grand Arbre de Noël – Douala",
-                    },
-                    {
-                      date: "12 décembre",
-                      label: "Salon, Stands Made in Camer, Conférences, Remise des cadeaux & Soirée de Gala – Bonanjo",
-                    },
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <div className="w-1.5 h-8 sm:h-9 rounded-full bg-yellow flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="text-[11px] sm:text-xs font-bold text-purple uppercase tracking-wider">
-                          {item.date}
-                        </p>
-                        <p className="text-xs sm:text-sm font-semibold text-gray-700 leading-snug">
-                          {item.label}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="pt-3 sm:pt-4 border-t border-gray-100 mt-3 sm:mt-4 text-[11px] sm:text-xs text-gray-500 font-medium">
-                Maison du Parti, Bonanjo, Douala.
-              </div>
-            </div>
-
-            {/* Col 3: Calligraphic Quote Card matching mockup & flyer message */}
-            <div
-              className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 flex flex-col justify-center relative overflow-hidden shadow-sm border border-pink-100"
-              style={{
-                background: "linear-gradient(135deg, #FFF5FA 0%, #FDF0F6 100%)",
-              }}
+              Devenir partenaire
+            </button>
+            <button
+              onClick={() => openPartnerWithCategory("Commercial")}
+              className="pill bg-[#F98A15] hover:bg-[#e0770a] text-white font-bold text-sm sm:text-base px-8 py-3.5 shadow-md w-full sm:w-auto justify-center"
             >
-              <div className="relative z-10">
-                <p className="font-display font-bold italic text-xl sm:text-2xl lg:text-[1.85rem] text-plum leading-snug">
-                  Ensemble, faisons grandir les ambitions des femmes et briller les rêves des enfants.
-                </p>
-                {/* Decorative golden brush curve matching mockup */}
-                <div className="mt-3 sm:mt-4 w-24 sm:w-28 h-1.5 bg-gradient-to-r from-yellow via-magenta to-transparent rounded-full" />
-                <p className="mt-3 text-xs text-plum font-bold uppercase tracking-wider">
-                  Les Nouvelles Femmes Dynamiques Africaines
-                </p>
+              Réserver un stand
+            </button>
+          </div>
+
+          {/* Titre Programme en un coup d'œil */}
+          <div className="text-center mb-8 sm:mb-10">
+            <h3 className="font-display text-xl sm:text-3xl font-extrabold text-[#7A0045]">
+              Programme en un coup d&apos;œil
+            </h3>
+          </div>
+
+          {/* Frise chronologique (Timeline horizontale connectée avec ligne traversante centrée) */}
+          <div className="max-w-5xl mx-auto px-2 overflow-x-auto no-scrollbar pb-2">
+            <div className="min-w-[580px] md:min-w-0">
+              {/* Ligne 1 : Dates au-dessus de chaque étape */}
+              <div className="grid grid-cols-4 text-center mb-2">
+                {[
+                  "05 décembre",
+                  "09–10 décembre",
+                  "11 décembre",
+                  "12 décembre",
+                ].map((date, i) => (
+                  <span
+                    key={i}
+                    className="text-xs sm:text-sm font-extrabold text-[#7A0045] tracking-tight block px-1"
+                  >
+                    {date}
+                  </span>
+                ))}
+              </div>
+
+              {/* Ligne 2 : Ligne prune continue traversant exactement le centre des cercles */}
+              <div className="relative flex items-center justify-between px-[12.5%] my-2.5">
+                {/* La ligne prune traversante de centre à centre */}
+                <div className="absolute inset-x-[12.5%] h-1 bg-[#7A0045] rounded-full z-0" />
+
+                {/* Les 4 nœuds circulaires oranges */}
+                {[0, 1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className="relative z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#F98A15] border-3 sm:border-4 border-white shadow-md flex items-center justify-center hover:scale-125 transition-transform cursor-pointer -translate-x-1/2 last:translate-x-1/2 first:translate-x-0"
+                    style={{
+                      transform: i === 0 ? "none" : i === 3 ? "none" : "none",
+                    }}
+                  >
+                    <div className="w-2 h-2 rounded-full bg-white" />
+                  </div>
+                ))}
+              </div>
+
+              {/* Ligne 3 : Titres et descriptions en dessous */}
+              <div className="grid grid-cols-4 gap-3 sm:gap-4 text-center mt-2.5">
+                {[
+                  {
+                    title: "Grand Carnaval des Femmes Dynamiques",
+                    desc: "Rues de Douala · Accès & rafraîchissements gratuits",
+                  },
+                  {
+                    title: "Ateliers & Immersion Femmes d'Impact",
+                    desc: "Formations certifiantes & masterclasses de leadership",
+                  },
+                  {
+                    title: "Illumination du grand Arbre de Noël",
+                    desc: "Célébration féerique et ouverture solidaire",
+                  },
+                  {
+                    title: "Salon, Stands Made in Camer & Soirée de Gala",
+                    desc: "Maison du Parti de Bonanjo · Remise des 500 cadeaux",
+                  },
+                ].map((step, idx) => (
+                  <div key={idx} className="flex flex-col items-center px-1">
+                    <h4 className="font-bold text-xs sm:text-sm text-gray-900 leading-snug mb-1">
+                      {step.title}
+                    </h4>
+                    <p className="text-[11px] sm:text-xs text-gray-500 leading-relaxed">
+                      {step.desc}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
